@@ -41,7 +41,7 @@ export interface Content {
   contacts: {
     school: { name: string; address: string; phone: string; email: string; web: string; facebook: string; instagram: string; hours: string; s: Src }
     vendors: Vendor[]
-    care: { name: string; t: string; s: Src }[]
+    care: { name: string; t: string; phones: string[]; email?: string; web?: string; note?: string; s: Src }[]
     staff: { group: string; rows: string[][] }[]
     staffNote: string
     staffSrc: Src

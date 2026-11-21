@@ -21,7 +21,7 @@ try {
   <section class="hero">
     <div class="hero-art" aria-hidden={hero ? undefined : "true"}>
       {hero
-        ? <picture style="display:contents"><source srcset="/hero/hero.webp" type="image/webp" /><img src="/hero/hero.png" width={hero.w} height={hero.h} alt="Pixel-art painting of two Primary 1 girls in white blouses and blue pinafores" fetchpriority="high" /></picture>
+        ? <picture style="display:contents"><source srcset="/hero/hero-1280.webp 1280w, /hero/hero.webp 2560w" sizes="100vw" type="image/webp" /><img src="/hero/hero.png" width={hero.w} height={hero.h} alt="Pixel-art painting of two Primary 1 girls in white blouses and blue pinafores" fetchpriority="high" /></picture>
         : <div class="hero-placeholder"></div>}
     </div>
     <div class="page-width hero-inner">
@@ -50,25 +50,21 @@ try {
       <ol class="events" id="ev-list">
         {events.map((e) => (
           <li class="ev" data-event data-date={e.date} data-end={e.endDate ?? e.date}>
-            <div class="ev-date" aria-hidden="true">
-              <span class="d">{fmt(e.date, { day: "numeric" })}</span>
-              <span class="m">{fmt(e.date, { month: "short" })}</span>
-              <span class="y">{fmt(e.date, { year: "numeric" })}</span>
-            </div>
+            <span class="ev-dot" aria-hidden="true"></span>
             <div class="ev-body">
-              <p class="next-label">Next up</p>
-              <p class="count" data-countdown></p>
+              <p class="ev-date"><span class="next-label">Next up</span><span class="ev-day">{fmt(e.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" }).replace(/,/g, "")}</span></p>
               <h3>{e.title}</h3>
+              <p class="count" data-countdown></p>
               <p class="when">
                 {longDate(e.date)}{e.endDate ? ` to ${longDate(e.endDate)}` : ""}{e.time ? `, ${e.time}` : ""}
               </p>
-              <p>{e.detail}</p>
+              <p class="ev-detail">{e.detail}</p>
               <div class="btn-row"><a class="btn small ghost" href={route[e.go]}>See the details</a></div>
             </div>
           </li>
         ))}
       </ol>
-      <div class="btn-row"><button class="btn ghost small js-only" id="ev-more" type="button" hidden aria-expanded="false"></button></div>
+      <div id="ev-sentinel" aria-hidden="true" hidden></div>
     </div>
 
     <aside class="home-side">

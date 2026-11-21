@@ -1060,23 +1060,6 @@ export const data = {
         s: ["booklet:15"]
       },
       {
-        name: "YMCA School-based Student Care Centre @ SACPS",
-        role: "School-based student care.",
-        phones: ["6282 8893"],
-        email: "scscc@ymca.edu.sg",
-        web: "https://www.ymca.org.sg/",
-        note: "Open Monday to Friday 10.00 am to 7.00 pm and in school holidays 7.30 am to 7.00 pm. Closed on Saturdays, Sundays and public holidays.",
-        s: ["booklet:7"]
-      },
-      {
-        name: "Morning Star Community Services (Primavera)",
-        role: "Student care opposite the school.",
-        phones: ["8691 8592"],
-        web: "https://www.morningstar.org.sg/",
-        note: "Blk 95 Bedok North Ave 4, #01-1415, Singapore 460095.",
-        s: ["booklet:7"]
-      },
-      {
         name: "School dental clinic (Health Promotion Board)",
         role: "Dental clinic in the school.",
         phones: ["9111 0760"],
@@ -1085,8 +1068,22 @@ export const data = {
       }
     ],
     care: [
-      { name: "YMCA student care", t: "The school-based student care. Students walk to the YMCA centre. Contact details are under Suppliers and services.", s: ["booklet:7", "booklet:3"] },
-      { name: "Morning Star student care", t: "The student care opposite the school. Students meet the officers at the main foyer next to the General Office. Contact details are under Suppliers and services.", s: ["booklet:7", "booklet:3"] }
+      {
+        name: "YMCA School-based Student Care Centre @ SACPS",
+        t: "The school-based student care. Students walk to the YMCA centre. Open Monday to Friday 10.00 am to 7.00 pm and in school holidays 7.30 am to 7.00 pm. Closed on Saturdays, Sundays and public holidays.",
+        phones: ["6282 8893"],
+        email: "scscc@ymca.edu.sg",
+        web: "https://www.ymca.org.sg/",
+        s: ["booklet:7", "booklet:3"]
+      },
+      {
+        name: "Morning Star Community Services (Primavera)",
+        t: "The student care opposite the school. Students meet the officers at the main foyer next to the General Office.",
+        phones: ["8691 8592"],
+        web: "https://www.morningstar.org.sg/",
+        note: "Blk 95 Bedok North Ave 4, #01-1415, Singapore 460095.",
+        s: ["booklet:7", "booklet:3"]
+      }
     ],
     staff: [
       { group: "School leaders", rows: [

@@ -58,13 +58,6 @@ if (useOverride) {
   })
 }
 
-function shortDate(iso: string): string {
-  const [y, m, d] = iso.split("-").map(Number)
-  return new Intl.DateTimeFormat("en-SG", { timeZone: "UTC", weekday: "short", day: "numeric", month: "short", year: "numeric" })
-    .format(new Date(Date.UTC(y, m - 1, d)))
-    .replace(/,/g, "")
-}
-
 /* ---------- coming up: drop past items, countdown line, next-up label ---------- */
 const list = document.getElementById("ev-list")
 if (list) {
@@ -79,7 +72,6 @@ if (list) {
     const c = li.querySelector<HTMLElement>("[data-countdown]")
     if (c) {
       paint(c, countdown(li.dataset.date!, li.dataset.end))
-      c.textContent = `${c.textContent} · ${shortDate(li.dataset.date!)}`
     }
   })
   const empty = document.getElementById("ev-empty")
@@ -100,23 +92,39 @@ if (list) {
     if (link && go) link.setAttribute("href", go.getAttribute("href") || "/")
     card.hidden = false
   }
-  const LIMIT = 5
-  const btn = document.getElementById("ev-more") as HTMLButtonElement | null
-  const extra = upcoming.slice(LIMIT)
-  let all = false
-  const sync = () => {
-    extra.forEach((li) => (li.hidden = !all))
-    if (btn) {
-      btn.hidden = extra.length === 0
-      btn.textContent = all ? "Show fewer" : `Show all ${extra.length} more upcoming items`
-      btn.setAttribute("aria-expanded", String(all))
-    }
+  /* lazy load: show 5 upcoming items, reveal 5 more as the sentinel nears the viewport */
+  const BATCH = 5
+  const sentinel = document.getElementById("ev-sentinel")
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  let pending = upcoming.slice(BATCH)
+  const reveal = () => {
+    pending.splice(0, BATCH).forEach((li) => {
+      li.hidden = false
+      if (!reduced) li.classList.add("ev-in")
+    })
+    if (!pending.length) done()
   }
-  btn?.addEventListener("click", () => {
-    all = !all
-    sync()
-  })
-  sync()
+  let io: IntersectionObserver | null = null
+  function done() {
+    io?.disconnect()
+    if (sentinel) sentinel.hidden = true
+  }
+  if (pending.length && sentinel && "IntersectionObserver" in window) {
+    pending.forEach((li) => (li.hidden = true))
+    sentinel.hidden = false
+    io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting) && pending.length) {
+          reveal()
+          /* if the sentinel is still near the viewport after the batch, observe again */
+          io?.unobserve(sentinel)
+          if (pending.length) requestAnimationFrame(() => io?.observe(sentinel))
+        }
+      },
+      { rootMargin: "0px 0px 240px 0px" },
+    )
+    io.observe(sentinel)
+  }
 }
 
 /* ---------- first weeks: highlight today ---------- */
