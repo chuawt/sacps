@@ -1,10 +1,12 @@
 ---
 import type { Block } from "../data/types"
-import { rich } from "../lib/format"
+import { rich, telHref } from "../lib/format"
 import Blocks from "./Blocks.astro"
 import DataTable from "./DataTable.astro"
 import LinkBtn from "./LinkBtn.astro"
 import Books from "./Books.astro"
+import CareCards from "./CareCards.astro"
+import { data } from "../data/content"
 interface Props { blocks: Block[] }
 const { blocks } = Astro.props
 ---
@@ -19,16 +21,26 @@ const { blocks } = Astro.props
     <div class:list={["note", { info: b.tone === "info" }]}><p><Fragment set:html={rich(b.t)} /></p></div>
   )
   if (b.k === "accordion") return (
-    <details class="acc">
+    <details class="acc" id={b.id}>
       <summary><span class="sum-main"><span>{b.title}</span>{b.sub && <span class="sum-sub">{b.sub}</span>}</span></summary>
       <div class="acc-body"><Blocks blocks={b.blocks} /></div>
     </details>
   )
   if (b.k === "links") return (
     <div class="links">
-      {b.items.map((l) => <div><LinkBtn label={l.label} href={l.url} kind="web" /></div>)}
+      {b.items.map((l) => <div><LinkBtn label={l.label} href={l.url} kind={l.url.startsWith("#") || l.url.startsWith("/") ? "go" : "web"} /></div>)}
     </div>
   )
   if (b.k === "books") return <Books />
+  if (b.k === "care") return <CareCards />
+  if (b.k === "vendor") {
+    const v = data.contacts.vendors.find((x) => x.name === b.name)
+    return v ? (
+      <div class="vendor-call">
+        {v.note && <p class="small-note">{v.note}</p>}
+        <div class="links">{v.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}</div>
+      </div>
+    ) : null
+  }
   return null
 })}

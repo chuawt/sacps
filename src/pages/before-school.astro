@@ -1,27 +1,48 @@
 ---
 import Base from "../layouts/Base.astro"
 import Blocks from "../components/Blocks.astro"
+import Books from "../components/Books.astro"
 import { data } from "../data/content"
 const B = data.before
 ---
 <Base title="Get ready" h1="Get ready for P1" lead={B.intro}>
-  <div class="steps">
-  {B.steps.map((s) => {
-    const dl = s.deadlines ?? (s.deadline ? [s.deadline] : [])
-    return (
-      <details class="acc" id={`step-${s.id}`} data-step={s.id} data-deadlines={dl.join(",")}>
-        <summary>
-          <span class="sum-main"><span class="sum-title">{s.title}</span><span class="sum-sub">{s.when}</span><span class="pill js-only" data-pill hidden></span></span>
-        </summary>
-        <div class="acc-body">
-          <Blocks blocks={s.blocks} />
-          <div class="btn-row js-only">
-            <button class="btn ghost small" type="button" data-done-btn aria-pressed="false">Mark this as done</button>
-            <span class="small-note">Saved on this device only.</span>
-          </div>
-        </div>
-      </details>
-    )
-  })}
+  <p class="jobs-progress js-only" id="jobs-progress" data-jobs-progress hidden><span data-jobs-text></span></p>
+  <div class="note info"><p>Applying for MOE FAS? Don't buy books or uniform yet. <a href="#step-fas">See the FAS step</a>.</p></div>
+
+  <div class="gr">
+  {B.groups.map((g) => (
+    <section class="step-group" id={`group-${g.id}`} data-step-group={g.id}>
+      <h2 class="section-h">{g.title}</h2>
+      <div class="steps">
+      {B.steps.filter((s) => s.group === g.id).map((s) => {
+        const dl = s.deadlines ?? (s.deadline ? [s.deadline] : [])
+        return (
+          <details class="acc" id={`step-${s.id}`} data-step={s.id} data-deadlines={dl.join(",")}>
+            <summary>
+              <span class="sum-main"><span class="sum-title">{s.title}</span><span class="sum-sub">{s.when}</span><span class="pill js-only" data-pill hidden></span></span>
+            </summary>
+            <div class="acc-body">
+              <Blocks blocks={s.blocks} />
+              <div class="btn-row js-only">
+                <button class="btn ghost small" type="button" data-done-btn aria-pressed="false">Mark this as done</button>
+                <span class="small-note">Saved on this device only.</span>
+              </div>
+            </div>
+          </details>
+        )
+      })}
+      </div>
+    </section>
+  ))}
+
+    <details class="acc done-group" id="done-group" data-done-group hidden>
+      <summary><span>Done or passed (<span data-done-count>0</span>)</span></summary>
+      <div class="acc-body steps" data-done-list></div>
+    </details>
   </div>
+
+  <section id="booklist" class="booklist-section">
+    <h2 class="section-h">Booklist and prices</h2>
+    <Books />
+  </section>
 </Base>

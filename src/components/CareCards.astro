@@ -1,0 +1,20 @@
+---
+import LinkBtn from "./LinkBtn.astro"
+import { data } from "../data/content"
+import { telHref } from "../lib/format"
+const care = data.contacts.care
+---
+<div class="card-grid">
+  {care.map((c) => (
+    <article class="card contact">
+      <h3>{c.name}</h3>
+      <p>{c.t}</p>
+      {c.note && <p>{c.note}</p>}
+      <div class="links">
+        {c.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}
+        {c.email && <LinkBtn label={c.email} href={`mailto:${c.email}`} kind="mail" />}
+        {c.web && <LinkBtn label="Website" href={c.web} kind="web" />}
+      </div>
+    </article>
+  ))}
+</div>

@@ -185,6 +185,13 @@ const DONE_KEY = "sacps-done-v1"
 const steps = Array.from(document.querySelectorAll<HTMLDetailsElement>("[data-step]"))
 if (steps.length) {
   const done: Record<string, boolean> = store(DONE_KEY) || {}
+  const jobs = document.querySelector<HTMLElement>("[data-jobs-progress]")
+  const paintJobs = () => {
+    const text = jobs?.querySelector<HTMLElement>("[data-jobs-text]")
+    if (!jobs || !text) return
+    text.textContent = `${steps.filter((x) => done[x.dataset.step!]).length} of ${steps.length} jobs done`
+    jobs.hidden = false
+  }
   steps.forEach((s) => {
     const id = s.dataset.step!
     const pill = s.querySelector<HTMLElement>("[data-pill]")!
@@ -213,14 +220,23 @@ if (steps.length) {
       else done[id] = true
       store(DONE_KEY, done)
       render()
+      paintJobs()
     })
     render()
   })
+  paintJobs()
 }
 
 /* ---------- open the section a link points to ---------- */
+/* anchors that moved to another page */
+const MOVED: Record<string, string> = { "/school-life/": "communicating-with-the-school" }
 function openHash() {
   if (!location.hash) return
+  const here = location.pathname.replace(/\/?$/, "/")
+  if (MOVED[here] && location.hash.slice(1) === MOVED[here]) {
+    location.replace("/contacts/" + location.search + location.hash)
+    return
+  }
   let node: Element | null = null
   try {
     node = document.getElementById(decodeURIComponent(location.hash.slice(1)))

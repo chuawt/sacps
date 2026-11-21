@@ -1,15 +1,22 @@
 ---
 import Base from "../layouts/Base.astro"
 import Blocks from "../components/Blocks.astro"
+import LinkBtn from "../components/LinkBtn.astro"
 import { data } from "../data/content"
 import { rich } from "../lib/format"
 const W = data.weeks
 const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)}` : undefined)
 ---
 <Base title="First weeks" lead={W.intro}>
-  <Fragment slot="head"><p class="head-actions"><a class="btn small" href="#pack">Jump to What to pack</a></p></Fragment>
+  <nav class="jump-row" aria-label="On this page">
+    <a class="btn ghost small" href="#day-by-day">Day by day</a>
+    <a class="btn ghost small" href="#pack">What to pack</a>
+    <a class="btn ghost small" href="#temporary-nametag">Nametag</a>
+  </nav>
 
-  <h2 class="section-h first">Day by day</h2>
+  <div id="today-banner" data-today-banner hidden></div>
+
+  <h2 class="section-h first" id="day-by-day">Day by day</h2>
   <ol class="timeline">
     {W.timeline.map((d) => (
       <li id={d.id} data-from={d.from} data-to={d.to}>
@@ -20,7 +27,8 @@ const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)
     ))}
   </ol>
 
-  <h2 id="pack">What to pack</h2>
+  <section id="pack" class="pack-section">
+  <h2 class="section-h">What to pack</h2>
   <p class="lead">{W.pack.intro}</p>
   <div class="pack-grid">
   {W.pack.groups.map((g) => (
@@ -42,7 +50,11 @@ const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)
     <button class="btn ghost small js-only" id="clear-ticks" type="button">Clear all ticks</button>
     <span class="small-note js-only">Ticks are saved on this device only.</span>
   </div>
+  </section>
 
   <h2>Handy to know</h2>
-  <Blocks blocks={W.extras as any} />
+  <Blocks blocks={W.extras} />
+  <div class="links handy-links">
+    <div><LinkBtn label="Class timetable short forms" href="/school-life/#timetable-short-forms" kind="go" /></div>
+  </div>
 </Base>

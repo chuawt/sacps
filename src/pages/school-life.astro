@@ -3,13 +3,20 @@ import Base from "../layouts/Base.astro"
 import Blocks from "../components/Blocks.astro"
 import { data } from "../data/content"
 const L = data.life
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 ---
 <Base title="School life" lead={L.intro}>
-  {L.sections.map((s) => (
-    <details class="acc" id={slug(s.title)}>
-      <summary><span>{s.title}</span></summary>
-      <div class="acc-body"><Blocks blocks={s.blocks} /></div>
-    </details>
+  {L.groups.map((g) => (
+    <section class="life-group" id={g.id} data-life-group>
+      <h2 class="section-h">{g.title}</h2>
+      {g.sections.map((s) => (
+        <details class="acc" id={s.id} open={s.open} data-life-section>
+          <summary><span>{s.title}</span></summary>
+          <div class="acc-body">
+            {(s.aliases ?? []).map((a) => <span id={a}></span>)}
+            <Blocks blocks={s.blocks} />
+          </div>
+        </details>
+      ))}
+    </section>
   ))}
 </Base>

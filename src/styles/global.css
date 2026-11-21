@@ -156,7 +156,8 @@ strong { font-weight: 700; }
 }
 .page-head h1 { margin-bottom: 10px; }
 .page-head .lead { margin: 0; max-width: 56ch; }
-.head-actions { margin: 18px 0 0; }
+.jump-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.handy-links { max-width: 360px; margin-top: 4px; }
 
 /* ---------- home hero (full width banner) ---------- */
 .hero { position: relative; isolation: isolate; color: #ffffff; background: #00405f; overflow: hidden; }
@@ -258,7 +259,14 @@ details.acc details.acc .table-wrap { background: var(--surface); }
 details.acc > summary:has(.progress)::after { margin-left: 0; }
 
 /* before school: numbered steps */
-.steps { counter-reset: step; }
+.gr { counter-reset: step; }
+.step-group > h2 { margin-top: 36px; }
+.step-group:first-child > h2 { margin-top: 24px; }
+.jobs-progress { font: 700 1.05rem/1.3 var(--display); color: var(--head); margin: 8px 0 12px; }
+.booklist-section { margin-top: 12px; scroll-margin-top: 16px; }
+.vendor-call { margin: 4px 0 14px; max-width: 360px; }
+.vendor-call .small-note { margin: 0 0 6px; }
+table.plain td:first-child { white-space: nowrap; }
 .steps > details.acc > summary::before {
   counter-increment: step; content: counter(step); flex: none; align-self: flex-start; margin-top: 2px;
   width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
@@ -383,3 +391,4 @@ details.acc > summary:has(.progress)::after { margin-left: 0; }
 .pack-grid, .card-grid { display: grid; gap: 0 20px; align-items: start; }
 @media (min-width: 760px) { .pack-grid, .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .acc-body > p, .acc-body > ul.facts, .acc-body > .note, .page-body > p, .page-body > .note, .timeline ul.facts, .timeline li > p, .lead { max-width: 74ch; }
+.acc-body > span[id]:empty { display: block; height: 0; scroll-margin-top: 80px; }
