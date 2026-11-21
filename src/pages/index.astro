@@ -41,6 +41,15 @@ try {
   </section>
 
   <div class="page-width page-body">
+    <aside class="home-side">
+      <h2 class="section-h first">A normal school day, at a glance</h2>
+      <dl class="key-times">
+        {data.keyTimes.map((k) => (
+          <div><dt>{k.label}</dt><dd>{k.value}</dd></div>
+        ))}
+      </dl>
+    </aside>
+
     <div class="home-main">
       <h2 class="section-h first">Coming up</h2>
       <p class="lead">Dates are counted in Singapore time. Items drop off after they pass.</p>
@@ -59,7 +68,7 @@ try {
                 {longDate(e.date)}{e.endDate ? ` to ${longDate(e.endDate)}` : ""}{e.time ? `, ${e.time}` : ""}
               </p>
               <p class="ev-detail">{e.detail}</p>
-              <div class="btn-row"><a class="btn small ghost" href={route[e.go]}>See the details</a></div>
+              <div class="btn-row"><a class="btn small ghost" href={e.href ?? route[e.go]}>See the details</a></div>
             </div>
           </li>
         ))}
@@ -67,13 +76,5 @@ try {
       <div id="ev-sentinel" aria-hidden="true" hidden></div>
     </div>
 
-    <aside class="home-side">
-      <h2 class="section-h first">A normal school day, at a glance</h2>
-      <dl class="key-times">
-        {data.keyTimes.map((k) => (
-          <div><dt>{k.label}</dt><dd>{k.value}</dd></div>
-        ))}
-      </dl>
-    </aside>
   </div>
 </Base>

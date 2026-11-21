@@ -14,7 +14,7 @@ export const data = {
     firstDay: "2027-01-04"
   },
 
-  /* School documents. Source chips show them as plain labels (nothing links to a file). The About page lists them by title and date. */
+  /* School documents. Source chips show them as plain labels (nothing links to a file). Nothing renders them yet. */
   refDocs: [
     {
       id: "details",
@@ -58,6 +58,7 @@ export const data = {
       title: "Walk-in sale of books and uniform in school",
       detail: "For P1 2027 students only. Online orders of P1 books can also be collected on this day.",
       go: "before",
+      href: "/before-school/#step-walkin",
       s: ["details:2", "booklist:3", "booklet:16"]
     },
     {
@@ -66,6 +67,7 @@ export const data = {
       title: "Book self-collection for P1 to P3",
       detail: "For books ordered online from Pacific Bookstores. Collection is also open on 30 November for P1 to P3.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3"]
     },
     {
@@ -74,6 +76,7 @@ export const data = {
       title: "Order iron-on nametags by this date for delivery in January",
       detail: "Orders in by this date reach your daughter through her Form Teacher in January 2027. Book self-collection for P1 to P3 is also open on this date.",
       go: "before",
+      href: "/before-school/#step-nametags",
       s: ["booklist:2", "booklist:3"]
     },
     {
@@ -82,6 +85,7 @@ export const data = {
       title: "Deadline to sign up for GIRO and Edusave standing orders",
       detail: "Sign up through the Services tab in the Parents Gateway app.",
       go: "before",
+      href: "/before-school/#step-giro",
       s: ["details:3", "details:4"]
     },
     {
@@ -90,6 +94,7 @@ export const data = {
       title: "Pacific Bookstores website closes",
       detail: "Subject to slot availability, so order early.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3", "booklet:16"]
     },
     {
@@ -98,14 +103,16 @@ export const data = {
       title: "Order iron-on nametags by this date for delivery in February",
       detail: "Orders in by this date reach your daughter through her Form Teacher in February 2027.",
       go: "before",
+      href: "/before-school/#step-nametags",
       s: ["booklist:2"]
     },
     {
       date: "2026-12-16",
       time: "9.00 am to 3.00 pm",
       title: "Last listed day for book self-collection",
-      detail: "Open to all levels. See the full list of collection dates under Before school starts.",
+      detail: "Open to all levels. See the full list of collection dates under Get ready.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3"]
     },
     {
@@ -114,6 +121,7 @@ export const data = {
       title: "First day of school (P1 only)",
       detail: "Arrive between 8.45 am and 8.55 am. Parents are encouraged to bring their daughter and stay for the Parent Engagement Session.",
       go: "weeks",
+      href: "/first-weeks/#d0104",
       s: ["booklet:2", "booklet:3", "slides:43"]
     },
     {
@@ -123,6 +131,7 @@ export const data = {
       title: "P1 early dismissal",
       detail: "From Tuesday 5 January, school runs from 7.25 am. P1 is dismissed at 1.20 pm until 15 January to ease parent traffic. Your daughter's class timetable arrives by 5 January.",
       go: "weeks",
+      href: "/school-life/#dismissal-and-pick-up-points",
       s: ["slides:46", "booklet:9", "booklet:10"]
     },
     {
@@ -132,6 +141,7 @@ export const data = {
       title: "P4 buddy looks after your daughter at recess",
       detail: "Tuesday to Thursday, three school days.",
       go: "weeks",
+      href: "/first-weeks/#d0105",
       s: ["booklet:9", "slides:46"]
     },
     {
@@ -140,6 +150,7 @@ export const data = {
       title: "From this date, pack the school bag by the class timetable",
       detail: "Friday 8 January onwards.",
       go: "weeks",
+      href: "/first-weeks/#pack",
       s: ["booklet:10"]
     },
     {
@@ -148,6 +159,7 @@ export const data = {
       title: "Term 1 ends",
       detail: "Last day of Term 1.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -157,6 +169,7 @@ export const data = {
       title: "March school holidays",
       detail: "Term 2 starts on Monday 22 March.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -165,6 +178,7 @@ export const data = {
       title: "Term 2 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -173,6 +187,7 @@ export const data = {
       title: "Term 2 ends",
       detail: "Last day of Term 2.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -182,6 +197,7 @@ export const data = {
       title: "June school holidays",
       detail: "Term 3 starts on Monday 28 June.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -190,6 +206,7 @@ export const data = {
       title: "Term 3 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -198,6 +215,7 @@ export const data = {
       title: "School holiday (Youth Day)",
       detail: "Youth Day falls on Sunday 4 July, so Monday 5 July is a school holiday.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -206,6 +224,7 @@ export const data = {
       title: "School holiday (day after National Day)",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -214,6 +233,7 @@ export const data = {
       title: "Term 3 ends (Teachers' Day)",
       detail: "Last day of Term 3 and a school holiday for Teachers' Day.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -223,6 +243,7 @@ export const data = {
       title: "September school holidays",
       detail: "Term 4 starts on Monday 13 September.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -231,6 +252,7 @@ export const data = {
       title: "Term 4 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -239,6 +261,7 @@ export const data = {
       title: "School holiday (Children's Day)",
       detail: "Primary schools only.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -247,6 +270,7 @@ export const data = {
       title: "Term 4 ends",
       detail: "Last day of the 2027 school year.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -256,6 +280,7 @@ export const data = {
       title: "Year-end school holidays",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     }
   ],
@@ -476,44 +501,6 @@ export const data = {
         ]
       },
       {
-        id: "books",
-        title: "Order books and stationery",
-        when: "Website open from 11 Nov, closes 12 Dec",
-        deadline: "2026-12-12",
-        blocks: [
-          { k: "ul", items: [
-            { t: "The school bookshop is run by Pacific Bookstores Pte Ltd. Order online at pacificbookstores.com. Register for an account first if you are a new user (top-right of the website).", s: ["details:2", "booklet:16", "booklist:3"] },
-            { t: "Website opened on 11 November 2026 and closes on 12 December 2026, subject to slot availability.", s: ["booklist:3", "booklet:16"] },
-            { t: "Payment is taken at order by Visa, Mastercard, debit card or PayNow.", s: ["booklist:3"] },
-            { t: "Home delivery: delivery charge of $15.80 applies.", s: ["booklist:3"] },
-            { t: "Self-collection in school: pre-ordering is strongly encouraged to avoid queues. See the collection dates below.", s: ["booklist:3"] },
-            { t: "A one-time packaging fee applies to all orders ($0.10 for plastic or $0.90 for reusable) unless you bring your own bag.", s: ["booklist:3"] },
-            { t: "Parents are strongly encouraged to buy online so that the correct edition of each book is supplied.", s: ["booklist:1"] },
-            { t: "Textbooks are sold only in schools.", s: ["booklist:3"] }
-          ] },
-          { k: "accordion", title: "Self-collection dates (9 am to 3 pm, closed Saturday)", blocks: [
-            { k: "table", head: ["Date", "Who may collect"], rows: [
-              ["Mon 23 Nov 2026", "Online P1 orders only"],
-              ["Thu 26 Nov 2026", "P1 to P3"],
-              ["Fri 27 Nov 2026", "P4 to P6"],
-              ["Mon 30 Nov 2026", "P1 to P3"],
-              ["Tue 1 Dec 2026", "P4 to P6"],
-              ["Wed 2 Dec 2026", "All levels"],
-              ["Fri 4 Dec 2026", "All levels"],
-              ["Tue 8 Dec 2026", "All levels"],
-              ["Wed 9 Dec 2026", "All levels"],
-              ["Fri 11 Dec 2026", "All levels"],
-              ["Tue 15 Dec 2026", "All levels"],
-              ["Wed 16 Dec 2026", "All levels"]
-            ], s: ["booklist:3"] },
-            { k: "note", t: "Pacific Bookstores operating hours on collection days are Monday to Friday 9 am to 3 pm, with lunch from 12 noon to 1 pm. Saturday is closed.", s: ["booklist:3"] }
-          ] },
-          { k: "note", tone: "info", t: "If you miss the walk-in day, order online and choose self-collection in school (school books only) or home delivery (school books and uniform or PE attire).", s: ["booklet:16"] },
-          { k: "note", t: "Items bought are non-refundable. To exchange, go to the school bookshop within 1 week of purchase with the booklist and the official receipt. Items must be in original condition.", s: ["booklist:1"] },
-          { k: "books" }
-        ]
-      },
-      {
         id: "walkin",
         title: "Walk-in sale in school",
         when: "Mon 23 Nov 2026, 9 am to 3 pm",
@@ -523,20 +510,6 @@ export const data = {
             { t: "Walk-in purchase of books and uniform is on Monday 23 November 2026, from 9.00 am to 3.00 pm, for P1 2027 students only.", s: ["details:2", "booklet:16"] },
             { t: "This is the only walk-in date.", s: ["booklet:16"] }
           ] }
-        ]
-      },
-      {
-        id: "uniform",
-        title: "Buy school uniform and PE attire",
-        when: "Online all year, or walk-in 23 Nov",
-        blocks: [
-          { k: "ul", items: [
-            { t: "The uniform supplier is Magdalene Sewing Centre Pte Ltd. Order online at magdalene.com.sg (the website is available year-round) or walk in on 23 November.", s: ["details:2", "booklet:16"] },
-            { t: "The school recommends 3 sets of uniform (blouse and pinafore) and 3 sets of PE attire.", s: ["booklet:16"] },
-            { t: "Home delivery covers books and uniform or PE attire. Self-collection in school is for school books only.", s: ["booklet:16"] },
-            { t: "Regular days: white blouse and pinafore at knee length. PE days: school PE t-shirt, school shorts and pinafore. White shoes and socks.", s: ["booklet:13"] }
-          ] },
-          { k: "note", t: "If you are applying for the MOE Financial Assistance Scheme (FAS), the school asks you not to buy any books or uniform. Apply and wait for MOE or the school to tell you the outcome.", s: ["details:2"] }
         ]
       },
       {
@@ -581,16 +554,54 @@ export const data = {
         ]
       },
       {
-        id: "fas",
-        title: "MOE Financial Assistance Scheme (FAS)",
-        when: "Only if you are applying",
+        id: "books",
+        title: "Order books and stationery",
+        when: "Website open from 11 Nov, closes 12 Dec",
+        deadline: "2026-12-12",
         blocks: [
           { k: "ul", items: [
-            { t: "Apply through the MOE Student Finance Scheme page. Do not buy books or uniform while an application is pending.", s: ["details:2"] }
+            { t: "The school bookshop is run by Pacific Bookstores Pte Ltd. Order online at pacificbookstores.com. Register for an account first if you are a new user (top-right of the website).", s: ["details:2", "booklet:16", "booklist:3"] },
+            { t: "Website opened on 11 November 2026 and closes on 12 December 2026, subject to slot availability.", s: ["booklist:3", "booklet:16"] },
+            { t: "Payment is taken at order by Visa, Mastercard, debit card or PayNow.", s: ["booklist:3"] },
+            { t: "Home delivery: delivery charge of $15.80 applies.", s: ["booklist:3"] },
+            { t: "Self-collection in school: pre-ordering is strongly encouraged to avoid queues. See the collection dates below.", s: ["booklist:3"] },
+            { t: "A one-time packaging fee applies to all orders ($0.10 for plastic or $0.90 for reusable) unless you bring your own bag.", s: ["booklist:3"] },
+            { t: "Parents are strongly encouraged to buy online so that the correct edition of each book is supplied.", s: ["booklist:1"] },
+            { t: "Textbooks are sold only in schools.", s: ["booklist:3"] }
           ] },
-          { k: "links", items: [
-            { label: "MOE Student Finance Scheme page", url: "https://studentfinance.moe.gov.sg/sfs", s: ["details:2"] }
-          ] }
+          { k: "h", t: "Self-collection dates (9 am to 3 pm, closed Saturday)" },
+          { k: "table", plain: true, head: ["Date", "Who may collect"], rows: [
+            ["Mon 23 Nov 2026", "Online P1 orders only"],
+            ["Thu 26 Nov 2026", "P1 to P3"],
+            ["Fri 27 Nov 2026", "P4 to P6"],
+            ["Mon 30 Nov 2026", "P1 to P3"],
+            ["Tue 1 Dec 2026", "P4 to P6"],
+            ["Wed 2 Dec 2026", "All levels"],
+            ["Fri 4 Dec 2026", "All levels"],
+            ["Tue 8 Dec 2026", "All levels"],
+            ["Wed 9 Dec 2026", "All levels"],
+            ["Fri 11 Dec 2026", "All levels"],
+            ["Tue 15 Dec 2026", "All levels"],
+            ["Wed 16 Dec 2026", "All levels"]
+          ], s: ["booklist:3"] },
+          { k: "note", t: "Pacific Bookstores operating hours on collection days are Monday to Friday 9 am to 3 pm, with lunch from 12 noon to 1 pm. Saturday is closed.", s: ["booklist:3"] },
+          { k: "note", tone: "info", t: "If you miss the walk-in day, order online and choose self-collection in school (school books only) or home delivery (school books and uniform or PE attire).", s: ["booklet:16"] },
+          { k: "note", t: "Items bought are non-refundable. To exchange, go to the school bookshop within 1 week of purchase with the booklist and the official receipt. Items must be in original condition.", s: ["booklist:1"] },
+          { k: "books" }
+        ]
+      },
+      {
+        id: "uniform",
+        title: "Buy school uniform and PE attire",
+        when: "Online all year, or walk-in 23 Nov",
+        blocks: [
+          { k: "ul", items: [
+            { t: "The uniform supplier is Magdalene Sewing Centre Pte Ltd. Order online at magdalene.com.sg (the website is available year-round) or walk in on 23 November.", s: ["details:2", "booklet:16"] },
+            { t: "The school recommends 3 sets of uniform (blouse and pinafore) and 3 sets of PE attire.", s: ["booklet:16"] },
+            { t: "Home delivery covers books and uniform or PE attire. Self-collection in school is for school books only.", s: ["booklet:16"] },
+            { t: "Regular days: white blouse and pinafore at knee length. PE days: school PE t-shirt, school shorts and pinafore. White shoes and socks.", s: ["booklet:13"] }
+          ] },
+          { k: "note", t: "If you are applying for the MOE Financial Assistance Scheme (FAS), the school asks you not to buy any books or uniform. Apply and wait for MOE or the school to tell you the outcome.", s: ["details:2"] }
         ]
       },
       {
@@ -621,6 +632,19 @@ export const data = {
           { k: "links", items: [
             { label: "NLB mobile app and myLibrary ID (go.gov.sg)", url: "https://go.gov.sg/nlb-mobile", s: ["slides:24"] },
             { label: "First week of school schoolbag guide (go.gov.sg)", url: "https://go.gov.sg/ace-first-week-of-school-schoolbag", s: ["slides:25"] }
+          ] }
+        ]
+      },
+      {
+        id: "fas",
+        title: "MOE Financial Assistance Scheme (FAS)",
+        when: "Only if you are applying",
+        blocks: [
+          { k: "ul", items: [
+            { t: "Apply through the MOE Student Finance Scheme page. Do not buy books or uniform while an application is pending.", s: ["details:2"] }
+          ] },
+          { k: "links", items: [
+            { label: "MOE Student Finance Scheme page", url: "https://studentfinance.moe.gov.sg/sfs", s: ["details:2"] }
           ] }
         ]
       }

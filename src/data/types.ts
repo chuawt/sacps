@@ -1,11 +1,12 @@
 export type Src = string[]
 export interface RefDoc { id: string; short: string; title: string; tip?: string; issued?: string | null; issuedLabel?: string; summary?: string }
-export interface EventItem { date: string; endDate?: string; time: string; title: string; detail: string; go: "before" | "weeks" | "life"; s: Src }
+export interface EventItem { date: string; endDate?: string; time: string; title: string; detail: string; go: "before" | "weeks" | "life"; href?: string; s: Src }
 export interface Fact { t: string; s?: Src }
 export type Block =
   | { k: "p"; t: string; s?: Src }
   | { k: "ul"; items: Fact[] }
-  | { k: "table"; head?: string[]; rows: string[][]; s?: Src }
+  | { k: "table"; head?: string[]; rows: string[][]; plain?: boolean; s?: Src }
+  | { k: "h"; t: string }
   | { k: "note"; t: string; tone?: "info"; s?: Src }
   | { k: "links"; items: { label: string; url: string; s?: Src }[] }
   | { k: "accordion"; title: string; sub?: string; blocks: Block[] }

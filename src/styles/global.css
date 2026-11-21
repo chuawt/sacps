@@ -315,7 +315,8 @@ details.acc > summary:has(.progress)::after { margin-left: 0; }
 #ev-sentinel { height: 1px; }
 @media (min-width: 1040px) {
   .page-body:has(.home-main) { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 0 48px; align-items: start; }
-  .home-side { position: sticky; top: 16px; }
+  .home-main { grid-column: 1; grid-row: 1; }
+  .home-side { grid-column: 2; grid-row: 1; position: sticky; top: 16px; }
 }
 .empty { text-align: center; }
 

@@ -8,12 +8,12 @@ const site = data.meta.title
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/"
 const nav = [
   { href: "/", label: "Coming up" },
+  { href: "/before-school", label: "Get ready" },
   { href: "/first-weeks", label: "First weeks" },
-  { href: "/before-school", label: "Before school" },
   { href: "/school-life", label: "School life" },
   { href: "/contacts", label: "Contacts" },
-  { href: "/about", label: "About" },
 ]
+const footNav = [...nav, { href: "/about", label: "About" }]
 const updated = fmt(data.meta.updated, { day: "numeric", month: "long", year: "numeric" })
 const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | ${site}`
 ---
@@ -90,7 +90,7 @@ const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | $
         </div>
         <nav class="foot-nav" aria-label="Footer">
           <ul>
-            {nav.map((n) => (
+            {footNav.map((n) => (
               <li>
                 <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>
               </li>

@@ -13,7 +13,8 @@ const { blocks } = Astro.props
   if (b.k === "ul") return (
     <ul class="facts">{b.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
   )
-  if (b.k === "table") return <DataTable head={b.head} rows={b.rows} />
+  if (b.k === "h") return <h4>{b.t}</h4>
+  if (b.k === "table") return <DataTable head={b.head} rows={b.rows} plain={b.plain} />
   if (b.k === "note") return (
     <div class:list={["note", { info: b.tone === "info" }]}><p><Fragment set:html={rich(b.t)} /></p></div>
   )

@@ -62,7 +62,7 @@ if (useOverride) {
 const list = document.getElementById("ev-list")
 if (list) {
   const items = Array.from(list.querySelectorAll<HTMLElement>("[data-event]"))
-  const upcoming: HTMLElement[] = []
+  let upcoming: HTMLElement[] = []
   items.forEach((li) => {
     const end = li.dataset.end || li.dataset.date!
     if (dayNum(end) < t) li.hidden = true
@@ -76,7 +76,6 @@ if (list) {
   })
   const empty = document.getElementById("ev-empty")
   if (empty) empty.hidden = upcoming.length > 0
-  if (upcoming.length) upcoming[0].classList.add("is-next")
   const card = document.getElementById("next-up")
   if (card && upcoming.length) {
     const li = upcoming[0]
@@ -91,6 +90,9 @@ if (list) {
     const go = li.querySelector<HTMLAnchorElement>(".btn-row a")
     if (link && go) link.setAttribute("href", go.getAttribute("href") || "/")
     card.hidden = false
+    /* the card already shows this item, so the list starts after it */
+    li.hidden = true
+    upcoming = upcoming.slice(1)
   }
   /* lazy load: show 5 upcoming items, reveal 5 more as the sentinel nears the viewport */
   const BATCH = 5
