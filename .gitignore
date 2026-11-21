@@ -1,0 +1,7 @@
+.DS_Store
+.wrangler/
+node_modules/
+
+# School originals and personal outputs stay local (never public)
+school/
+made/
