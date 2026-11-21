@@ -1,0 +1,6 @@
+---
+interface Props { label: string; href: string; kind: "tel" | "mail" | "map" | "web" }
+const { label, href, kind } = Astro.props
+const ext = kind === "web" || kind === "map"
+---
+<a class="btn ghost small" href={href} target={ext ? "_blank" : undefined} rel={ext ? "noopener" : undefined}>{label}</a>

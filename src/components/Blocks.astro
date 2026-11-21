@@ -1,0 +1,33 @@
+---
+import type { Block } from "../data/types"
+import { rich } from "../lib/format"
+import Blocks from "./Blocks.astro"
+import DataTable from "./DataTable.astro"
+import LinkBtn from "./LinkBtn.astro"
+import Books from "./Books.astro"
+interface Props { blocks: Block[] }
+const { blocks } = Astro.props
+---
+{blocks.map((b) => {
+  if (b.k === "p") return <p><Fragment set:html={rich(b.t)} /></p>
+  if (b.k === "ul") return (
+    <ul class="facts">{b.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
+  )
+  if (b.k === "table") return <DataTable head={b.head} rows={b.rows} />
+  if (b.k === "note") return (
+    <div class:list={["note", { info: b.tone === "info" }]}><p><Fragment set:html={rich(b.t)} /></p></div>
+  )
+  if (b.k === "accordion") return (
+    <details class="acc">
+      <summary><span class="sum-main"><span>{b.title}</span>{b.sub && <span class="sum-sub">{b.sub}</span>}</span></summary>
+      <div class="acc-body"><Blocks blocks={b.blocks} /></div>
+    </details>
+  )
+  if (b.k === "links") return (
+    <div class="links">
+      {b.items.map((l) => <div><LinkBtn label={l.label} href={l.url} kind="web" /></div>)}
+    </div>
+  )
+  if (b.k === "books") return <Books />
+  return null
+})}

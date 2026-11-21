@@ -1,6 +1,8 @@
 .DS_Store
 .wrangler/
 node_modules/
+dist/
+.astro/
 
 # School originals and personal outputs stay local (never public)
 school/

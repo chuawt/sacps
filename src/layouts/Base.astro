@@ -1,0 +1,106 @@
+---
+import "../styles/global.css"
+import { data } from "../data/content"
+import { fmt } from "../lib/format"
+interface Props { title: string; description?: string; heading?: string; h1?: string; lead?: string; bare?: boolean }
+const { title, description = "An unofficial parent-run hub for P1 2027 parents at St Anthony's Canossian Primary School, Singapore.", heading, h1, lead, bare = false } = Astro.props
+const site = data.meta.title
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/"
+const nav = [
+  { href: "/", label: "Coming up" },
+  { href: "/first-weeks", label: "First weeks" },
+  { href: "/before-school", label: "Before school" },
+  { href: "/school-life", label: "School life" },
+  { href: "/contacts", label: "Contacts" },
+  { href: "/about", label: "About" },
+]
+const updated = fmt(data.meta.updated, { day: "numeric", month: "long", year: "numeric" })
+const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | ${site}`
+---
+<!doctype html>
+<html lang="en-SG">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#00405F" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" />
+    <script is:inline>
+      document.documentElement.classList.add("js")
+    </script>
+    {Astro.url.pathname === "/" && <link rel="preload" as="image" href="/hero/hero.webp" type="image/webp" fetchpriority="high" />}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <p class="unofficial-bar"><span class="page-width">Unofficial site. Run by a parent, not by the school.</span></p>
+      <div class="header-inner page-width">
+        <a class="brand" href="/">{site}</a>
+        <nav class="main-nav" aria-label="Sections">
+          <ul>
+            {nav.map((n) => (
+              <li>
+                <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div class="header-tools">
+          <button class="menu-btn js-only" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel">Menu</button>
+        </div>
+      </div>
+      <nav class="menu-panel" id="menu-panel" aria-label="Sections">
+        <ul>
+          {nav.map((n) => (
+            <li>
+              <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      {bare ? <slot /> : (
+        <>
+          <div class="page-head">
+            <div class="wrap">
+              <h1>{h1 ?? title}</h1>
+              {lead && <p class="lead">{lead}</p>}
+              <slot name="head" />
+            </div>
+          </div>
+          <div class="wrap page-body"><slot /></div>
+        </>
+      )}
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner page-width">
+        <div class="foot-about">
+          <p class="foot-name">{site}</p>
+          <p>Unofficial. Run by a parent, not by St Anthony's Canossian Primary School.</p>
+          <p>Check Parents Gateway and school announcements for the latest updates.</p>
+          <p class="foot-date">Last updated {updated}</p>
+        </div>
+        <nav class="foot-nav" aria-label="Footer">
+          <ul>
+            {nav.map((n) => (
+              <li>
+                <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      import "../scripts/client.ts"
+    </script>
+  </body>
+</html>

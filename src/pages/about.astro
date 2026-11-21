@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro"
+import { data } from "../data/content"
+import { fmt } from "../lib/format"
+const updated = fmt(data.meta.updated, { day: "numeric", month: "long", year: "numeric" })
+---
+<Base title="About" h1="About this site" lead="A friendly, parent-run guide for the first year of Primary 1.">
+  <div class="note">
+    <p><strong>This is an unofficial site.</strong> It is run by a parent. It is not run or endorsed by St Anthony's Canossian Primary School (SACPS).</p>
+  </div>
+
+  <div class="about-grid">
+    <section>
+      <h2>What it is</h2>
+      <p>A parent-run hub for the dates, to-dos and school routines that Primary 1 parents need in 2027, gathered in one place.</p>
+    </section>
+    <section>
+      <h2>Who it is for</h2>
+      <p>Every parent whose child starts Primary 1 at St Anthony's Canossian Primary School, Singapore, in 2027.</p>
+    </section>
+    <section>
+      <h2>If something looks wrong</h2>
+      <p>Check Parents Gateway and school announcements for the latest updates. Dates and times can change after this page was last updated.</p>
+    </section>
+    <section>
+      <h2>Privacy</h2>
+      <p>The site has no accounts and no tracking scripts. Ticks on checklists are saved only in your own browser on this device.</p>
+    </section>
+  </div>
+
+  <p class="small-note">Last updated {updated}.</p>
+</Base>

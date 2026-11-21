@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro"
+import Blocks from "../components/Blocks.astro"
+import { data } from "../data/content"
+const B = data.before
+---
+<Base title="Before school starts" lead={B.intro}>
+  <div class="steps">
+  {B.steps.map((s) => {
+    const dl = s.deadlines ?? (s.deadline ? [s.deadline] : [])
+    return (
+      <details class="acc" id={`step-${s.id}`} data-step={s.id} data-deadlines={dl.join(",")}>
+        <summary>
+          <span class="sum-main"><span class="sum-title">{s.title}</span><span class="sum-sub">{s.when}</span><span class="pill js-only" data-pill hidden></span></span>
+        </summary>
+        <div class="acc-body">
+          <Blocks blocks={s.blocks} />
+          <div class="btn-row js-only">
+            <button class="btn ghost small" type="button" data-done-btn aria-pressed="false">Mark this as done</button>
+            <span class="small-note">Saved on this device only.</span>
+          </div>
+        </div>
+      </details>
+    )
+  })}
+  </div>
+</Base>

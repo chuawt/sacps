@@ -1,0 +1,17 @@
+---
+import { rich } from "../lib/format"
+interface Props { head?: string[]; rows: string[][] }
+const { head = [], rows } = Astro.props
+---
+<div class="table-wrap">
+  <table class="stack">
+    {head.length > 0 && (
+      <thead><tr>{head.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+    )}
+    <tbody>
+      {rows.map((r) => (
+        <tr>{r.map((c, i) => <td data-label={head[i] ?? ""}><Fragment set:html={rich(c)} /></td>)}</tr>
+      ))}
+    </tbody>
+  </table>
+</div>

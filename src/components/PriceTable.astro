@@ -1,0 +1,23 @@
+---
+import { money } from "../lib/format"
+interface Props { head: string[]; rows: string[][]; totalLabel?: string; total?: number }
+const { head, rows, totalLabel, total } = Astro.props
+const last = head.length - 1
+---
+<div class="table-wrap">
+  <table class="price">
+    <thead><tr>{head.map((c, i) => <th scope="col" class={i === last ? "num" : ""}>{c}</th>)}</tr></thead>
+    <tbody>
+      {rows.map((r) => (
+        <tr>{r.map((c, i) => <td class={i === last ? "num" : ""} data-label={head[i]}>{c}</td>)}</tr>
+      ))}
+      {totalLabel && total !== undefined && (
+        <tr>
+          <td data-label={head[0]}><strong>{totalLabel}</strong></td>
+          {head.slice(1, last).map((h) => <td data-label={h}></td>)}
+          <td class="num" data-label={head[last]}><strong>{money(total)}</strong></td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>

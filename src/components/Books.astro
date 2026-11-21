@@ -1,0 +1,64 @@
+---
+import { data } from "../data/content"
+import { money } from "../lib/format"
+import PriceTable from "./PriceTable.astro"
+const B = data.booklist
+const price = (p: number) => (p === 0 ? "No charge" : money(p))
+const rowsFor = (items: { t: string; p: number; q?: number }[]) =>
+  items.map((it) => [it.t, String(it.q ?? 1), price(it.p * (it.q ?? 1))])
+const common: string[][] = []
+B.common.forEach((g) => g.items.forEach((it, i) => common.push([i === 0 ? g.name : "", it.t, price(it.p)])))
+---
+<div class="books">
+  <h4>Booklist</h4>
+  <div class="note info"><p>{B.note}</p></div>
+
+  <details class="acc">
+    <summary><span class="sum-main"><span>A. Textbooks and workbooks (all students)</span><span class="sum-sub">English, Maths, Social Studies, PE, FTGP</span></span></summary>
+    <div class="acc-body">
+      <PriceTable head={["Subject", "Title", "Price"]} rows={common} />
+      <p>Subtotals: Maths $19.35, Social Studies $2.00, PE $2.60, FTGP $3.15.</p>
+    </div>
+  </details>
+
+  <h4>Mother Tongue books and Character and Citizenship Education book</h4>
+  <p class="lead">These differ by language. Open the one that applies.</p>
+  {B.mt.map((m) => {
+    const sub: string[] = []
+    if (m.items.length) sub.push("Books " + money(m.total))
+    sub.push("CCE book " + money(m.cce.p))
+    if (m.stationery.length) sub.push("Language stationery " + money(m.stationeryTotal))
+    return (
+      <details class="acc">
+        <summary><span class="sum-main"><span>{m.name}</span><span class="sum-sub">{sub.join(", ")}</span></span></summary>
+        <div class="acc-body">
+          {m.items.length > 0 && <PriceTable head={["Book", "Price"]} rows={m.items.map((it) => [it.t, money(it.p)])} totalLabel="Subtotal" total={m.total} />}
+          <h4>Character and Citizenship Education book</h4>
+          <PriceTable head={["Book", "Price"]} rows={[[m.cce.t, money(m.cce.p)]]} />
+          {m.stationery.length > 0 ? (
+            <>
+              <h4>Language stationery (section B)</h4>
+              <PriceTable head={["Item", "Qty", "Price"]} rows={rowsFor(m.stationery)} totalLabel="Subtotal" total={m.stationeryTotal} />
+            </>
+          ) : <p>No language-specific stationery is listed for this group.</p>}
+        </div>
+      </details>
+    )
+  })}
+
+  <details class="acc">
+    <summary><span class="sum-main"><span>B. Exercise books and stationery (compulsory)</span><span class="sum-sub">Common items and art materials</span></span></summary>
+    <div class="acc-body">
+      <PriceTable head={["Item", "Qty", "Price"]} rows={rowsFor(B.stationeryCommon)} totalLabel="Subtotal" total={B.stationeryCommonTotal} />
+      <h4>Art materials (compulsory)</h4>
+      <PriceTable head={["Item", "Qty", "Price"]} rows={rowsFor(B.art)} totalLabel="Subtotal" total={B.artTotal} />
+    </div>
+  </details>
+
+  <details class="acc">
+    <summary><span class="sum-main"><span>C. Optional items</span><span class="sum-sub">Not compulsory</span></span></summary>
+    <div class="acc-body">
+      <PriceTable head={["Item", "Qty", "Price"]} rows={rowsFor(B.optional)} totalLabel="Total for all optional items" total={B.optionalTotal} />
+    </div>
+  </details>
+</div>

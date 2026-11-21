@@ -1,23 +1,27 @@
+import type { Content } from "./types"
+
 /*
   All site content lives here. To update the site, edit this file only.
   Source references use the form "docId:page" (for example "booklet:4").
   Block kinds: p, ul, table, kv, note, links, accordion, books.
   Dates are ISO 8601 in Singapore time. No semicolons in visible English copy.
 */
-window.SACPS_DATA = {
+export const data = {
   meta: {
-    title: "SACPS P1 2027 Parents Hub",
+    title: "Unofficial P1 2027 SACPS Hub",
     updated: "2026-11-21",
     timezone: "Asia/Singapore",
     firstDay: "2027-01-04"
   },
 
-  /* School documents. Source chips show them as plain labels (nothing links to a file). Entries with a summary are listed under Documents. */
+  /* School documents. Source chips show them as plain labels (nothing links to a file). The About page lists them by title and date. */
   refDocs: [
     {
       id: "details",
       short: "Letter",
       title: "School letter of 11 Nov 2026, sent to each family",
+      issued: "2026-11-11",
+      issuedLabel: "11 November 2026",
       tip: "School letter of 11 Nov 2026, sent to each family"
     },
     {
@@ -46,7 +50,7 @@ window.SACPS_DATA = {
     }
   ],
 
-  /* Dated items for the Now tab. Past items drop off automatically. */
+  /* Dated items for the Coming up page. Past items drop off automatically. */
   events: [
     {
       date: "2026-11-23",
@@ -137,6 +141,122 @@ window.SACPS_DATA = {
       detail: "Friday 8 January onwards.",
       go: "weeks",
       s: ["booklet:10"]
+    },
+    {
+      date: "2027-03-12",
+      time: "",
+      title: "Term 1 ends",
+      detail: "Last day of Term 1.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-03-13",
+      endDate: "2027-03-21",
+      time: "",
+      title: "March school holidays",
+      detail: "Term 2 starts on Monday 22 March.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-03-22",
+      time: "",
+      title: "Term 2 starts",
+      detail: "",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-05-28",
+      time: "",
+      title: "Term 2 ends",
+      detail: "Last day of Term 2.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-05-29",
+      endDate: "2027-06-27",
+      time: "",
+      title: "June school holidays",
+      detail: "Term 3 starts on Monday 28 June.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-06-28",
+      time: "",
+      title: "Term 3 starts",
+      detail: "",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-07-05",
+      time: "",
+      title: "School holiday (Youth Day)",
+      detail: "Youth Day falls on Sunday 4 July, so Monday 5 July is a school holiday.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-08-10",
+      time: "",
+      title: "School holiday (day after National Day)",
+      detail: "",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-09-03",
+      time: "",
+      title: "Term 3 ends (Teachers' Day)",
+      detail: "Last day of Term 3 and a school holiday for Teachers' Day.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-09-04",
+      endDate: "2027-09-12",
+      time: "",
+      title: "September school holidays",
+      detail: "Term 4 starts on Monday 13 September.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-09-13",
+      time: "",
+      title: "Term 4 starts",
+      detail: "",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-10-08",
+      time: "",
+      title: "School holiday (Children's Day)",
+      detail: "Primary schools only.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-11-19",
+      time: "",
+      title: "Term 4 ends",
+      detail: "Last day of the 2027 school year.",
+      go: "life",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-11-20",
+      endDate: "2027-12-31",
+      time: "",
+      title: "Year-end school holidays",
+      detail: "",
+      go: "life",
+      s: ["moe:2027"]
     }
   ],
 
@@ -159,7 +279,7 @@ window.SACPS_DATA = {
         title: "First day of school",
         items: [
           { t: "Only P1 students report to school. Hours are 9.00 am to 12.00 noon.", s: ["booklet:2", "booklet:3", "slides:43"] },
-          { t: "Arrive only between 8.45 am and 8.55 am. The slides say from 8.45 am onwards, so aim for the booklet's window.", s: ["booklet:3", "slides:43"] },
+          { t: "Arrive between 8.45 am and 8.55 am.", s: ["booklet:3", "slides:43"] },
           { t: "Enter by St Raphael Gate or St Michael Gate. Signs and teachers on duty will guide you.", s: ["booklet:3"] },
           { t: "9.00 to 11.00 am: Parent Engagement Session with the Principal and HODs. Your daughter has games, literacy and numeracy activities.", s: ["booklet:2", "slides:45"] },
           { t: "11.00 am to 12.00 noon: Parent-Daughter recess and bonding activity. You can have recess with her in the canteen or pack food for her, especially if she has a special dietary requirement.", s: ["booklet:2", "booklet:3"] },
@@ -226,7 +346,7 @@ window.SACPS_DATA = {
         label: "Fri 15 Jan",
         title: "Last day of 1.20 pm P1 dismissal",
         items: [
-          { t: "The 1.20 pm P1 dismissal runs until this date. The documents do not say what P1 dismissal time applies afterwards, so check with the school or Parents Gateway.", s: ["slides:46", "booklet:4"] },
+          { t: "P1 students are dismissed at 1.20 pm until 15 Jan. From 18 Jan, P1 dismissal is at 1.30 pm.", s: ["slides:46", "booklet:4"] },
           { t: "Girls stay in their orientation groups until the end of January, then move into their form classes.", s: ["details:1"] }
         ]
       }
@@ -268,7 +388,7 @@ window.SACPS_DATA = {
           label: "Tue 5 Jan",
           items: [
             { id: "p0105-1", t: "Maths Textbook 1A", s: ["booklet:10"] },
-            { id: "p0105-2", t: "Maths Activity Book 1A (listed as Practice Book 1A on the booklist)", s: ["booklet:10", "booklist:1"] },
+            { id: "p0105-2", t: "Maths Activity Book 1A (also called Practice Book 1A)", s: ["booklet:10", "booklist:1"] },
             { id: "p0105-3", t: "English File (pink) and 1 packet of sheet protectors (10 pieces)", s: ["booklet:10"] },
             { id: "p0105-4", t: "Maths File (blue) and 1 packet of sheet protectors (10 pieces)", s: ["booklet:10"] },
             { id: "p0105-5", t: "Jotter book with lines (for English lessons)", s: ["booklet:10"] }
@@ -369,7 +489,7 @@ window.SACPS_DATA = {
             { t: "Self-collection in school: pre-ordering is strongly encouraged to avoid queues. See the collection dates below.", s: ["booklist:3"] },
             { t: "A one-time packaging fee applies to all orders ($0.10 for plastic or $0.90 for reusable) unless you bring your own bag.", s: ["booklist:3"] },
             { t: "Parents are strongly encouraged to buy online so that the correct edition of each book is supplied.", s: ["booklist:1"] },
-            { t: "Textbooks are sold only in schools, per the booklist.", s: ["booklist:3"] }
+            { t: "Textbooks are sold only in schools.", s: ["booklist:3"] }
           ] },
           { k: "accordion", title: "Self-collection dates (9 am to 3 pm, closed Saturday)", blocks: [
             { k: "table", head: ["Date", "Who may collect"], rows: [
@@ -401,8 +521,7 @@ window.SACPS_DATA = {
         blocks: [
           { k: "ul", items: [
             { t: "Walk-in purchase of books and uniform is on Monday 23 November 2026, from 9.00 am to 3.00 pm, for P1 2027 students only.", s: ["details:2", "booklet:16"] },
-            { t: "There was no sale of books or uniform on orientation day.", s: ["details:2"] },
-            { t: "It is the only walk-in date mentioned in the documents.", s: ["booklet:16"] }
+            { t: "This is the only walk-in date.", s: ["booklet:16"] }
           ] }
         ]
       },
@@ -445,16 +564,16 @@ window.SACPS_DATA = {
             { t: "Sign up in the Parents Gateway app under the Services tab. It sends you to the right application page.", s: ["details:3", "details:4", "details:5"] },
             { t: "Singapore Citizen students get an Edusave account and a yearly contribution automatically. The Edusave standing order lets you use Edusave funds for miscellaneous fees and enrichment programmes.", s: ["details:4"] },
             { t: "The school strongly encourages all parents to join the MOE GIRO scheme. It covers school charges that Edusave cannot be used for, and enrichment programmes when Edusave funds run short. It also helps with refunds and disbursements.", s: ["details:4"] },
-            { t: "Non-Singapore Citizen students: GIRO standing order only. See Annex B in the letter.", s: ["details:5"] },
+            { t: "Non-Singapore Citizen students: GIRO standing order only.", s: ["details:5"] },
             { t: "If you already submitted a GIRO application earlier, do not submit another.", s: ["details:4", "details:5"] },
             { t: "Parents with no access to online forms can ask the school for help.", s: ["details:3"] }
           ] },
           { k: "accordion", title: "Banks that support eGIRO", blocks: [
             { k: "ul", items: [
               { t: "Bank of China (BOC), CIMB, Citibank Singapore, DBS and POSB, ICBC (use the 11-digit account number), OCBC, Standard Chartered (SCB), HSBC, MariBank, UOB.", s: ["details:4", "details:5"] },
-              { t: "Maybank (MAY) is also listed for Singapore Citizen students (Annex A) but not in the non-citizen list (Annex B).", s: ["details:4", "details:5"] }
+              { t: "Maybank (MAY) is also supported for Singapore Citizen students but not for non-Singapore Citizen students.", s: ["details:4", "details:5"] }
             ] },
-            { k: "p", t: "Joint accounts with 2 signatories, corporate accounts, OCBC joint accounts and accounts from banks not listed may ask the school for a hardcopy GIRO form. Trust Bank accounts cannot be used for GIRO. For Singapore Citizen students (Annex A), all applications using Child Development Account (CDA) and other hardcopy GIRO application forms will be rejected. For non-Singapore Citizen students (Annex B), all other hardcopy GIRO application forms will be rejected.", s: ["details:4", "details:5"] }
+            { k: "p", t: "Joint accounts with 2 signatories, corporate accounts, OCBC joint accounts and accounts from banks not listed may ask the school for a hardcopy GIRO form. Trust Bank accounts cannot be used for GIRO. For Singapore Citizen students, all applications using Child Development Account (CDA) and other hardcopy GIRO application forms will be rejected. For non-Singapore Citizen students, all other hardcopy GIRO application forms will be rejected.", s: ["details:4", "details:5"] }
           ] },
           { k: "links", items: [
             { label: "MOE Report to School page", url: "https://www.moe.gov.sg/primary/p1-registration/report-to-school", s: ["details:3"] }
@@ -467,7 +586,7 @@ window.SACPS_DATA = {
         when: "Only if you are applying",
         blocks: [
           { k: "ul", items: [
-            { t: "The school's letter links to the MOE FAS application. Do not buy books or uniform while an application is pending.", s: ["details:2"] }
+            { t: "Apply through the MOE Student Finance Scheme page. Do not buy books or uniform while an application is pending.", s: ["details:2"] }
           ] },
           { k: "links", items: [
             { label: "MOE Student Finance Scheme page", url: "https://studentfinance.moe.gov.sg/sfs", s: ["details:2"] }
@@ -510,7 +629,7 @@ window.SACPS_DATA = {
 
   /* ---------- BOOKLIST (rendered by the "books" block) ---------- */
   booklist: {
-    note: "Prices are as printed and include GST. They may change, so check the Pacific Bookstores website when you order. An asterisk on the booklist means this is the final year MOE uses the book.",
+    note: "Prices include GST. They may change, so check the Pacific Bookstores website when you order. An asterisk (*) means this is the final year MOE uses the book.",
     s: ["booklist:1"],
     common: [
       { name: "English Language", items: [
@@ -586,7 +705,7 @@ window.SACPS_DATA = {
           { t: "Tamil Language For Pri Schools (Inbathamizh) Activity Book P1A", p: 4.15 },
           { t: "Tamil Language For Pri Schools (Inbathamizh) Activity Book P1B", p: 4.15 },
           { t: "Tamil Language For Pri Schools (Inbathamizh) Student Reader and Reading Passport Bundle P1A (Book 1 to 3)", p: 7.35 },
-          { t: "Tamil Language For Pri Schools (Inbathamizh) Student Reader and Reading Passport Bundle P1B (Book 1 to 3, as printed)", p: 7.35 }
+          { t: "Tamil Language For Pri Schools (Inbathamizh) Student Reader and Reading Passport Bundle P1B (Book 1 to 3)", p: 7.35 }
         ],
         cce: { t: "Character and Citizenship Education P1 (Tamil) (Star Pub)", p: 5.45 },
         stationery: [
@@ -654,11 +773,36 @@ window.SACPS_DATA = {
             ["7.40 am", "Lessons begin"],
             ["9.40 to 10.10 am", "Primary 1 recess (30 minutes)"],
             ["10.10 am to 1.30 pm", "Lessons, with a 10-minute snack break in class between 12.00 and 12.30 pm"],
-            ["1.30 pm", "Dismissal. Staggered dismissals begin at 1.30 pm."],
+            ["1.30 pm", "Dismissal. P1 is dismissed at 1.30 pm from 18 Jan (1.20 pm until 15 Jan). Staggered dismissals begin at 1.30 pm."],
             ["6.00 pm", "School closes every day"]
           ], s: ["booklet:4", "slides:32"] },
-          { k: "note", t: "The orientation slides give flag raising at 7.30 am, while the booklet gives 7.25 to 7.40 am for centering, prayers, anthem and pledge. Both are printed, so arrive by 7.25 am.", s: ["slides:32", "booklet:4"] },
+          { k: "note", t: "Students must be seated at the assembly area by 7.25 am. Flag raising is at 7.30 am.", s: ["slides:32", "booklet:4"] },
           { k: "p", t: "SACPS is a single-session school. About 1,200 girls arrive between 7.00 and 7.25 am and leave at staggered times in the afternoon. The secondary school next door has about another 1,200 girls arriving in the morning. The school asks for patience and graciousness at all times.", s: ["slides:33"] }
+        ]
+      },
+      {
+        title: "2027 school terms and holidays",
+        blocks: [
+          { k: "table", head: ["Term", "Dates"], rows: [
+            ["Term 1", "Mon 4 Jan to Fri 12 Mar 2027"],
+            ["Term 2", "Mon 22 Mar to Fri 28 May 2027"],
+            ["Term 3", "Mon 28 Jun to Fri 3 Sep 2027"],
+            ["Term 4", "Mon 13 Sep to Fri 19 Nov 2027"]
+          ], s: ["moe:2027"] },
+          { k: "table", head: ["School holidays", "Dates"], rows: [
+            ["March holidays", "Sat 13 Mar to Sun 21 Mar"],
+            ["June holidays", "Sat 29 May to Sun 27 Jun"],
+            ["September holidays", "Sat 4 Sep to Sun 12 Sep"],
+            ["Year-end holidays", "Sat 20 Nov to Fri 31 Dec"]
+          ], s: ["moe:2027"] },
+          { k: "ul", items: [
+            { t: "Extra school holidays: Mon 5 Jul (Youth Day falls on Sunday, so the next day is a holiday), Tue 10 Aug (day after National Day), Fri 3 Sep (Teachers' Day) and Fri 8 Oct (Children's Day, for primary schools).", s: ["moe:2027"] },
+            { t: "Also no school on Mon 8 Feb (Chinese New Year), Tue 9 Feb (day off), Mon 3 May (day off) and Mon 27 Dec (day off).", s: ["moe:2027"] },
+            { t: "Primary 1 starts on Mon 4 Jan 2027. Primary 2 to 6 start on Tue 5 Jan.", s: ["moe:2027"] }
+          ] },
+          { k: "links", items: [
+            { label: "MOE: school terms and holidays for 2027", url: "https://www.moe.gov.sg/news/press-releases/20260714-school-terms-and-holidays-for-2027" }
+          ] }
         ]
       },
       {
@@ -673,7 +817,7 @@ window.SACPS_DATA = {
           ], s: ["booklet:5", "slides:34"] },
           { k: "ul", items: [
             { t: "St Raphael Gate: parents can drop students off at the car park next to HDB blocks 98 to 100.", s: ["booklet:5", "slides:34"] },
-            { t: "St Joan Gate is used by students taking SBS bus services 17, 17A and 18 at arrival and dismissal. The slides note that this gate belongs to the secondary school.", s: ["booklet:5", "slides:34"] },
+            { t: "St Joan Gate is the gate at the bus stop in front of the school. Students taking SBS bus services 17, 17A and 18 use it at arrival and dismissal. This gate belongs to the secondary school.", s: ["booklet:5", "slides:34"] },
             { t: "St Raphael Gate and St Gabriel Gate close at 7.30 am.", s: ["booklet:4"] },
             { t: "Parents do not enter the school with their daughter on normal days. Teachers or prefects lead her to class.", s: ["booklet:9"] },
             { t: "A video of the gates is on the school website under For Parents, then Useful videos.", s: ["slides:39", "booklet:7"] }
@@ -716,7 +860,7 @@ window.SACPS_DATA = {
             { t: "Regular days: white blouse and pinafore at knee length.", s: ["booklet:13"] },
             { t: "PE days: school PE t-shirt, school shorts and pinafore.", s: ["booklet:13"] },
             { t: "Footwear: white shoes and socks. White socks without 'SACPS' on them are acceptable.", s: ["booklet:13"] },
-            { t: "Hair must be neat. Short hair stays above the collar. Long hair is tied up, and the slides say to tie it if it reaches below chin level.", s: ["booklet:13", "slides:51"] },
+            { t: "Hair must be neat. Short hair stays above the collar. Long hair, or any hair reaching below chin level, is tied up.", s: ["booklet:13", "slides:51"] },
             { t: "Hair accessories are simple and only white, blue or black. Long fringes are held back with a hairband or clips. Bring spare accessories.", s: ["booklet:13", "slides:51"] },
             { t: "Sew or iron on her name tag below the badge on the pinafore and PE t-shirt.", s: ["slides:51", "booklist:2"] }
           ] }
@@ -742,7 +886,7 @@ window.SACPS_DATA = {
           { k: "ul", items: [
             { t: "Keep pocket money to a minimum. $3.00 to $4.00 per day is suggested. Teach her to count money and receive change.", s: ["booklet:21", "slides:56"] },
             { t: "Her purse must be labelled with her name and class and small enough to fit in her pocket.", s: ["booklet:21", "slides:56"] },
-            { t: "Canteen stalls have POSB Smart Buddy terminals for students with the Smart Buddy Watch (the booklet also lists a stored-value Student Concession Card).", s: ["booklet:21", "slides:56"] },
+            { t: "Canteen stalls have POSB Smart Buddy terminals for students with the Smart Buddy Watch or a stored-value Student Concession Card.", s: ["booklet:21", "slides:56"] },
             { t: "Using the POSB Smart Buddy Watch is not compulsory.", s: ["booklet:21", "slides:56"] }
           ] }
         ]
@@ -756,7 +900,6 @@ window.SACPS_DATA = {
             { t: "If she is unwell, keep her at home and see a doctor. Submit the Medical Certificate through Parents Gateway so her Form Teachers know.", s: ["booklet:12", "slides:50"] },
             { t: "Staff do not give any medication, oral or otherwise, in line with MOE guidelines.", s: ["booklet:12", "slides:50"] },
             { t: "Subject teachers keep the work she missed and guide her when she returns.", s: ["booklet:12"] },
-            { t: "The slides also say to have her mask up when she is in school. Check with the school for the current rule.", s: ["slides:50"] },
             { t: "If she becomes unwell at school, the school calls you. Report to the security post first, then go to the General Office. If you drive, you are allowed into the school compound to collect her.", s: ["booklet:18"] },
             { t: "MOE provides Group Personal Accident insurance at no cost. It covers her in school, at school activities wherever they are, and while commuting between home and school.", s: ["booklet:17"] },
             { t: "School dental clinic is run by the Health Promotion Board (HPB). Call 9111 0760 to book an appointment.", s: ["booklet:18"] }
@@ -851,7 +994,7 @@ window.SACPS_DATA = {
             { t: "Check her school bag daily using the timetable, and set up a home routine for worksheets that need to be completed or signed.", s: ["booklet:22"] },
             { t: "Work with her on friendships and resolving conflicts.", s: ["slides:47"] }
           ] },
-          { k: "p", t: "The slides also mention a Parent-Child Activity Book with practical tips.", s: ["slides:57", "slides:58"] }
+          { k: "p", t: "There is a Parent-Child Activity Book with practical tips.", s: ["slides:57", "slides:58"] }
         ]
       },
       {
@@ -869,7 +1012,7 @@ window.SACPS_DATA = {
               { t: "Marine Parade/Katong, Pasir Ris HDB/private estate, Simei, Sunbird/Sea Breeze/Changi Green/Changi Court, Tampines, Tanah Merah Kechil Road/Simpang Bedok, Kembangan/Eunos/Geylang.", s: ["booklet:15"] },
               { t: "Parts of Hougang/Sengkang/Punggol. There is no bus service for after-school activities to these areas.", s: ["booklet:15"] }
             ] },
-            { k: "note", t: "Area names are as printed. Ask the bus vendor whether your address is covered.", s: ["booklet:15"] }
+            { k: "note", t: "Ask the bus vendor whether your address is covered.", s: ["booklet:15"] }
           ] }
         ]
       }
@@ -886,7 +1029,7 @@ window.SACPS_DATA = {
       web: "https://www.stanthonyscanossianpri.moe.edu.sg/",
       facebook: "https://www.facebook.com/SACPS.OFFICIAL/",
       instagram: "https://www.instagram.com/sacps.official/",
-      hours: "Office opening hours are not stated in the documents. Call to check, or look at the school website.",
+      hours: "",
       s: ["details:1", "slides:28"]
     },
     vendors: [
@@ -913,8 +1056,25 @@ window.SACPS_DATA = {
         name: "RAE Transport Services LLP",
         role: "School bus service (bus vendor).",
         phones: ["8606 0845"],
-        note: "Bus vendor contact number, as printed in the booklet (p15).",
+        note: "Bus vendor contact.",
         s: ["booklet:15"]
+      },
+      {
+        name: "YMCA School-based Student Care Centre @ SACPS",
+        role: "School-based student care.",
+        phones: ["6282 8893"],
+        email: "scscc@ymca.edu.sg",
+        web: "https://www.ymca.org.sg/",
+        note: "Open Monday to Friday 10.00 am to 7.00 pm and in school holidays 7.30 am to 7.00 pm. Closed on Saturdays, Sundays and public holidays.",
+        s: ["booklet:7"]
+      },
+      {
+        name: "Morning Star Community Services (Primavera)",
+        role: "Student care opposite the school.",
+        phones: ["8691 8592"],
+        web: "https://www.morningstar.org.sg/",
+        note: "Blk 95 Bedok North Ave 4, #01-1415, Singapore 460095.",
+        s: ["booklet:7"]
       },
       {
         name: "School dental clinic (Health Promotion Board)",
@@ -925,8 +1085,8 @@ window.SACPS_DATA = {
       }
     ],
     care: [
-      { name: "YMCA student care", t: "The school-based student care. Students walk to the YMCA centre. No contact details are given in the documents.", s: ["booklet:7", "booklet:3"] },
-      { name: "Morning Star student care", t: "The student care opposite the school. Students meet the officers at the main foyer next to the General Office. No contact details are given in the documents.", s: ["booklet:7", "booklet:3"] }
+      { name: "YMCA student care", t: "The school-based student care. Students walk to the YMCA centre. Contact details are under Suppliers and services.", s: ["booklet:7", "booklet:3"] },
+      { name: "Morning Star student care", t: "The student care opposite the school. Students meet the officers at the main foyer next to the General Office. Contact details are under Suppliers and services.", s: ["booklet:7", "booklet:3"] }
     ],
     staff: [
       { group: "School leaders", rows: [
@@ -939,7 +1099,7 @@ window.SACPS_DATA = {
         ["Mrs Angela Tan", "Year Head (P1/P2)"]
       ] }
     ],
-    staffNote: "Key roles only, as printed on the orientation slides. The full staff list is in the Orientation for Parents slides (p2) under Documents.",
+    staffNote: "Key roles only.",
     staffSrc: ["slides:2"]
   }
-}
+} as unknown as Content

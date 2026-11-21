@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro"
+import LinkBtn from "../components/LinkBtn.astro"
+import DataTable from "../components/DataTable.astro"
+import { data } from "../data/content"
+import { telHref, waHref } from "../lib/format"
+const C = data.contacts
+const s = C.school
+const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s.address)
+---
+<Base title="Contacts" lead="Tap a number to call or an address to open it. Only school and business contacts are listed.">
+
+  <article class="card contact main-contact">
+    <h2>{s.name}</h2>
+    <p class="role">{s.address}</p>
+    <div class="links">
+      <LinkBtn label={`Call ${s.phone}`} href={telHref(s.phone)} kind="tel" />
+      <LinkBtn label={s.email} href={`mailto:${s.email}`} kind="mail" />
+      <LinkBtn label="Open map" href={mapUrl} kind="map" />
+      <LinkBtn label="School website" href={s.web} kind="web" />
+      <LinkBtn label="Facebook" href={s.facebook} kind="web" />
+      <LinkBtn label="Instagram" href={s.instagram} kind="web" />
+    </div>
+    {s.hours && <p class="hours">{s.hours}</p>}
+    <p>For urgent matters, contact the General Office. Teachers may not reply on the same day.</p>
+  </article>
+
+  <h2>Suppliers and services</h2>
+  <div class="card-grid">
+  {C.vendors.map((v) => (
+    <article class="card contact">
+      <h3>{v.name}</h3>
+      <p class="role">{v.role}</p>
+      {v.person && <p>{v.person}</p>}
+      {v.note && <p>{v.note}</p>}
+      <div class="links">
+        {v.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}
+        {v.whatsapp && <LinkBtn label={`WhatsApp ${v.whatsapp}`} href={waHref(v.whatsapp)} kind="web" />}
+        {v.email && <LinkBtn label={v.email} href={`mailto:${v.email}`} kind="mail" />}
+        {v.web && <LinkBtn label="Website" href={v.web} kind="web" />}
+      </div>
+    </article>
+  ))}
+  </div>
+
+  <h2>Student care</h2>
+  <div class="card-grid">
+  {C.care.map((c) => (
+    <article class="card contact"><h3>{c.name}</h3><p>{c.t}</p></article>
+  ))}
+  </div>
+
+  <h2>Staff and roles</h2>
+  <p class="lead">{C.staffNote}</p>
+  {C.staff.map((g) => (
+    <details class="acc">
+      <summary><span>{g.group}</span></summary>
+      <div class="acc-body"><DataTable head={["Name", "Role"]} rows={g.rows} /></div>
+    </details>
+  ))}
+</Base>

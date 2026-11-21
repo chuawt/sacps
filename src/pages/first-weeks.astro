@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro"
+import Blocks from "../components/Blocks.astro"
+import { data } from "../data/content"
+import { rich } from "../lib/format"
+const W = data.weeks
+const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)}` : undefined)
+---
+<Base title="First weeks" lead={W.intro}>
+  <Fragment slot="head"><p class="head-actions"><a class="btn small" href="#pack">Jump to What to pack</a></p></Fragment>
+
+  <h2 class="section-h first">Day by day</h2>
+  <ol class="timeline">
+    {W.timeline.map((d) => (
+      <li data-from={d.from} data-to={d.to}>
+        <p class="tl-date">{d.label} <span data-today-flag hidden>(today)</span></p>
+        <h3>{d.title}</h3>
+        <ul class="facts">{d.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
+      </li>
+    ))}
+  </ol>
+
+  <h2 id="pack">What to pack</h2>
+  <p class="lead">{W.pack.intro}</p>
+  <div class="pack-grid">
+  {W.pack.groups.map((g) => (
+    <details class="acc" id={g.id} data-pack-group data-day={dayOf(g.id)} data-daily={g.id === "pack-daily" ? "" : undefined}>
+      <summary><span>{g.label}</span><span class="progress js-only" data-progress></span></summary>
+      <div class="acc-body">
+        {g.items.map((it) => (
+          <label class="check" for={it.id}>
+            <input type="checkbox" id={it.id} data-pack />
+            <span><Fragment set:html={rich(it.t)} /></span>
+          </label>
+        ))}
+      </div>
+    </details>
+  ))}
+  </div>
+  <p><Fragment set:html={rich(W.pack.after)} /></p>
+  <div class="btn-row">
+    <button class="btn ghost small js-only" id="clear-ticks" type="button">Clear all ticks</button>
+    <span class="small-note js-only">Ticks are saved on this device only.</span>
+  </div>
+
+  <h2>Handy to know</h2>
+  <Blocks blocks={W.extras as any} />
+</Base>
