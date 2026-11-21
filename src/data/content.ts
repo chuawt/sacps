@@ -8,7 +8,7 @@ import type { Content } from "./types"
 */
 export const data = {
   meta: {
-    title: "Unofficial P1 2027 SACPS Hub",
+    title: "P1 2027 SACPS Hub",
     updated: "2026-11-21",
     timezone: "Asia/Singapore",
     firstDay: "2027-01-04"

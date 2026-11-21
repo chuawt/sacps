@@ -3,7 +3,7 @@ import "../styles/global.css"
 import { data } from "../data/content"
 import { fmt } from "../lib/format"
 interface Props { title: string; description?: string; heading?: string; h1?: string; lead?: string; bare?: boolean }
-const { title, description = "An unofficial parent-run hub for P1 2027 parents at St Anthony's Canossian Primary School, Singapore.", heading, h1, lead, bare = false } = Astro.props
+const { title, description = "A parent-run hub for P1 2027 parents at St Anthony's Canossian Primary School, Singapore.", heading, h1, lead, bare = false } = Astro.props
 const site = data.meta.title
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/"
 const nav = [
@@ -31,7 +31,7 @@ const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | $
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" />
     <script is:inline>
       document.documentElement.classList.add("js")
     </script>
@@ -40,7 +40,6 @@ const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | $
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
-      <p class="unofficial-bar"><span class="page-width">Unofficial site. Run by a parent, not by the school.</span></p>
       <div class="header-inner page-width">
         <a class="brand" href="/">{site}</a>
         <nav class="main-nav" aria-label="Sections">

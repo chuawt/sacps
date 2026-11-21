@@ -16,13 +16,6 @@ try {
 } catch {
   hero = null
 }
-const tiles = [
-  { href: "/first-weeks/", title: "First weeks", text: "The first days, day by day, and what to pack." },
-  { href: "/before-school/", title: "Before school", text: "Books, uniform, nametags, forms and payments." },
-  { href: "/school-life/", title: "School life", text: "School day, hours, pick-up, uniform, recess and more." },
-  { href: "/contacts/", title: "Contacts", text: "School office, suppliers and student care." },
-  { href: "/about/", title: "About this site", text: "Who runs it, and what it is not." },
-]
 ---
 <Base title="Coming up" heading="Coming up" h1="P1 2027 at St Anthony's Canossian Primary School" bare>
   <section class="hero">
@@ -34,7 +27,7 @@ const tiles = [
     <div class="page-width hero-inner">
       <div class="hero-text">
         <p class="eyebrow">For P1 2027 parents</p>
-        <h1>Unofficial P1 2027 SACPS Hub</h1>
+        <h1>P1 2027 SACPS Hub</h1>
         <p class="hero-lead">Dates, to-dos and school routines for parents of daughters starting Primary 1 at St Anthony's Canossian Primary School in January 2027.</p>
         <aside class="next-card js-only" id="next-up" aria-live="polite" hidden>
           <p class="next-eyebrow">Next date</p>
@@ -43,21 +36,11 @@ const tiles = [
           <p class="next-when" data-next-when></p>
           <a class="btn small" data-next-link href="/before-school/">See the details</a>
         </aside>
-        <p class="hero-note">Run by a parent, not by the school. Check <strong>Parents Gateway</strong> and school announcements for updates.</p>
       </div>
     </div>
   </section>
 
-  <section class="page-width tiles-wrap" aria-labelledby="explore">
-    <h2 class="eyebrow-h" id="explore">Find your way around</h2>
-    <ul class="tiles">
-      {tiles.map((t) => (
-        <li><a class="tile" href={t.href}><span class="tile-title">{t.title}</span><span class="tile-text">{t.text}</span></a></li>
-      ))}
-    </ul>
-  </section>
-
-  <div class="page-width page-body home-grid">
+  <div class="page-width page-body">
     <div class="home-main">
       <h2 class="section-h first">Coming up</h2>
       <p class="lead">Dates are counted in Singapore time. Items drop off after they pass.</p>
@@ -95,7 +78,6 @@ const tiles = [
           <div><dt>{k.label}</dt><dd>{k.value}</dd></div>
         ))}
       </dl>
-      <p>More in <a href="/school-life/">School life</a>. Phone and address are under <a href="/contacts/">Contacts</a>.</p>
     </aside>
   </div>
 </Base>
