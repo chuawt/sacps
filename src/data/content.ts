@@ -71,8 +71,8 @@ export const data = {
     {
       date: "2026-11-30",
       time: "",
-      title: "Order iron-on nametags by today for delivery in January",
-      detail: "Orders in by this date reach your daughter through her Form Teacher in January 2027. Book self-collection for P1 to P3 is also open today.",
+      title: "Order iron-on nametags by this date for delivery in January",
+      detail: "Orders in by this date reach your daughter through her Form Teacher in January 2027. Book self-collection for P1 to P3 is also open on this date.",
       go: "before",
       s: ["booklist:2", "booklist:3"]
     },
@@ -95,7 +95,7 @@ export const data = {
     {
       date: "2026-12-14",
       time: "",
-      title: "Order iron-on nametags by today for delivery in February",
+      title: "Order iron-on nametags by this date for delivery in February",
       detail: "Orders in by this date reach your daughter through her Form Teacher in February 2027.",
       go: "before",
       s: ["booklist:2"]
@@ -137,7 +137,7 @@ export const data = {
     {
       date: "2027-01-08",
       time: "",
-      title: "From today, pack the school bag by the class timetable",
+      title: "From this date, pack the school bag by the class timetable",
       detail: "Friday 8 January onwards.",
       go: "weeks",
       s: ["booklet:10"]
