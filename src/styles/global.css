@@ -361,10 +361,10 @@ details.acc > summary:has(.progress)::after { margin-left: 0; }
 .links + p { margin-top: 14px; }
 
 /* ---------- about ---------- */
-.about-grid { display: grid; gap: 4px 36px; margin-bottom: 8px; }
+.about-grid { display: grid; gap: 4px; max-width: 70ch; margin-bottom: 8px; }
 .about-grid section { padding-top: 4px; }
 .about-grid h2 { margin-top: 28px; font-size: 1.3rem; }
-@media (min-width: 760px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+
 
 .books h4 { margin-top: 26px; }
 
