@@ -35,7 +35,7 @@ const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | $
     <script is:inline>
       document.documentElement.classList.add("js")
     </script>
-    {Astro.url.pathname === "/" && <link rel="preload" as="image" href="/hero/hero.webp" type="image/webp" fetchpriority="high" />}
+    {Astro.url.pathname === "/" && <link rel="preload" as="image" imagesrcset="/hero/hero-1280.webp 1280w, /hero/hero.webp 2560w" imagesizes="100vw" type="image/webp" fetchpriority="high" />}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

@@ -18,8 +18,8 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
       <LinkBtn label={s.email} href={`mailto:${s.email}`} kind="mail" />
       <LinkBtn label="Open map" href={mapUrl} kind="map" />
       <LinkBtn label="School website" href={s.web} kind="web" />
-      <LinkBtn label="Facebook" href={s.facebook} kind="web" />
-      <LinkBtn label="Instagram" href={s.instagram} kind="web" />
+      <LinkBtn label="Facebook" href={s.facebook} kind="facebook" />
+      <LinkBtn label="Instagram" href={s.instagram} kind="instagram" />
     </div>
     {s.hours && <p class="hours">{s.hours}</p>}
     <p>For urgent matters, contact the General Office. Teachers may not reply on the same day.</p>
@@ -35,7 +35,7 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
       {v.note && <p>{v.note}</p>}
       <div class="links">
         {v.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}
-        {v.whatsapp && <LinkBtn label={`WhatsApp ${v.whatsapp}`} href={waHref(v.whatsapp)} kind="web" />}
+        {v.whatsapp && <LinkBtn label={`WhatsApp ${v.whatsapp}`} href={waHref(v.whatsapp)} kind="whatsapp" />}
         {v.email && <LinkBtn label={v.email} href={`mailto:${v.email}`} kind="mail" />}
         {v.web && <LinkBtn label="Website" href={v.web} kind="web" />}
       </div>
@@ -46,7 +46,16 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
   <h2>Student care</h2>
   <div class="card-grid">
   {C.care.map((c) => (
-    <article class="card contact"><h3>{c.name}</h3><p>{c.t}</p></article>
+    <article class="card contact">
+      <h3>{c.name}</h3>
+      <p>{c.t}</p>
+      {c.note && <p>{c.note}</p>}
+      <div class="links">
+        {c.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}
+        {c.email && <LinkBtn label={c.email} href={`mailto:${c.email}`} kind="mail" />}
+        {c.web && <LinkBtn label="Website" href={c.web} kind="web" />}
+      </div>
+    </article>
   ))}
   </div>
 
