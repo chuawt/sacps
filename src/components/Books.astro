@@ -21,14 +21,20 @@ B.common.forEach((g) => g.items.forEach((it, i) => common.push([i === 0 ? g.name
   </details>
 
   <h4>Mother Tongue books and Character and Citizenship Education book</h4>
-  <p class="lead">These differ by language. Open the one that applies.</p>
+  <p class="lead">These differ by language. Pick the one that applies.</p>
+  <div class="mt-picker js-only" role="group" aria-label="Mother Tongue" data-mt-picker>
+    {B.mt.map((m) => (
+      <button class="btn ghost small" type="button" data-mt={m.id} aria-pressed="false" aria-label={m.name}>{m.id === "el" ? "Exempted" : m.id.toUpperCase()}</button>
+    ))}
+  </div>
+  <p class="small-note js-only" data-mt-hint>Choose one to see its books and prices.</p>
   {B.mt.map((m) => {
     const sub: string[] = []
     if (m.items.length) sub.push("Books " + money(m.total))
     sub.push("CCE book " + money(m.cce.p))
     if (m.stationery.length) sub.push("Language stationery " + money(m.stationeryTotal))
     return (
-      <details class="acc">
+      <details class="acc" data-mt-group={m.id}>
         <summary><span class="sum-main"><span>{m.name}</span><span class="sum-sub">{sub.join(", ")}</span></span></summary>
         <div class="acc-body">
           {m.items.length > 0 && <PriceTable head={["Book", "Price"]} rows={m.items.map((it) => [it.t, money(it.p)])} totalLabel="Subtotal" total={m.total} />}

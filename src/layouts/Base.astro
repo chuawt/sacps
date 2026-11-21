@@ -14,6 +14,8 @@ const nav = [
   { href: "/contacts", label: "Contacts" },
 ]
 const footNav = [...nav, { href: "/about", label: "About" }]
+const tl = data.weeks.timeline
+const phaseDates = { firstDay: data.meta.firstDay, lastDay: tl[tl.length - 1].to }
 const updated = fmt(data.meta.updated, { day: "numeric", month: "long", year: "numeric" })
 const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | ${site}`
 ---
@@ -32,8 +34,28 @@ const pageTitle = path === "/" ? `${heading ?? title} | ${site}` : `${title} | $
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" />
-    <script is:inline>
+    <script is:inline define:vars={{ phaseDates }}>
+      /* Sets html[data-phase] (before, weeks or after) in Singapore time before first paint. ?today= works on localhost only. */
       document.documentElement.classList.add("js")
+      try {
+        const host = location.hostname
+        const local = host === "localhost" || host === "127.0.0.1" || host === "[::1]"
+        const q = new URLSearchParams(location.search).get("today")
+        let today
+        if (local && q && /^\d{4}-\d{2}-\d{2}$/.test(q)) today = q
+        else {
+          const o = {}
+          new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Singapore", year: "numeric", month: "2-digit", day: "2-digit" })
+            .formatToParts(new Date())
+            .forEach((p) => (o[p.type] = p.value))
+          today = o.year + "-" + o.month + "-" + o.day
+        }
+        const root = document.documentElement
+        root.dataset.today = today
+        root.dataset.phase = today < phaseDates.firstDay ? "before" : today <= phaseDates.lastDay ? "weeks" : "after"
+      } catch (e) {
+        /* no phase: the page shows its no-JS tiles */
+      }
     </script>
     {Astro.url.pathname === "/" && <link rel="preload" as="image" imagesrcset="/hero/hero-1280.webp 1280w, /hero/hero.webp 2560w" imagesizes="100vw" type="image/webp" fetchpriority="high" />}
   </head>
