@@ -119,6 +119,9 @@ main:focus { outline: none; }
 .footer-inner p { margin: 0 0 8px; max-width: 46ch; }
 .foot-name { color: var(--foot-ink); font: 700 1.2rem/1.25 var(--display); }
 .foot-date { margin-top: 14px; font-size: .88rem; }
+.foot-built { font-size: .88rem; }
+.foot-built a { color: var(--foot-ink); text-underline-offset: 3px; }
+.foot-built a:hover { text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
 .foot-nav a { color: var(--foot-ink); display: inline-block; padding: 8px 0; text-underline-offset: 4px; }
 .foot-nav a:hover { color: var(--foot-ink); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
 .foot-nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
