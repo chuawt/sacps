@@ -2,7 +2,7 @@
 
 > A phone-friendly hub that gives P1 2027 parents at St Anthony's Canossian Primary School one calm place for dates, to-dos and school routines.
 
-Live demo: not deployed yet (planned as the Cloudflare Worker `sacps`) · [Repository](https://github.com/chuawt/sacps) · Status: in development
+Live site: [sacps.mugenno.com](https://sacps.mugenno.com) · [Repository](https://github.com/chuawt/sacps) · Status: live (v0.1.x)
 
 The P1 2027 SACPS Hub is run by a parent. It is for every parent whose child starts Primary 1 at St Anthony's Canossian Primary School (SACPS), Singapore, in 2027. It turns the school's P1 documents into a short "what is next" view, a first-weeks guide, a before-school to-do list, school reference notes and contacts. It is not run or endorsed by the school.
 
