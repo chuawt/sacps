@@ -33,7 +33,7 @@ The school shares its P1 information across a letter, a booklet, a slide deck an
 ### Features
 
 * See what matters now. The homepage picks quick-answer tiles for the phase (before school, the first two weeks, or the rest of 2027) in Singapore time, shows a next-date card with a countdown, and groups Coming up into Before school starts, First two weeks and Rest of 2027, with the long list of term dates behind "Show all dates". Past items drop off by themselves.
-* Work through the Get ready jobs in deadline order. Mark each as done, see "N of 9 jobs done", and watch done or passed jobs move into a "Done or passed" group.
+* Work through the Get ready tasks in deadline order. Mark each as done, see "N of 9 tasks done", and watch done or passed tasks move into a "Done or passed" group.
 * Read the booklist with prices and pick one Mother Tongue group (CL, ML, TL or Exempted). The choice is saved on the device.
 * Follow the first-weeks timeline (4 to 15 January 2027) with a Today banner, past days folded away, and a day-by-day packing list that is saved on the device and shows "n of m" ticked. Print the packing list with one button.
 * Look up school hours, terms, gates, dismissal, bus, student care, uniform, food, health and safety, learning and settling in. School life has group chips on a phone, a sticky section list on a computer that follows where you are, and an "Open all" button.

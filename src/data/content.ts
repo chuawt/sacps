@@ -486,7 +486,7 @@ export const data = {
 
   /* ---------- BEFORE SCHOOL STARTS ---------- */
   before: {
-    intro: "One-off jobs, grouped by deadline. Dates are in Singapore time.",
+    intro: "One-off tasks, grouped by deadline. Dates are in Singapore time.",
     groups: [
       { id: "start", title: "Start here" },
       { id: "deadlines", title: "Deadlines, in date order" },
