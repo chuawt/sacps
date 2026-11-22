@@ -144,7 +144,29 @@ if (list) {
   list.querySelectorAll<HTMLElement>("[data-ev-group]").forEach((g) => {
     const visible = Array.from(g.querySelectorAll<HTMLElement>("[data-event]")).filter((li) => !li.hidden)
     g.hidden = visible.length === 0
-    if (g.dataset.evGroup !== "rest" || !visible.length || phase === "after") return
+    if (!visible.length) return
+    if (g.dataset.evGroup !== "rest" || phase === "after") {
+      /* show the first 3 upcoming items, with one button for the rest of the group */
+      const extra = visible.slice(3)
+      if (!extra.length) return
+      extra.forEach((li) => (li.hidden = true))
+      const more = document.createElement("button")
+      more.type = "button"
+      more.className = "btn small ghost ev-more"
+      more.setAttribute("aria-expanded", "false")
+      more.textContent = `Show ${extra.length} more`
+      g.appendChild(more)
+      more.addEventListener("click", () => {
+        more.setAttribute("aria-expanded", "true")
+        extra.forEach((li) => {
+          li.hidden = false
+          if (!reduced) li.classList.add("ev-in")
+        })
+        more.hidden = true
+        extra[0].querySelector<HTMLElement>("a")?.focus({ preventScroll: true })
+      })
+      return
+    }
     const row = g.querySelector<HTMLElement>("[data-ev-collapsed]")
     const btn = g.querySelector<HTMLButtonElement>("[data-show-all]")
     const count = g.querySelector<HTMLElement>("[data-ev-rest-count]")
@@ -154,6 +176,7 @@ if (list) {
     g.classList.add("is-collapsed")
     row.hidden = false
     btn.addEventListener("click", () => {
+      btn.setAttribute("aria-expanded", "true")
       g.classList.remove("is-collapsed")
       visible.forEach((li) => {
         li.hidden = false
@@ -398,7 +421,10 @@ if (lifeNav) {
   if (wide.matches) sections.forEach((s) => (s.open = true))
   const toggle = document.querySelector<HTMLButtonElement>("[data-open-all]")
   const label = () => {
-    if (toggle) toggle.textContent = sections.every((s) => s.open) ? "Close all" : "Open all"
+    if (!toggle) return
+    const all = sections.every((s) => s.open)
+    toggle.textContent = all ? "Close all" : "Open all"
+    toggle.setAttribute("aria-pressed", String(all))
   }
   sections.forEach((s) => s.addEventListener("toggle", label))
   toggle?.addEventListener("click", () => {
