@@ -1,10 +1,10 @@
 ---
 import { rich } from "../lib/format"
-interface Props { head?: string[]; rows: string[][] }
-const { head = [], rows } = Astro.props
+interface Props { head?: string[]; rows: string[][]; plain?: boolean }
+const { head = [], rows, plain = false } = Astro.props
 ---
 <div class="table-wrap">
-  <table class="stack">
+  <table class={plain ? "plain" : "stack"}>
     {head.length > 0 && (
       <thead><tr>{head.map((c) => <th scope="col">{c}</th>)}</tr></thead>
     )}

@@ -14,7 +14,7 @@ export const data = {
     firstDay: "2027-01-04"
   },
 
-  /* School documents. Source chips show them as plain labels (nothing links to a file). The About page lists them by title and date. */
+  /* School documents. Source chips show them as plain labels (nothing links to a file). Nothing renders them yet. */
   refDocs: [
     {
       id: "details",
@@ -58,6 +58,7 @@ export const data = {
       title: "Walk-in sale of books and uniform in school",
       detail: "For P1 2027 students only. Online orders of P1 books can also be collected on this day.",
       go: "before",
+      href: "/before-school/#step-walkin",
       s: ["details:2", "booklist:3", "booklet:16"]
     },
     {
@@ -66,14 +67,16 @@ export const data = {
       title: "Book self-collection for P1 to P3",
       detail: "For books ordered online from Pacific Bookstores. Collection is also open on 30 November for P1 to P3.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3"]
     },
     {
       date: "2026-11-30",
       time: "",
-      title: "Order iron-on nametags by today for delivery in January",
-      detail: "Orders in by this date reach your daughter through her Form Teacher in January 2027. Book self-collection for P1 to P3 is also open today.",
+      title: "Order iron-on nametags by this date for delivery in January",
+      detail: "Orders in by this date reach your daughter through her Form Teacher in January 2027. Book self-collection for P1 to P3 is also open on this date.",
       go: "before",
+      href: "/before-school/#step-nametags",
       s: ["booklist:2", "booklist:3"]
     },
     {
@@ -82,6 +85,7 @@ export const data = {
       title: "Deadline to sign up for GIRO and Edusave standing orders",
       detail: "Sign up through the Services tab in the Parents Gateway app.",
       go: "before",
+      href: "/before-school/#step-giro",
       s: ["details:3", "details:4"]
     },
     {
@@ -90,22 +94,25 @@ export const data = {
       title: "Pacific Bookstores website closes",
       detail: "Subject to slot availability, so order early.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3", "booklet:16"]
     },
     {
       date: "2026-12-14",
       time: "",
-      title: "Order iron-on nametags by today for delivery in February",
+      title: "Order iron-on nametags by this date for delivery in February",
       detail: "Orders in by this date reach your daughter through her Form Teacher in February 2027.",
       go: "before",
+      href: "/before-school/#step-nametags",
       s: ["booklist:2"]
     },
     {
       date: "2026-12-16",
       time: "9.00 am to 3.00 pm",
       title: "Last listed day for book self-collection",
-      detail: "Open to all levels. See the full list of collection dates under Before school starts.",
+      detail: "Open to all levels. See the full list of collection dates under Get ready.",
       go: "before",
+      href: "/before-school/#step-books",
       s: ["booklist:3"]
     },
     {
@@ -114,6 +121,7 @@ export const data = {
       title: "First day of school (P1 only)",
       detail: "Arrive between 8.45 am and 8.55 am. Parents are encouraged to bring their daughter and stay for the Parent Engagement Session.",
       go: "weeks",
+      href: "/first-weeks/#d0104",
       s: ["booklet:2", "booklet:3", "slides:43"]
     },
     {
@@ -123,6 +131,7 @@ export const data = {
       title: "P1 early dismissal",
       detail: "From Tuesday 5 January, school runs from 7.25 am. P1 is dismissed at 1.20 pm until 15 January to ease parent traffic. Your daughter's class timetable arrives by 5 January.",
       go: "weeks",
+      href: "/school-life/#dismissal-and-pick-up-points",
       s: ["slides:46", "booklet:9", "booklet:10"]
     },
     {
@@ -132,15 +141,27 @@ export const data = {
       title: "P4 buddy looks after your daughter at recess",
       detail: "Tuesday to Thursday, three school days.",
       go: "weeks",
+      href: "/first-weeks/#d0105",
       s: ["booklet:9", "slides:46"]
     },
     {
       date: "2027-01-08",
       time: "",
-      title: "From today, pack the school bag by the class timetable",
+      title: "From this date, pack the school bag by the class timetable",
       detail: "Friday 8 January onwards.",
       go: "weeks",
+      href: "/first-weeks/#pack",
       s: ["booklet:10"]
+    },
+    {
+      date: "2027-02-08",
+      endDate: "2027-02-09",
+      time: "",
+      title: "No school (Chinese New Year and day off)",
+      detail: "Monday 8 February is Chinese New Year and Tuesday 9 February is a day off.",
+      go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
+      s: ["moe:2027"]
     },
     {
       date: "2027-03-12",
@@ -148,6 +169,7 @@ export const data = {
       title: "Term 1 ends",
       detail: "Last day of Term 1.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -157,6 +179,7 @@ export const data = {
       title: "March school holidays",
       detail: "Term 2 starts on Monday 22 March.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -165,6 +188,16 @@ export const data = {
       title: "Term 2 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
+      s: ["moe:2027"]
+    },
+    {
+      date: "2027-05-03",
+      time: "",
+      title: "No school (day off)",
+      detail: "Monday 3 May is a day off.",
+      go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -173,6 +206,7 @@ export const data = {
       title: "Term 2 ends",
       detail: "Last day of Term 2.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -182,6 +216,7 @@ export const data = {
       title: "June school holidays",
       detail: "Term 3 starts on Monday 28 June.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -190,6 +225,7 @@ export const data = {
       title: "Term 3 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -198,6 +234,7 @@ export const data = {
       title: "School holiday (Youth Day)",
       detail: "Youth Day falls on Sunday 4 July, so Monday 5 July is a school holiday.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -206,6 +243,7 @@ export const data = {
       title: "School holiday (day after National Day)",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -214,6 +252,7 @@ export const data = {
       title: "Term 3 ends (Teachers' Day)",
       detail: "Last day of Term 3 and a school holiday for Teachers' Day.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -223,6 +262,7 @@ export const data = {
       title: "September school holidays",
       detail: "Term 4 starts on Monday 13 September.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -231,6 +271,7 @@ export const data = {
       title: "Term 4 starts",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -239,6 +280,7 @@ export const data = {
       title: "School holiday (Children's Day)",
       detail: "Primary schools only.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -247,6 +289,7 @@ export const data = {
       title: "Term 4 ends",
       detail: "Last day of the 2027 school year.",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     },
     {
@@ -256,6 +299,7 @@ export const data = {
       title: "Year-end school holidays",
       detail: "",
       go: "life",
+      href: "/school-life/#2027-school-terms-and-holidays",
       s: ["moe:2027"]
     }
   ],
@@ -425,7 +469,8 @@ export const data = {
     extras: [
       {
         k: "accordion",
-        title: "Temporary nametag",
+        id: "temporary-nametag",
+        title: "Temporary plastic nametag (first month)",
         blocks: [
           { k: "ul", items: [
             { t: "A temporary plastic nametag is given on the first day. Staff use it to see her class, her school bus and the gate she goes to at dismissal.", s: ["booklet:8"] },
@@ -435,36 +480,23 @@ export const data = {
             { t: "If she meets an older sibling, remind her to meet in the canteen by the piano.", s: ["booklet:8"] }
           ] }
         ]
-      },
-      {
-        k: "accordion",
-        title: "Class timetable acronyms",
-        blocks: [
-          { k: "table", head: ["Subject", "Short form"], rows: [
-            ["English Language", "EL"],
-            ["Mathematics", "MA"],
-            ["Mother Tongue (Chinese, Malay or Tamil)", "CL / ML / TL"],
-            ["Physical Education", "PE"],
-            ["Form Teacher Guidance Period", "FTGP"],
-            ["Visual Art", "ART"],
-            ["Music", "MU"],
-            ["Pastoral Care", "PC"],
-            ["Programme for Active Learning", "PAL"],
-            ["Social Studies", "SS"],
-            ["Canossians Connect", "CC"]
-          ], s: ["booklet:11"] },
-          { k: "p", t: "Science starts from P3. FTGP and CC lessons build teacher-student and student-student relationships and social and emotional skills.", s: ["booklet:11"] }
-        ]
       }
     ]
   },
 
   /* ---------- BEFORE SCHOOL STARTS ---------- */
   before: {
-    intro: "One-off jobs, roughly in date order. Dates are in Singapore time.",
+    intro: "One-off jobs, grouped by deadline. Dates are in Singapore time.",
+    groups: [
+      { id: "start", title: "Start here" },
+      { id: "deadlines", title: "Deadlines, in date order" },
+      { id: "anytime", title: "Any time before 4 Jan" },
+      { id: "applies", title: "Only if it applies" }
+    ],
     steps: [
       {
         id: "pg",
+        group: "start",
         title: "Set up Parents Gateway",
         when: "Before school starts",
         blocks: [
@@ -476,45 +508,8 @@ export const data = {
         ]
       },
       {
-        id: "books",
-        title: "Order books and stationery",
-        when: "Website open from 11 Nov, closes 12 Dec",
-        deadline: "2026-12-12",
-        blocks: [
-          { k: "ul", items: [
-            { t: "The school bookshop is run by Pacific Bookstores Pte Ltd. Order online at pacificbookstores.com. Register for an account first if you are a new user (top-right of the website).", s: ["details:2", "booklet:16", "booklist:3"] },
-            { t: "Website opened on 11 November 2026 and closes on 12 December 2026, subject to slot availability.", s: ["booklist:3", "booklet:16"] },
-            { t: "Payment is taken at order by Visa, Mastercard, debit card or PayNow.", s: ["booklist:3"] },
-            { t: "Home delivery: delivery charge of $15.80 applies.", s: ["booklist:3"] },
-            { t: "Self-collection in school: pre-ordering is strongly encouraged to avoid queues. See the collection dates below.", s: ["booklist:3"] },
-            { t: "A one-time packaging fee applies to all orders ($0.10 for plastic or $0.90 for reusable) unless you bring your own bag.", s: ["booklist:3"] },
-            { t: "Parents are strongly encouraged to buy online so that the correct edition of each book is supplied.", s: ["booklist:1"] },
-            { t: "Textbooks are sold only in schools.", s: ["booklist:3"] }
-          ] },
-          { k: "accordion", title: "Self-collection dates (9 am to 3 pm, closed Saturday)", blocks: [
-            { k: "table", head: ["Date", "Who may collect"], rows: [
-              ["Mon 23 Nov 2026", "Online P1 orders only"],
-              ["Thu 26 Nov 2026", "P1 to P3"],
-              ["Fri 27 Nov 2026", "P4 to P6"],
-              ["Mon 30 Nov 2026", "P1 to P3"],
-              ["Tue 1 Dec 2026", "P4 to P6"],
-              ["Wed 2 Dec 2026", "All levels"],
-              ["Fri 4 Dec 2026", "All levels"],
-              ["Tue 8 Dec 2026", "All levels"],
-              ["Wed 9 Dec 2026", "All levels"],
-              ["Fri 11 Dec 2026", "All levels"],
-              ["Tue 15 Dec 2026", "All levels"],
-              ["Wed 16 Dec 2026", "All levels"]
-            ], s: ["booklist:3"] },
-            { k: "note", t: "Pacific Bookstores operating hours on collection days are Monday to Friday 9 am to 3 pm, with lunch from 12 noon to 1 pm. Saturday is closed.", s: ["booklist:3"] }
-          ] },
-          { k: "note", tone: "info", t: "If you miss the walk-in day, order online and choose self-collection in school (school books only) or home delivery (school books and uniform or PE attire).", s: ["booklet:16"] },
-          { k: "note", t: "Items bought are non-refundable. To exchange, go to the school bookshop within 1 week of purchase with the booklist and the official receipt. Items must be in original condition.", s: ["booklist:1"] },
-          { k: "books" }
-        ]
-      },
-      {
         id: "walkin",
+        group: "deadlines",
         title: "Walk-in sale in school",
         when: "Mon 23 Nov 2026, 9 am to 3 pm",
         deadline: "2026-11-23",
@@ -526,21 +521,8 @@ export const data = {
         ]
       },
       {
-        id: "uniform",
-        title: "Buy school uniform and PE attire",
-        when: "Online all year, or walk-in 23 Nov",
-        blocks: [
-          { k: "ul", items: [
-            { t: "The uniform supplier is Magdalene Sewing Centre Pte Ltd. Order online at magdalene.com.sg (the website is available year-round) or walk in on 23 November.", s: ["details:2", "booklet:16"] },
-            { t: "The school recommends 3 sets of uniform (blouse and pinafore) and 3 sets of PE attire.", s: ["booklet:16"] },
-            { t: "Home delivery covers books and uniform or PE attire. Self-collection in school is for school books only.", s: ["booklet:16"] },
-            { t: "Regular days: white blouse and pinafore at knee length. PE days: school PE t-shirt, school shorts and pinafore. White shoes and socks.", s: ["booklet:13"] }
-          ] },
-          { k: "note", t: "If you are applying for the MOE Financial Assistance Scheme (FAS), the school asks you not to buy any books or uniform. Apply and wait for MOE or the school to tell you the outcome.", s: ["details:2"] }
-        ]
-      },
-      {
         id: "nametags",
+        group: "deadlines",
         title: "Order iron-on nametags",
         when: "30 Nov for January, 14 Dec for February",
         deadlines: ["2026-11-30", "2026-12-14"],
@@ -556,6 +538,7 @@ export const data = {
       },
       {
         id: "giro",
+        group: "deadlines",
         title: "Set up GIRO and Edusave standing orders",
         when: "By Fri 11 Dec 2026",
         deadline: "2026-12-11",
@@ -581,7 +564,95 @@ export const data = {
         ]
       },
       {
+        id: "books",
+        group: "deadlines",
+        title: "Order books and stationery",
+        when: "Website open from 11 Nov, closes 12 Dec",
+        deadlines: ["2026-12-12", "2026-12-16"],
+        blocks: [
+          { k: "ul", items: [
+            { t: "The school bookshop is run by Pacific Bookstores Pte Ltd. Order online at pacificbookstores.com. Register for an account first if you are a new user (top-right of the website).", s: ["details:2", "booklet:16", "booklist:3"] },
+            { t: "Website opened on 11 November 2026 and closes on 12 December 2026, subject to slot availability.", s: ["booklist:3", "booklet:16"] },
+            { t: "Payment is taken at order by Visa, Mastercard, debit card or PayNow.", s: ["booklist:3"] },
+            { t: "Home delivery: delivery charge of $15.80 applies.", s: ["booklist:3"] },
+            { t: "Self-collection in school: pre-ordering is strongly encouraged to avoid queues. See the collection dates below.", s: ["booklist:3"] },
+            { t: "A one-time packaging fee applies to all orders ($0.10 for plastic or $0.90 for reusable) unless you bring your own bag.", s: ["booklist:3"] },
+            { t: "Parents are strongly encouraged to buy online so that the correct edition of each book is supplied.", s: ["booklist:1"] },
+            { t: "Textbooks are sold only in schools.", s: ["booklist:3"] }
+          ] },
+          { k: "h", t: "Self-collection dates (9 am to 3 pm, closed Saturday)" },
+          { k: "table", plain: true, head: ["Date", "Who may collect"], rows: [
+            ["Mon 23 Nov 2026", "Online P1 orders only"],
+            ["Thu 26 Nov 2026", "P1 to P3"],
+            ["Fri 27 Nov 2026", "P4 to P6"],
+            ["Mon 30 Nov 2026", "P1 to P3"],
+            ["Tue 1 Dec 2026", "P4 to P6"],
+            ["Wed 2 Dec 2026", "All levels"],
+            ["Fri 4 Dec 2026", "All levels"],
+            ["Tue 8 Dec 2026", "All levels"],
+            ["Wed 9 Dec 2026", "All levels"],
+            ["Fri 11 Dec 2026", "All levels"],
+            ["Tue 15 Dec 2026", "All levels"],
+            ["Wed 16 Dec 2026", "All levels"]
+          ], s: ["booklist:3"] },
+          { k: "note", t: "Pacific Bookstores operating hours on collection days are Monday to Friday 9 am to 3 pm, with lunch from 12 noon to 1 pm. Saturday is closed.", s: ["booklist:3"] },
+          { k: "note", tone: "info", t: "If you miss the walk-in day, order online and choose self-collection in school (school books only) or home delivery (school books and uniform or PE attire).", s: ["booklet:16"] },
+          { k: "note", t: "Items bought are non-refundable. To exchange, go to the school bookshop within 1 week of purchase with the booklist and the official receipt. Items must be in original condition.", s: ["booklist:1"] },
+          { k: "links", items: [
+            { label: "See the booklist and prices", url: "#booklist" }
+          ] }
+        ]
+      },
+      {
+        id: "uniform",
+        group: "anytime",
+        title: "Buy school uniform and PE attire",
+        when: "Online all year, or walk-in 23 Nov",
+        blocks: [
+          { k: "ul", items: [
+            { t: "The uniform supplier is Magdalene Sewing Centre Pte Ltd. Order online at magdalene.com.sg (the website is available year-round) or walk in on 23 November.", s: ["details:2", "booklet:16"] },
+            { t: "The school recommends 3 sets of uniform (blouse and pinafore) and 3 sets of PE attire.", s: ["booklet:16"] },
+            { t: "Home delivery covers books and uniform or PE attire. Self-collection in school is for school books only.", s: ["booklet:16"] },
+            { t: "What she wears on regular days and PE days, with shoes, socks and hair, is under [Uniform, PE attire and appearance](/school-life/#uniform-pe-attire-and-appearance) in School life.", s: ["booklet:13"] }
+          ] }
+        ]
+      },
+      {
+        id: "dismissal-choice",
+        group: "anytime",
+        title: "Choose a dismissal mode and pick-up point",
+        when: "Before 4 Jan",
+        blocks: [
+          { k: "ul", items: [
+            { t: "Decide how your daughter goes home and write the pick-up point on her temporary nametag. Keep it consistent.", s: ["booklet:7", "slides:40"] },
+            { t: "Please do not make unnecessary or last-minute changes.", s: ["slides:40"] },
+            { t: "Every pick-up point is listed under [Dismissal and pick-up points](/school-life/#dismissal-and-pick-up-points) in School life, with the gate times and school bus areas in the same group.", s: ["booklet:7"] }
+          ] }
+        ]
+      },
+      {
+        id: "prep",
+        group: "anytime",
+        title: "Label things and practise independence",
+        when: "Any time before term",
+        blocks: [
+          { k: "ul", items: [
+            { t: "Label pinafore, shoes, water bottle, snack boxes, planner, files and stationery with her name and class.", s: ["booklet:22"] },
+            { t: "Write her name on the soles or inside both shoes. She takes her shoes off before entering special rooms.", s: ["booklet:22"] },
+            { t: "Practise: dressing, including putting on and removing the pinafore and shoes, using the toilet, managing hygiene and hand washing, tying her own hair and shoelaces, and taking her temperature with a thermometer.", s: ["booklet:22", "slides:26"] },
+            { t: "Other skills the school suggests: packing her own bag by the timetable, buying food and managing money, making healthy choices, knowing her full name, class and teachers, and knowing when and how to ask an adult for help.", s: ["slides:26", "slides:59"] },
+            { t: "Aim for a steady pre-bedtime routine and at least 9 hours of sleep.", s: ["slides:26"] },
+            { t: "Optional: sign up for a free NLB library membership and myLibrary ID.", s: ["slides:24"] }
+          ] },
+          { k: "links", items: [
+            { label: "NLB mobile app and myLibrary ID (go.gov.sg)", url: "https://go.gov.sg/nlb-mobile", s: ["slides:24"] },
+            { label: "First week of school schoolbag guide (go.gov.sg)", url: "https://go.gov.sg/ace-first-week-of-school-schoolbag", s: ["slides:25"] }
+          ] }
+        ]
+      },
+      {
         id: "fas",
+        group: "applies",
         title: "MOE Financial Assistance Scheme (FAS)",
         when: "Only if you are applying",
         blocks: [
@@ -590,38 +661,8 @@ export const data = {
           ] },
           { k: "links", items: [
             { label: "MOE Student Finance Scheme page", url: "https://studentfinance.moe.gov.sg/sfs", s: ["details:2"] }
-          ] }
-        ]
-      },
-      {
-        id: "dismissal-choice",
-        title: "Choose a dismissal mode and pick-up point",
-        when: "Before 4 Jan",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Decide how your daughter goes home and write the pick-up point on her temporary nametag. Keep it consistent.", s: ["booklet:7", "slides:40"] },
-            { t: "Please do not make unnecessary or last-minute changes.", s: ["slides:40"] },
-            { t: "See School life for every pick-up point, gate time and the school bus areas.", s: ["booklet:7"] }
-          ] }
-        ]
-      },
-      {
-        id: "prep",
-        title: "Label things and practise independence",
-        when: "Any time before term",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Label pinafore, shoes, water bottle, snack boxes, planner, files and stationery with her name and class.", s: ["booklet:22"] },
-            { t: "Write her name on the soles or inside both shoes. She takes her shoes off before entering special rooms.", s: ["booklet:22"] },
-            { t: "Practise: putting on and removing the pinafore and shoes, using the toilet and managing hygiene, tying her own hair and shoelaces.", s: ["booklet:22"] },
-            { t: "Other skills the school suggests: packing her own bag, buying food and managing money, knowing her full name, class and teachers, and asking an adult for help.", s: ["slides:26", "slides:59"] },
-            { t: "Aim for a steady pre-bedtime routine and at least 9 hours of sleep.", s: ["slides:26"] },
-            { t: "Optional: sign up for a free NLB library membership and myLibrary ID.", s: ["slides:24"] }
           ] },
-          { k: "links", items: [
-            { label: "NLB mobile app and myLibrary ID (go.gov.sg)", url: "https://go.gov.sg/nlb-mobile", s: ["slides:24"] },
-            { label: "First week of school schoolbag guide (go.gov.sg)", url: "https://go.gov.sg/ace-first-week-of-school-schoolbag", s: ["slides:25"] }
-          ] }
+          { k: "note", t: "If you are applying for the MOE Financial Assistance Scheme (FAS), the school asks you not to buy any books or uniform. Apply and wait for MOE or the school to tell you the outcome.", s: ["details:2"] }
         ]
       }
     ]
@@ -762,258 +803,310 @@ export const data = {
   /* ---------- SCHOOL LIFE ---------- */
   life: {
     intro: "Long-term reference for how a normal school day works.",
-    sections: [
+    groups: [
       {
-        title: "School day and hours",
-        blocks: [
-          { k: "table", head: ["Time", "What happens"], rows: [
-            ["6.45 am", "Gates open (see Gates and arrival)"],
-            ["7.00 to 7.25 am", "Arrival in school. Gather at the School Hall. Bring a storybook daily."],
-            ["7.25 to 7.40 am", "Centering, prayers and announcements, national anthem and pledge, Form Teacher time"],
-            ["7.40 am", "Lessons begin"],
-            ["9.40 to 10.10 am", "Primary 1 recess (30 minutes)"],
-            ["10.10 am to 1.30 pm", "Lessons, with a 10-minute snack break in class between 12.00 and 12.30 pm"],
-            ["1.30 pm", "Dismissal. P1 is dismissed at 1.30 pm from 18 Jan (1.20 pm until 15 Jan). Staggered dismissals begin at 1.30 pm."],
-            ["6.00 pm", "School closes every day"]
-          ], s: ["booklet:4", "slides:32"] },
-          { k: "note", t: "Students must be seated at the assembly area by 7.25 am. Flag raising is at 7.30 am.", s: ["slides:32", "booklet:4"] },
-          { k: "p", t: "SACPS is a single-session school. About 1,200 girls arrive between 7.00 and 7.25 am and leave at staggered times in the afternoon. The secondary school next door has about another 1,200 girls arriving in the morning. The school asks for patience and graciousness at all times.", s: ["slides:33"] }
+        id: "times-and-dates",
+        title: "Times and dates",
+        sections: [
+          {
+            id: "school-day-and-hours",
+            title: "School day and hours",
+            open: true,
+            blocks: [
+                { k: "table", head: ["Time", "What happens"], rows: [
+                  ["6.45 am", "Gates open (see Gates and arrival)"],
+                  ["7.00 to 7.25 am", "Arrival in school. Gather at the School Hall. Bring a storybook daily."],
+                  ["7.25 to 7.40 am", "Centering, prayers and announcements, national anthem and pledge, Form Teacher time"],
+                  ["7.40 am", "Lessons begin"],
+                  ["9.40 to 10.10 am", "Primary 1 recess (30 minutes)"],
+                  ["10.10 am to 1.30 pm", "Lessons, with a 10-minute snack break in class between 12.00 and 12.30 pm"],
+                  ["1.30 pm", "Dismissal. P1 is dismissed at 1.30 pm from 18 Jan (1.20 pm until 15 Jan). Staggered dismissals begin at 1.30 pm."],
+                  ["6.00 pm", "School closes every day"]
+                ], s: ["booklet:4", "slides:32"] },
+                { k: "note", t: "Students must be seated at the assembly area by 7.25 am. Flag raising is at 7.30 am.", s: ["slides:32", "booklet:4"] },
+                { k: "p", t: "SACPS is a single-session school. About 1,200 girls arrive between 7.00 and 7.25 am and leave at staggered times in the afternoon. The secondary school next door has about another 1,200 girls arriving in the morning. The school asks for patience and graciousness at all times.", s: ["slides:33"] }
+            ]
+          },
+          {
+            id: "2027-school-terms-and-holidays",
+            title: "2027 school terms and holidays",
+            open: true,
+            blocks: [
+                { k: "table", head: ["Term", "Dates"], rows: [
+                  ["Term 1", "Mon 4 Jan to Fri 12 Mar 2027"],
+                  ["Term 2", "Mon 22 Mar to Fri 28 May 2027"],
+                  ["Term 3", "Mon 28 Jun to Fri 3 Sep 2027"],
+                  ["Term 4", "Mon 13 Sep to Fri 19 Nov 2027"]
+                ], s: ["moe:2027"] },
+                { k: "table", head: ["School holidays", "Dates"], rows: [
+                  ["March holidays", "Sat 13 Mar to Sun 21 Mar"],
+                  ["June holidays", "Sat 29 May to Sun 27 Jun"],
+                  ["September holidays", "Sat 4 Sep to Sun 12 Sep"],
+                  ["Year-end holidays", "Sat 20 Nov to Fri 31 Dec"]
+                ], s: ["moe:2027"] },
+                { k: "ul", items: [
+                  { t: "Extra school holidays: Mon 5 Jul (Youth Day falls on Sunday, so the next day is a holiday), Tue 10 Aug (day after National Day), Fri 3 Sep (Teachers' Day) and Fri 8 Oct (Children's Day, for primary schools).", s: ["moe:2027"] },
+                  { t: "Also no school on Mon 8 Feb (Chinese New Year), Tue 9 Feb (day off), Mon 3 May (day off) and Mon 27 Dec (day off).", s: ["moe:2027"] },
+                  { t: "Primary 1 starts on Mon 4 Jan 2027. Primary 2 to 6 start on Tue 5 Jan.", s: ["moe:2027"] }
+                ] },
+                { k: "links", items: [
+                  { label: "MOE: school terms and holidays for 2027", url: "https://www.moe.gov.sg/news/press-releases/20260714-school-terms-and-holidays-for-2027" }
+                ] }
+            ]
+          }
         ]
       },
       {
-        title: "2027 school terms and holidays",
-        blocks: [
-          { k: "table", head: ["Term", "Dates"], rows: [
-            ["Term 1", "Mon 4 Jan to Fri 12 Mar 2027"],
-            ["Term 2", "Mon 22 Mar to Fri 28 May 2027"],
-            ["Term 3", "Mon 28 Jun to Fri 3 Sep 2027"],
-            ["Term 4", "Mon 13 Sep to Fri 19 Nov 2027"]
-          ], s: ["moe:2027"] },
-          { k: "table", head: ["School holidays", "Dates"], rows: [
-            ["March holidays", "Sat 13 Mar to Sun 21 Mar"],
-            ["June holidays", "Sat 29 May to Sun 27 Jun"],
-            ["September holidays", "Sat 4 Sep to Sun 12 Sep"],
-            ["Year-end holidays", "Sat 20 Nov to Fri 31 Dec"]
-          ], s: ["moe:2027"] },
-          { k: "ul", items: [
-            { t: "Extra school holidays: Mon 5 Jul (Youth Day falls on Sunday, so the next day is a holiday), Tue 10 Aug (day after National Day), Fri 3 Sep (Teachers' Day) and Fri 8 Oct (Children's Day, for primary schools).", s: ["moe:2027"] },
-            { t: "Also no school on Mon 8 Feb (Chinese New Year), Tue 9 Feb (day off), Mon 3 May (day off) and Mon 27 Dec (day off).", s: ["moe:2027"] },
-            { t: "Primary 1 starts on Mon 4 Jan 2027. Primary 2 to 6 start on Tue 5 Jan.", s: ["moe:2027"] }
-          ] },
-          { k: "links", items: [
-            { label: "MOE: school terms and holidays for 2027", url: "https://www.moe.gov.sg/news/press-releases/20260714-school-terms-and-holidays-for-2027" }
-          ] }
+        id: "getting-there-and-home",
+        title: "Getting there and home",
+        sections: [
+          {
+            id: "gates-and-arrival",
+            title: "Gates and arrival",
+            blocks: [
+                { k: "table", head: ["Gate", "For", "Arrival", "Dismissal"], rows: [
+                  ["St Gabriel Gate (Bedok North Ave 4)", "Vehicles only, in-gate", "Mon to Fri 6.45 to 7.30 am (7.35 am in wet weather)", "Mon to Fri 1.50 to 2.15 pm (cars enter only after school buses leave)"],
+                  ["St Michael Gate (Bedok North Ave 4)", "Vehicles out-gate, plus walk-in for students and visitors", "Vehicles Mon to Fri 6.45 to 7.30 am (7.35 am in wet weather)", "Vehicles Mon to Fri 1.50 to 2.15 pm (exit only after school buses leave)"],
+                  ["St Michael Gate, walk-in", "Students and visitors", "6.45 am to 6.00 pm, except during dismissal 1.20 to 1.50 pm", "Same"],
+                  ["St Raphael Gate (HDB drop-off gate)", "Students only", "Mon to Fri 6.45 to 7.30 am", "Mon to Fri 1.30 to 2.15 pm"],
+                  ["St Joan Gate (gate at the bus stop in front of school)", "Students only", "Mon to Fri 6.45 to 7.30 am", "Mon to Fri 1.30 to 2.15 pm"]
+                ], s: ["booklet:5", "slides:34"] },
+                { k: "ul", items: [
+                  { t: "St Raphael Gate: parents can drop students off at the car park next to HDB blocks 98 to 100.", s: ["booklet:5", "slides:34"] },
+                  { t: "St Joan Gate is the gate at the bus stop in front of the school. Students taking SBS bus services 17, 17A and 18 use it at arrival and dismissal. This gate belongs to the secondary school.", s: ["booklet:5", "slides:34"] },
+                  { t: "St Raphael Gate and St Gabriel Gate close at 7.30 am.", s: ["booklet:4"] },
+                  { t: "Parents do not enter the school with their daughter on normal days. Teachers or prefects lead her to class.", s: ["booklet:9"] },
+                  { t: "A video of the gates is on the school website under For Parents, then Useful videos.", s: ["slides:39", "booklet:7"] }
+                ] },
+                { k: "accordion", title: "Driving and parking", blocks: [
+                  { k: "ul", items: [
+                    { t: "No parking inside the school grounds. Park at the HDB car parks at blocks 98 to 100, or at blocks 94 to 96 across the road.", s: ["booklet:17", "details:2"] },
+                    { t: "Keep to 15 km/h on school premises and do not speed in the school zone.", s: ["slides:42"] },
+                    { t: "Have your daughter ready to get out of the car quickly. At the Guardian Angel Bay drop-off area, move forward as far as possible.", s: ["slides:42", "slides:47"] }
+                  ] }
+                ] }
+            ]
+          },
+          {
+            id: "dismissal-and-pick-up-points",
+            title: "Dismissal and pick-up points",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "P1 students are led to their school buses and dismissal points for the first two weeks.", s: ["slides:40"] },
+                  { t: "Write her daily mode of dismissal and pick-up point on the temporary nametag. Keep it consistent and teach her the name of the pick-up point.", s: ["slides:40", "booklet:7"] },
+                  { t: "If anything changes unexpectedly, contact the school before 11.00 am.", s: ["booklet:7"] },
+                  { t: "Be patient. Dismissal takes longer in the first few weeks, especially on rainy days.", s: ["slides:47"] }
+                ] },
+                { k: "table", head: ["Mode", "Where"], rows: [
+                  ["School bus", "Bus Bay. Bus drivers lead her to the bus. Make sure the bus number (for example SACPS 13) is on her nametag."],
+                  ["Parent drives and collects at the gate", "St Raphael Gate. Arrive by 1.20 pm."],
+                  ["Walks home", "St Raphael Gate, or St Michael Gate if she needs to cross the road at the traffic light"],
+                  ["Public bus from the stop in front of school", "St Joan Gate"],
+                  ["Public bus from the stop opposite the school", "St Michael Gate"],
+                  ["Parent drives into school", "Guardian Angel Bay by the canteen. Enter through St Gabriel Gate and exit through St Michael Gate. Cars may enter only after all school buses have left (about 1.45 pm)."],
+                  ["School-based student care (YMCA)", "Students walk to the YMCA centre."],
+                  ["Student care opposite the school (Morning Star)", "Students meet the Morning Star officers at the main foyer next to the General Office. The officers lead them across the road."]
+                ], s: ["booklet:7", "booklet:9", "slides:40"] }
+            ]
+          },
+          {
+            id: "school-bus-service",
+            title: "School bus",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "RAE Transport Services LLP provides routine trips (morning home to school, afternoon school to home) and single-trip services.", s: ["booklet:15"] },
+                  { t: "Single-trip services are payable per ride for students staying back for extra lessons or CCAs. Buses leave at 4.30 pm and 5.40 pm.", s: ["booklet:15"] },
+                  { t: "Write the bus number (for example SACPS 13) on the nametag.", s: ["booklet:9"] }
+                ] },
+                { k: "vendor", name: "RAE Transport Services LLP" },
+                { k: "accordion", title: "Bus operating areas", blocks: [
+                  { k: "ul", items: [
+                    { t: "Bayshore/Siglap, Bedok North/Town/Central, Bedok Reservoir Road, Bedok Reservoir View, Bedok Ria/Eastwood Estate/Kew Estate, Bedok South, Chai Chee Road/Chai Chee Dr, Elias Green, Flora Estate/Compass Green.", s: ["booklet:15"] },
+                    { t: "Marine Parade/Katong, Pasir Ris HDB/private estate, Simei, Sunbird/Sea Breeze/Changi Green/Changi Court, Tampines, Tanah Merah Kechil Road/Simpang Bedok, Kembangan/Eunos/Geylang.", s: ["booklet:15"] },
+                    { t: "Parts of Hougang/Sengkang/Punggol. There is no bus service for after-school activities to these areas.", s: ["booklet:15"] }
+                  ] },
+                  { k: "note", t: "Ask the bus vendor whether your address is covered.", s: ["booklet:15"] }
+                ] }
+            ]
+          },
+          {
+            id: "student-care",
+            title: "Student care",
+            blocks: [
+                { k: "care" }
+            ]
+          }
         ]
       },
       {
-        title: "Gates and arrival",
-        blocks: [
-          { k: "table", head: ["Gate", "For", "Arrival", "Dismissal"], rows: [
-            ["St Gabriel Gate (Bedok North Ave 4)", "Vehicles only, in-gate", "Mon to Fri 6.45 to 7.30 am (7.35 am in wet weather)", "Mon to Fri 1.50 to 2.15 pm (cars enter only after school buses leave)"],
-            ["St Michael Gate (Bedok North Ave 4)", "Vehicles out-gate, plus walk-in for students and visitors", "Vehicles Mon to Fri 6.45 to 7.30 am (7.35 am in wet weather)", "Vehicles Mon to Fri 1.50 to 2.15 pm (exit only after school buses leave)"],
-            ["St Michael Gate, walk-in", "Students and visitors", "6.45 am to 6.00 pm, except during dismissal 1.20 to 1.50 pm", "Same"],
-            ["St Raphael Gate (HDB drop-off gate)", "Students only", "Mon to Fri 6.45 to 7.30 am", "Mon to Fri 1.30 to 2.15 pm"],
-            ["St Joan Gate (gate at the bus stop in front of school)", "Students only", "Mon to Fri 6.45 to 7.30 am", "Mon to Fri 1.30 to 2.15 pm"]
-          ], s: ["booklet:5", "slides:34"] },
-          { k: "ul", items: [
-            { t: "St Raphael Gate: parents can drop students off at the car park next to HDB blocks 98 to 100.", s: ["booklet:5", "slides:34"] },
-            { t: "St Joan Gate is the gate at the bus stop in front of the school. Students taking SBS bus services 17, 17A and 18 use it at arrival and dismissal. This gate belongs to the secondary school.", s: ["booklet:5", "slides:34"] },
-            { t: "St Raphael Gate and St Gabriel Gate close at 7.30 am.", s: ["booklet:4"] },
-            { t: "Parents do not enter the school with their daughter on normal days. Teachers or prefects lead her to class.", s: ["booklet:9"] },
-            { t: "A video of the gates is on the school website under For Parents, then Useful videos.", s: ["slides:39", "booklet:7"] }
-          ] },
-          { k: "accordion", title: "Driving and parking", blocks: [
-            { k: "ul", items: [
-              { t: "No parking inside the school grounds. Park at the HDB car parks at blocks 98 to 100, or at blocks 94 to 96 across the road.", s: ["booklet:17", "details:2"] },
-              { t: "Keep to 15 km/h on school premises and do not speed in the school zone.", s: ["slides:42"] },
-              { t: "Have your daughter ready to get out of the car quickly. At the Guardian Angel Bay drop-off area, move forward as far as possible.", s: ["slides:42", "slides:47"] }
-            ] }
-          ] }
+        id: "uniform-food-and-money",
+        title: "Uniform, food and money",
+        sections: [
+          {
+            id: "uniform-pe-attire-and-appearance",
+            title: "Uniform, PE attire and appearance",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "Students must enter and leave school in a pinafore with either a blouse or the school PE t-shirt.", s: ["booklet:13"] },
+                  { t: "Regular days: white blouse and pinafore at knee length.", s: ["booklet:13"] },
+                  { t: "PE days: school PE t-shirt, school shorts and pinafore.", s: ["booklet:13"] },
+                  { t: "Footwear: white shoes and socks. White socks without 'SACPS' on them are acceptable.", s: ["booklet:13"] },
+                  { t: "Hair must be neat. Short hair stays above the collar. Long hair, or any hair reaching below chin level, is tied up.", s: ["booklet:13", "slides:51"] },
+                  { t: "Hair accessories are simple and only white, blue or black. Long fringes are held back with a hairband or clips. Bring spare accessories.", s: ["booklet:13", "slides:51"] },
+                  { t: "Sew or iron on her name tag below the badge on the pinafore and PE t-shirt.", s: ["slides:51", "booklist:2"] }
+                ] }
+            ]
+          },
+          {
+            id: "recess-canteen-and-pocket-money",
+            title: "Recess, canteen and pocket money",
+            aliases: ["recess-snacks-and-canteen", "pocket-money-and-posb-smart-buddy"],
+            blocks: [
+                { k: "h", t: "Recess, snacks and canteen" },
+                { k: "ul", items: [
+                  { t: "P1 recess is 30 minutes, from 9.40 to 10.10 am, in the canteen.", s: ["booklet:4", "booklet:9"] },
+                  { t: "A 10-minute snack break happens in class between 12.00 and 12.30 pm. Pack a healthy, easy-to-eat, dry snack such as fruit or a sandwich.", s: ["booklet:4"] },
+                  { t: "Students may not go to the canteen during the snack break.", s: ["booklet:4"] },
+                  { t: "You can pack food for recess or give her money to buy food.", s: ["booklet:9"] },
+                  { t: "The canteen offers halal and non-halal options. Menus and prices are on the school website. Food prices range from $0.50 to $2.50.", s: ["booklet:20"] },
+                  { t: "Choose what works, not what costs more. Light, practical, easy-to-use items are enough.", s: ["slides:52"] },
+                  { t: "Bring water in the bottle, with no sweet drinks.", s: ["booklet:9"] }
+                ] },
+                { k: "h", t: "Pocket money and POSB Smart Buddy" },
+                { k: "ul", items: [
+                  { t: "Keep pocket money to a minimum. $3.00 to $4.00 per day is suggested. Teach her to count money and receive change.", s: ["booklet:21", "slides:56"] },
+                  { t: "Her purse must be labelled with her name and class and small enough to fit in her pocket.", s: ["booklet:21", "slides:56"] },
+                  { t: "Canteen stalls have POSB Smart Buddy terminals for students with the Smart Buddy Watch or a stored-value Student Concession Card.", s: ["booklet:21", "slides:56"] },
+                  { t: "Using the POSB Smart Buddy Watch is not compulsory.", s: ["booklet:21", "slides:56"] }
+                ] }
+            ]
+          }
         ]
       },
       {
-        title: "Dismissal and pick-up points",
-        blocks: [
-          { k: "ul", items: [
-            { t: "P1 students are led to their school buses and dismissal points for the first two weeks.", s: ["slides:40"] },
-            { t: "Write her daily mode of dismissal and pick-up point on the temporary nametag. Keep it consistent and teach her the name of the pick-up point.", s: ["slides:40", "booklet:7"] },
-            { t: "If anything changes unexpectedly, contact the school before 11.00 am.", s: ["booklet:7"] },
-            { t: "Be patient. Dismissal takes longer in the first few weeks, especially on rainy days.", s: ["slides:47"] }
-          ] },
-          { k: "table", head: ["Mode", "Where"], rows: [
-            ["School bus", "Bus Bay. Bus drivers lead her to the bus. Make sure the bus number (for example SACPS 13) is on her nametag."],
-            ["Parent drives and collects at the gate", "St Raphael Gate. Arrive by 1.20 pm."],
-            ["Walks home", "St Raphael Gate, or St Michael Gate if she needs to cross the road at the traffic light"],
-            ["Public bus from the stop in front of school", "St Joan Gate"],
-            ["Public bus from the stop opposite the school", "St Michael Gate"],
-            ["Parent drives into school", "Guardian Angel Bay by the canteen. Enter through St Gabriel Gate and exit through St Michael Gate. Cars may enter only after all school buses have left (about 1.45 pm)."],
-            ["School-based student care (YMCA)", "Students walk to the YMCA centre."],
-            ["Student care opposite the school (Morning Star)", "Students meet the Morning Star officers at the main foyer next to the General Office. The officers lead them across the road."]
-          ], s: ["booklet:7", "booklet:9", "slides:40"] }
+        id: "rules-health-and-safety",
+        title: "Rules, health and safety",
+        sections: [
+          {
+            id: "attendance-health-and-safety",
+            title: "Attendance, health and safety",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "Attendance is compulsory on all school days, events and activities. Be in school by 7.25 am. If she is late, still send her.", s: ["booklet:12"] },
+                  { t: "Do not take her on holidays or leave the country during term time.", s: ["booklet:12", "slides:50"] },
+                  { t: "If she is unwell, keep her at home and see a doctor. Submit the Medical Certificate through Parents Gateway so her Form Teachers know.", s: ["booklet:12", "slides:50"] },
+                  { t: "Staff do not give any medication, oral or otherwise, in line with MOE guidelines.", s: ["booklet:12", "slides:50"] },
+                  { t: "Subject teachers keep the work she missed and guide her when she returns.", s: ["booklet:12"] },
+                  { t: "If she becomes unwell at school, the school calls you. Report to the security post first, then go to the General Office. If you drive, you are allowed into the school compound to collect her.", s: ["booklet:18"] },
+                  { t: "MOE provides Group Personal Accident insurance at no cost. It covers her in school, at school activities wherever they are, and while commuting between home and school.", s: ["booklet:17"] },
+                  { t: "School dental clinic is run by the Health Promotion Board (HPB). Call 9111 0760 to book an appointment.", s: ["booklet:18"] }
+                ] }
+            ]
+          },
+          {
+            id: "visitors-forgotten-items-and-devices",
+            title: "Visitors, forgotten items and devices",
+            aliases: ["visitors-and-security", "devices"],
+            blocks: [
+                { k: "h", t: "Visitors and security" },
+                { k: "ul", items: [
+                  { t: "Parents are not allowed into the school without a prior appointment.", s: ["booklet:17"] },
+                  { t: "For an appointment with a teacher or staff, enter only through St Michael Gate and sign in at the security post. The teacher or staff meets you there. Do not go to the classroom.", s: ["booklet:17"] },
+                  { t: "Expect security screening when you visit or drop her off at the gates.", s: ["booklet:17"] },
+                  { t: "If she forgets books or items, do not make a special trip. Office staff will not accept items from parents. For urgent items, her teachers will contact you.", s: ["booklet:18"] },
+                  { t: "Do not send birthday cakes, food or goodie bags to school, for the safety of students with food allergies and dietary restrictions.", s: ["booklet:18"] }
+                ] },
+                { k: "h", t: "Devices" },
+                { k: "ul", items: [
+                  { t: "Personal digital devices, including smartphones and smartwatches, are not encouraged during school hours, including recess, CCA and after-school programmes.", s: ["slides:55"] },
+                  { t: "A student who needs to bring one must seek permission and keep it in her school bag, powered off, before school starts.", s: ["slides:55"] },
+                  { t: "She is responsible for keeping the device safe.", s: ["slides:55"] },
+                  { t: "Devices may be used only at dismissal points, to contact parents or guardians after school hours.", s: ["slides:55"] }
+                ] }
+            ]
+          }
         ]
       },
       {
-        title: "Uniform, PE attire and appearance",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Students must enter and leave school in a pinafore with either a blouse or the school PE t-shirt.", s: ["booklet:13"] },
-            { t: "Regular days: white blouse and pinafore at knee length.", s: ["booklet:13"] },
-            { t: "PE days: school PE t-shirt, school shorts and pinafore.", s: ["booklet:13"] },
-            { t: "Footwear: white shoes and socks. White socks without 'SACPS' on them are acceptable.", s: ["booklet:13"] },
-            { t: "Hair must be neat. Short hair stays above the collar. Long hair, or any hair reaching below chin level, is tied up.", s: ["booklet:13", "slides:51"] },
-            { t: "Hair accessories are simple and only white, blue or black. Long fringes are held back with a hairband or clips. Bring spare accessories.", s: ["booklet:13", "slides:51"] },
-            { t: "Sew or iron on her name tag below the badge on the pinafore and PE t-shirt.", s: ["slides:51", "booklist:2"] }
-          ] }
-        ]
-      },
-      {
-        title: "Recess, snacks and canteen",
-        blocks: [
-          { k: "ul", items: [
-            { t: "P1 recess is 30 minutes, from 9.40 to 10.10 am, in the canteen.", s: ["booklet:4", "booklet:9"] },
-            { t: "A 10-minute snack break happens in class between 12.00 and 12.30 pm. Pack a healthy, easy-to-eat, dry snack such as fruit or a sandwich.", s: ["booklet:4"] },
-            { t: "Students may not go to the canteen during the snack break.", s: ["booklet:4"] },
-            { t: "You can pack food for recess or give her money to buy food.", s: ["booklet:9"] },
-            { t: "The canteen offers halal and non-halal options. Menus and prices are on the school website. Food prices range from $0.50 to $2.50.", s: ["booklet:20"] },
-            { t: "Choose what works, not what costs more. Light, practical, easy-to-use items are enough.", s: ["slides:52"] },
-            { t: "Bring water in the bottle, with no sweet drinks.", s: ["booklet:9"] }
-          ] }
-        ]
-      },
-      {
-        title: "Pocket money and POSB Smart Buddy",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Keep pocket money to a minimum. $3.00 to $4.00 per day is suggested. Teach her to count money and receive change.", s: ["booklet:21", "slides:56"] },
-            { t: "Her purse must be labelled with her name and class and small enough to fit in her pocket.", s: ["booklet:21", "slides:56"] },
-            { t: "Canteen stalls have POSB Smart Buddy terminals for students with the Smart Buddy Watch or a stored-value Student Concession Card.", s: ["booklet:21", "slides:56"] },
-            { t: "Using the POSB Smart Buddy Watch is not compulsory.", s: ["booklet:21", "slides:56"] }
-          ] }
-        ]
-      },
-      {
-        title: "Attendance, health and safety",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Attendance is compulsory on all school days, events and activities. Be in school by 7.25 am. If she is late, still send her.", s: ["booklet:12"] },
-            { t: "Do not take her on holidays or leave the country during term time.", s: ["booklet:12", "slides:50"] },
-            { t: "If she is unwell, keep her at home and see a doctor. Submit the Medical Certificate through Parents Gateway so her Form Teachers know.", s: ["booklet:12", "slides:50"] },
-            { t: "Staff do not give any medication, oral or otherwise, in line with MOE guidelines.", s: ["booklet:12", "slides:50"] },
-            { t: "Subject teachers keep the work she missed and guide her when she returns.", s: ["booklet:12"] },
-            { t: "If she becomes unwell at school, the school calls you. Report to the security post first, then go to the General Office. If you drive, you are allowed into the school compound to collect her.", s: ["booklet:18"] },
-            { t: "MOE provides Group Personal Accident insurance at no cost. It covers her in school, at school activities wherever they are, and while commuting between home and school.", s: ["booklet:17"] },
-            { t: "School dental clinic is run by the Health Promotion Board (HPB). Call 9111 0760 to book an appointment.", s: ["booklet:18"] }
-          ] }
-        ]
-      },
-      {
-        title: "Visitors and security",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Parents are not allowed into the school without a prior appointment.", s: ["booklet:17"] },
-            { t: "For an appointment with a teacher or staff, enter only through St Michael Gate and sign in at the security post. The teacher or staff meets you there. Do not go to the classroom.", s: ["booklet:17"] },
-            { t: "Expect security screening when you visit or drop her off at the gates.", s: ["booklet:17"] },
-            { t: "If she forgets books or items, do not make a special trip. Office staff will not accept items from parents. For urgent items, her teachers will contact you.", s: ["booklet:18"] },
-            { t: "Do not send birthday cakes, food or goodie bags to school, for the safety of students with food allergies and dietary restrictions.", s: ["booklet:18"] }
-          ] }
-        ]
-      },
-      {
-        title: "Devices",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Personal digital devices, including smartphones and smartwatches, are not encouraged during school hours, including recess, CCA and after-school programmes.", s: ["slides:55"] },
-            { t: "A student who needs to bring one must seek permission and keep it in her school bag, powered off, before school starts.", s: ["slides:55"] },
-            { t: "She is responsible for keeping the device safe.", s: ["slides:55"] },
-            { t: "Devices may be used only at dismissal points, to contact parents or guardians after school hours.", s: ["slides:55"] }
-          ] }
-        ]
-      },
-      {
-        title: "Learning and assessment in P1",
-        blocks: [
-          { k: "ul", items: [
-            { t: "No weighted assessments at Primary 1 and 2.", s: ["slides:18"] },
-            { t: "No mid-year exams for all levels, and no end-of-year exams until the end of Primary 3.", s: ["slides:18"] },
-            { t: "Assessment is for learning, through bite-size review quizzes or tasks and qualitative feedback for improvement.", s: ["slides:18"] },
-            { t: "P1 focus: building literacy and numeracy foundations, soft skills and self-help skills, learning dispositions such as curiosity and confidence, and age-appropriate digital literacy.", s: ["slides:16"] },
-            { t: "The school's aims for P1 students: settle in with confidence, build friendships and teamwork, develop positive learning habits and independence, enjoy school and feel safe, and grow at their own pace.", s: ["slides:19"] },
-            { t: "Subjects in the class timetable are listed under First weeks.", s: ["booklet:11"] }
-          ] },
-          { k: "accordion", title: "What most children are expected to bring to P1", blocks: [
-            { k: "ul", items: [
-              { t: "English: listen and speak for enjoyment, read with enjoyment, and communicate ideas using writing, symbols or letter-like shapes.", s: ["slides:17"] },
-              { t: "Mathematics: basic understanding of numbers up to 10, comparing quantities within 10, recognising simple patterns.", s: ["slides:17"] },
-              { t: "Mother Tongue: enjoy and show interest in learning, listening and speaking, with awareness of local ethnic culture.", s: ["slides:17"] },
-              { t: "Values and social-emotional skills: understand self, manage behaviour, build caring relationships and take responsibility for actions.", s: ["slides:17"] },
-              { t: "Art, Music and PE: enjoy taking part, express ideas and feelings, and show coordination and awareness of healthy habits and safety.", s: ["slides:17"] }
-            ] },
-            { k: "p", t: "These are examples of professionally determined expectations for what most children should be equipped with at the start of P1.", s: ["slides:17"] }
-          ] }
-        ]
-      },
-      {
-        title: "Character formation and pastoral care",
-        blocks: [
-          { k: "ul", items: [
-            { t: "The school is a Catholic Mission-Aided convent school with 147 years of history. Its sister schools in Singapore are Canossa Catholic Primary School and St. Anthony's Canossian Secondary School.", s: ["slides:4"] },
-            { t: "School values: Faith, Charity, Humility, Forgiveness.", s: ["details:1", "slides:8"] },
-            { t: "Vision: every SACPS girl a confident and curious learner who serves with commitment, compassion and cheerfulness.", s: ["details:1", "slides:7"] },
-            { t: "Mission: nurturing each one in her own way by forming hearts, enlightening minds and empowering spirits to live in The Way, The Truth and The Life.", s: ["details:1", "slides:7"] },
-            { t: "Morning and end-of-day prayers happen daily.", s: ["slides:11"] },
-            { t: "Catholic girls attend PC Catechism, which does not replace Catechism classes in church. It can be an opt-in choice for non-Catholic girls, who otherwise attend PC values-based lessons.", s: ["slides:11"] },
-            { t: "Character formation includes values lessons in Mother Tongue CCE periods, Form Teacher Guidance Period, Canossians Connect class conversations, assembly sessions, student leadership, Values-in-Action, a Lifeskills Programme, National Education, level activities, and celebrations including school masses and paraliturgies.", s: ["slides:10"] },
-            { t: "Form classes are named Steadfast, Courage, Piety, Justice, Prudence and Temperance. Girls stay in orientation groups until the end of January before moving into their form classes.", s: ["slides:22", "details:1"] }
-          ] }
-        ]
-      },
-      {
-        title: "Communicating with the school",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Parents Gateway (PG): announcements and online consent forms. Turn on notifications.", s: ["booklet:19", "slides:49"] },
-            { t: "Parents' Connection: a termly information sheet sent to all through PG, with upcoming events, programmes and home news.", s: ["booklet:19"] },
-            { t: "School website: www.stanthonyscanossianpri.moe.edu.sg. Teachers' emails can be found there.", s: ["booklet:19"] },
-            { t: "Phone: call the general line 6449 2239 and staff transfer the call. Teachers return the call if unavailable.", s: ["booklet:19"] },
-            { t: "Student Planner: write a note to the teacher and teach her to show it.", s: ["booklet:19"] },
-            { t: "Teachers may not reply the same day if they are in lessons or busy after school. For urgent matters, contact the General Office on 6449 2239.", s: ["slides:28"] },
-            { t: "Please keep communication respectful. The school says there is no need to start or join chat groups with other parents.", s: ["slides:28"] },
-            { t: "Tell the teacher about any learning or behaviour concerns so you can work together.", s: ["slides:29", "slides:27"] }
-          ] }
-        ]
-      },
-      {
-        title: "Helping your daughter settle in",
-        blocks: [
-          { k: "ul", items: [
-            { t: "Be patient. There will be good and bad days, and the more anxious you are, the harder it is for her.", s: ["slides:29"] },
-            { t: "Support and encourage her, affirm small successes, ease her into new routines and acknowledge her feelings (the school's SAFE tips).", s: ["slides:23"] },
-            { t: "Build friendly manners: polite phrases, taking turns and respectful interactions.", s: ["slides:25"] },
-            { t: "Encourage reading and learning from mistakes. If she says she cannot do it, remind her that she cannot do it yet.", s: ["slides:24", "slides:27", "slides:60"] },
-            { t: "Things she can practise to manage by herself: dressing, hand washing, taking her temperature with a thermometer, packing her bag by the timetable, buying food, making healthy choices, and knowing when and how to ask for help.", s: ["slides:26"] },
-            { t: "Check her school bag daily using the timetable, and set up a home routine for worksheets that need to be completed or signed.", s: ["booklet:22"] },
-            { t: "Work with her on friendships and resolving conflicts.", s: ["slides:47"] }
-          ] },
-          { k: "p", t: "There is a Parent-Child Activity Book with practical tips.", s: ["slides:57", "slides:58"] }
-        ]
-      },
-      {
-        title: "School bus service",
-        blocks: [
-          { k: "ul", items: [
-            { t: "RAE Transport Services LLP provides routine trips (morning home to school, afternoon school to home) and single-trip services.", s: ["booklet:15"] },
-            { t: "Single-trip services are payable per ride for students staying back for extra lessons or CCAs. Buses leave at 4.30 pm and 5.40 pm.", s: ["booklet:15"] },
-            { t: "Write the bus number (for example SACPS 13) on the nametag.", s: ["booklet:9"] },
-            { t: "Contact details are under Contacts.", s: ["booklet:15"] }
-          ] },
-          { k: "accordion", title: "Bus operating areas", blocks: [
-            { k: "ul", items: [
-              { t: "Bayshore/Siglap, Bedok North/Town/Central, Bedok Reservoir Road, Bedok Reservoir View, Bedok Ria/Eastwood Estate/Kew Estate, Bedok South, Chai Chee Road/Chai Chee Dr, Elias Green, Flora Estate/Compass Green.", s: ["booklet:15"] },
-              { t: "Marine Parade/Katong, Pasir Ris HDB/private estate, Simei, Sunbird/Sea Breeze/Changi Green/Changi Court, Tampines, Tanah Merah Kechil Road/Simpang Bedok, Kembangan/Eunos/Geylang.", s: ["booklet:15"] },
-              { t: "Parts of Hougang/Sengkang/Punggol. There is no bus service for after-school activities to these areas.", s: ["booklet:15"] }
-            ] },
-            { k: "note", t: "Ask the bus vendor whether your address is covered.", s: ["booklet:15"] }
-          ] }
+        id: "learning-and-settling-in",
+        title: "Learning and settling in",
+        sections: [
+          {
+            id: "learning-and-assessment-in-p1",
+            title: "Learning and assessment in P1",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "No weighted assessments at Primary 1 and 2.", s: ["slides:18"] },
+                  { t: "No mid-year exams for all levels, and no end-of-year exams until the end of Primary 3.", s: ["slides:18"] },
+                  { t: "Assessment is for learning, through bite-size review quizzes or tasks and qualitative feedback for improvement.", s: ["slides:18"] },
+                  { t: "P1 focus: building literacy and numeracy foundations, soft skills and self-help skills, learning dispositions such as curiosity and confidence, and age-appropriate digital literacy.", s: ["slides:16"] },
+                  { t: "The school's aims for P1 students: settle in with confidence, build friendships and teamwork, develop positive learning habits and independence, enjoy school and feel safe, and grow at their own pace.", s: ["slides:19"] }
+                ] },
+                { k: "accordion", title: "What most children are expected to bring to P1", blocks: [
+                  { k: "ul", items: [
+                    { t: "English: listen and speak for enjoyment, read with enjoyment, and communicate ideas using writing, symbols or letter-like shapes.", s: ["slides:17"] },
+                    { t: "Mathematics: basic understanding of numbers up to 10, comparing quantities within 10, recognising simple patterns.", s: ["slides:17"] },
+                    { t: "Mother Tongue: enjoy and show interest in learning, listening and speaking, with awareness of local ethnic culture.", s: ["slides:17"] },
+                    { t: "Values and social-emotional skills: understand self, manage behaviour, build caring relationships and take responsibility for actions.", s: ["slides:17"] },
+                    { t: "Art, Music and PE: enjoy taking part, express ideas and feelings, and show coordination and awareness of healthy habits and safety.", s: ["slides:17"] }
+                  ] },
+                  { k: "p", t: "These are examples of professionally determined expectations for what most children should be equipped with at the start of P1.", s: ["slides:17"] }
+                ] },
+                {
+                  k: "accordion",
+                  id: "timetable-short-forms",
+                  title: "Class timetable short forms",
+                  blocks: [
+                    { k: "table", head: ["Subject", "Short form"], rows: [
+                      ["English Language", "EL"],
+                      ["Mathematics", "MA"],
+                      ["Mother Tongue (Chinese, Malay or Tamil)", "CL / ML / TL"],
+                      ["Physical Education", "PE"],
+                      ["Form Teacher Guidance Period", "FTGP"],
+                      ["Visual Art", "ART"],
+                      ["Music", "MU"],
+                      ["Pastoral Care", "PC"],
+                      ["Programme for Active Learning", "PAL"],
+                      ["Social Studies", "SS"],
+                      ["Canossians Connect", "CC"]
+                    ], s: ["booklet:11"] },
+                    { k: "p", t: "Science starts from P3. FTGP and CC lessons build teacher-student and student-student relationships and social and emotional skills.", s: ["booklet:11"] }
+                  ]
+                }
+            ]
+          },
+          {
+            id: "helping-your-daughter-settle-in",
+            title: "Helping your daughter settle in",
+            blocks: [
+                { k: "ul", items: [
+                  { t: "Be patient. There will be good and bad days, and the more anxious you are, the harder it is for her.", s: ["slides:29"] },
+                  { t: "Support and encourage her, affirm small successes, ease her into new routines and acknowledge her feelings (the school's SAFE tips).", s: ["slides:23"] },
+                  { t: "Build friendly manners: polite phrases, taking turns and respectful interactions.", s: ["slides:25"] },
+                  { t: "Encourage reading and learning from mistakes. If she says she cannot do it, remind her that she cannot do it yet.", s: ["slides:24", "slides:27", "slides:60"] },
+                  { t: "Check her school bag daily using the timetable, and set up a home routine for worksheets that need to be completed or signed.", s: ["booklet:22"] },
+                  { t: "Work with her on friendships and resolving conflicts.", s: ["slides:47"] }
+                ] },
+                { k: "p", t: "There is a Parent-Child Activity Book with practical tips.", s: ["slides:57", "slides:58"] }
+            ]
+          },
+          {
+            id: "values-and-pastoral-care",
+            title: "Values and pastoral care",
+            aliases: ["character-formation-and-pastoral-care"],
+            blocks: [
+                { k: "ul", items: [
+                  { t: "The school is a Catholic Mission-Aided convent school with 147 years of history. Its sister schools in Singapore are Canossa Catholic Primary School and St. Anthony's Canossian Secondary School.", s: ["slides:4"] },
+                  { t: "School values: Faith, Charity, Humility, Forgiveness.", s: ["details:1", "slides:8"] },
+                  { t: "Vision: every SACPS girl a confident and curious learner who serves with commitment, compassion and cheerfulness.", s: ["details:1", "slides:7"] },
+                  { t: "Mission: nurturing each one in her own way by forming hearts, enlightening minds and empowering spirits to live in The Way, The Truth and The Life.", s: ["details:1", "slides:7"] },
+                  { t: "Morning and end-of-day prayers happen daily.", s: ["slides:11"] },
+                  { t: "Catholic girls attend PC Catechism, which does not replace Catechism classes in church. It can be an opt-in choice for non-Catholic girls, who otherwise attend PC values-based lessons.", s: ["slides:11"] },
+                  { t: "Character formation includes values lessons in Mother Tongue CCE periods, Form Teacher Guidance Period, Canossians Connect class conversations, assembly sessions, student leadership, Values-in-Action, a Lifeskills Programme, National Education, level activities, and celebrations including school masses and paraliturgies.", s: ["slides:10"] },
+                  { t: "Form classes are named Steadfast, Courage, Piety, Justice, Prudence and Temperance. Girls stay in orientation groups until the end of January before moving into their form classes.", s: ["slides:22", "details:1"] }
+                ] }
+            ]
+          }
         ]
       }
     ]
@@ -1032,6 +1125,16 @@ export const data = {
       hours: "",
       s: ["details:1", "slides:28"]
     },
+    reach: [
+      { t: "Parents Gateway (PG): announcements and online consent forms. Turn on notifications.", s: ["booklet:19", "slides:49"] },
+      { t: "Parents' Connection: a termly information sheet sent to all through PG, with upcoming events, programmes and home news.", s: ["booklet:19"] },
+      { t: "School website: www.stanthonyscanossianpri.moe.edu.sg. Teachers' emails can be found there.", s: ["booklet:19"] },
+      { t: "Phone: call the general line 6449 2239 and staff transfer the call. Teachers return the call if unavailable.", s: ["booklet:19"] },
+      { t: "Student Planner: write a note to the teacher and teach her to show it.", s: ["booklet:19"] },
+      { t: "Teachers may not reply the same day if they are in lessons or busy after school. For urgent matters, contact the General Office on 6449 2239.", s: ["slides:28"] },
+      { t: "Please keep communication respectful. The school says there is no need to start or join chat groups with other parents.", s: ["slides:28"] },
+      { t: "Tell the teacher about any learning or behaviour concerns so you can work together.", s: ["slides:29", "slides:27"] }
+    ],
     vendors: [
       {
         name: "Pacific Bookstores Pte Ltd",

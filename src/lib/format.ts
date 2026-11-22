@@ -1,9 +1,12 @@
 export function esc(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
 }
-/** Escape, then turn **bold** markers into <strong>. */
+/** Escape, then turn **bold** into <strong> and [label](/path, #id or https url) into links. */
 export function rich(text: string): string {
   return esc(text)
+    .replace(/\[([^\]]+)\]\(((?:\/|#|https:\/\/)[^)\s]+)\)/g, (_m, label: string, href: string) =>
+      href.startsWith("https://") ? `<a href="${href}" target="_blank" rel="noopener">${label}</a>` : `<a href="${href}">${label}</a>`,
+    )
     .split("**")
     .map((part, i) => (i % 2 === 1 ? `<strong>${part}</strong>` : part))
     .join("")

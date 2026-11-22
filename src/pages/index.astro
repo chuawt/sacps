@@ -3,9 +3,52 @@ import fs from "node:fs"
 import path from "node:path"
 import Base from "../layouts/Base.astro"
 import { data } from "../data/content"
-import { fmt, longDate } from "../lib/format"
+import { fmt, longDate, rich, telHref } from "../lib/format"
 const events = [...data.events].sort((a, b) => a.date.localeCompare(b.date))
 const route = { before: "/before-school/", weeks: "/first-weeks/", life: "/school-life/#2027-school-terms-and-holidays" }
+const firstDay = data.meta.firstDay
+const lastDay = data.weeks.timeline[data.weeks.timeline.length - 1].to
+const groupOf = (date: string) => (date < firstDay ? "before" : date <= lastDay ? "weeks" : "rest")
+const evGroups = [
+  { id: "before", title: "Before school starts" },
+  { id: "weeks", title: "First two weeks" },
+  { id: "rest", title: "Rest of 2027" },
+].map((g) => ({ ...g, events: events.filter((e) => groupOf(e.date) === g.id) }))
+const jobsTotal = data.before.steps.length
+const callHref = telHref(data.contacts.school.phone)
+const life = "/school-life/#"
+const tiles = {
+  before: [
+    { label: "Jobs to do", href: "/before-school/", sub: "See the list", jobs: true },
+    { label: "Book collection dates", href: "/before-school/#step-books" },
+    { label: "Booklist and prices", href: "/before-school/#booklist" },
+    { label: "GIRO and Edusave", href: "/before-school/#step-giro" },
+    { label: "First day, 4 Jan", href: "/first-weeks/#d0104" },
+  ],
+  weeks: [
+    { label: "Today's plan", href: "/first-weeks/#day-by-day", plan: true },
+    { label: "Pack for today", href: "/first-weeks/#pack", pack: true },
+    { label: "Dismissal and pick-up", href: `${life}dismissal-and-pick-up-points` },
+    { label: "Temporary nametag", href: "/first-weeks/#temporary-nametag" },
+    { label: "Timetable short forms", href: `${life}timetable-short-forms` },
+  ],
+  after: [
+    { label: "Term dates", href: `${life}2027-school-terms-and-holidays` },
+    { label: "School hours", href: `${life}school-day-and-hours` },
+    { label: "Dismissal and pick-up", href: `${life}dismissal-and-pick-up-points` },
+    { label: "Canteen and pocket money", href: `${life}recess-canteen-and-pocket-money` },
+    { label: "Student care", href: `${life}student-care` },
+    { label: "School bus", href: `${life}school-bus-service` },
+  ],
+}
+const noJs = [{ label: "Get ready for P1", href: "/before-school/" }, ...tiles.after]
+const tileSets = [
+  { id: "before", items: tiles.before },
+  { id: "weeks", items: tiles.weeks },
+  { id: "after", items: tiles.after },
+  { id: "nojs", items: noJs },
+]
+const packMap = Object.fromEntries(data.weeks.pack.groups.map((g) => [g.id, g.items.map((i) => i.id)]))
 const heroFile = path.join(process.cwd(), "public", "hero", "hero.png")
 let hero: { w: number; h: number } | null = null
 try {
@@ -30,7 +73,7 @@ try {
         <h1>P1 2027 SACPS Hub</h1>
         <p class="hero-lead">Dates, to-dos and school routines for parents of daughters starting Primary 1 at St Anthony's Canossian Primary School in January 2027.</p>
         <aside class="next-card js-only" id="next-up" aria-live="polite" hidden>
-          <p class="next-eyebrow">Next date</p>
+          <p class="next-eyebrow" data-next-eyebrow>Next date</p>
           <h2 class="next-title" data-next-title></h2>
           <p class="next-count" data-next-count></p>
           <p class="next-when" data-next-when></p>
@@ -40,40 +83,90 @@ try {
     </div>
   </section>
 
-  <div class="page-width page-body">
+  <div class="page-width page-body home-grid">
+    <div class="home-rail">
+      <section class="home-quick" aria-labelledby="quick-h" data-jobs-total={jobsTotal} data-packs={JSON.stringify(packMap)}>
+        <h2 class="section-h first" id="quick-h">Quick answers</h2>
+        {tileSets.map((set) => (
+          <ul class="tiles" data-tiles={set.id}>
+            {set.items.map((t: { label: string; href: string; sub?: string; jobs?: boolean; plan?: boolean; pack?: boolean }) => (
+              <li>
+                <a class="tile" href={t.href} data-tile-jobs={t.jobs ? "" : undefined} data-tile-plan={t.plan ? "" : undefined} data-tile-pack={t.pack ? "" : undefined}>
+                  <span class="tile-label">{t.label}</span>
+                  {t.sub && <span class="tile-sub" data-tile-sub>{t.sub}</span>}
+                  {t.pack && <span class="tile-sub" data-tile-sub hidden></span>}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a class="tile tile-call" href={callHref}>
+                <span class="tile-label">Call the school</span>
+                <span class="tile-sub">{data.contacts.school.phone}</span>
+              </a>
+            </li>
+          </ul>
+        ))}
+      </section>
+
+      <aside class="home-side" aria-labelledby="glance-h">
+        <h2 class="section-h" id="glance-h">A normal school day, at a glance</h2>
+        <dl class="key-times">
+          {data.keyTimes.map((k) => (
+            <div><dt>{k.label}</dt><dd>{k.value}</dd></div>
+          ))}
+        </dl>
+        <a class="btn call-btn" href={callHref}>
+          <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h3.5l1.8 4.5-2.3 1.5a11 11 0 0 0 5 5l1.5-2.3L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <span>Call the school {data.contacts.school.phone}</span>
+        </a>
+      </aside>
+    </div>
+
     <div class="home-main">
       <h2 class="section-h first">Coming up</h2>
       <p class="lead">Dates are counted in Singapore time. Items drop off after they pass.</p>
 
       <div class="card empty" id="ev-empty" hidden>All the dated items have passed. Use <a href="/school-life/">School life</a> for day-to-day reference.</div>
 
-      <ol class="events" id="ev-list">
-        {events.map((e) => (
-          <li class="ev" data-event data-date={e.date} data-end={e.endDate ?? e.date}>
-            <span class="ev-dot" aria-hidden="true"></span>
-            <div class="ev-body">
-              <p class="ev-date"><span class="next-label">Next up</span><span class="ev-day">{fmt(e.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" }).replace(/,/g, "")}</span></p>
-              <h3>{e.title}</h3>
-              <p class="count" data-countdown></p>
-              <p class="when">
-                {longDate(e.date)}{e.endDate ? ` to ${longDate(e.endDate)}` : ""}{e.time ? `, ${e.time}` : ""}
-              </p>
-              <p class="ev-detail">{e.detail}</p>
-              <div class="btn-row"><a class="btn small ghost" href={route[e.go]}>See the details</a></div>
-            </div>
-          </li>
+      <div id="ev-list">
+        {evGroups.map((g) => (
+          <section class="ev-group" data-ev-group={g.id} aria-labelledby={`evg-${g.id}`}>
+            <h3 class="ev-group-h" id={`evg-${g.id}`}>{g.title}</h3>
+            <ol class="events">
+              {g.events.map((e) => (
+                <li class="ev" data-event data-date={e.date} data-end={e.endDate ?? e.date}>
+                  <span class="ev-dot" aria-hidden="true"></span>
+                  <div class="ev-body">
+                    <p class="ev-date"><span class="next-label">Next up</span><span class="ev-day">{fmt(e.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" }).replace(/,/g, "")}</span></p>
+                    <h3><a class="ev-link" href={e.href ?? route[e.go]}>{e.title}</a></h3>
+                    <p class="count" data-countdown></p>
+                    <p class:list={["when", { dup: !e.time && !e.endDate }]}>
+                      {longDate(e.date)}{e.endDate ? ` to ${longDate(e.endDate)}` : ""}{e.time ? `, ${e.time}` : ""}
+                    </p>
+                    <p class="ev-detail">{e.detail}</p>
+                    <div class="btn-row"><a class="btn small ghost" href={e.href ?? route[e.go]}>See the details</a></div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {g.id === "rest" && (
+              <div class="ev-collapsed" data-ev-collapsed hidden>
+                <p class="ev-collapsed-t">2027 term dates and holidays (<span data-ev-rest-count>0</span>)</p>
+                <button class="btn small ghost" type="button" data-show-all aria-expanded="false">Show all dates</button>
+              </div>
+            )}
+          </section>
         ))}
-      </ol>
-      <div id="ev-sentinel" aria-hidden="true" hidden></div>
+      </div>
     </div>
 
-    <aside class="home-side">
-      <h2 class="section-h first">A normal school day, at a glance</h2>
-      <dl class="key-times">
-        {data.keyTimes.map((k) => (
-          <div><dt>{k.label}</dt><dd>{k.value}</dd></div>
-        ))}
-      </dl>
-    </aside>
+    <ol class="tl-copy" data-tl-copy hidden aria-hidden="true">
+      {data.weeks.timeline.map((d) => (
+        <li data-tl-from={d.from} data-tl-to={d.to} data-tl-id={d.id} data-tl-label={d.label}>
+          <h3>{d.title}</h3>
+          <p data-tl-first><Fragment set:html={rich(d.items[0].t)} /></p>
+        </li>
+      ))}
+    </ol>
   </div>
 </Base>

@@ -1,26 +1,35 @@
 ---
 import Base from "../layouts/Base.astro"
 import Blocks from "../components/Blocks.astro"
+import LinkBtn from "../components/LinkBtn.astro"
 import { data } from "../data/content"
 import { rich } from "../lib/format"
 const W = data.weeks
 const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)}` : undefined)
 ---
 <Base title="First weeks" lead={W.intro}>
-  <Fragment slot="head"><p class="head-actions"><a class="btn small" href="#pack">Jump to What to pack</a></p></Fragment>
+  <nav class="jump-row not-pack" aria-label="On this page">
+    <a class="btn ghost small" href="#day-by-day">Day by day</a>
+    <a class="btn ghost small" href="#pack">What to pack</a>
+    <a class="btn ghost small" href="#temporary-nametag">Nametag</a>
+  </nav>
 
-  <h2 class="section-h first">Day by day</h2>
-  <ol class="timeline">
+  <div id="today-banner" class="not-pack" data-today-banner hidden></div>
+
+  <h2 class="section-h first not-pack" id="day-by-day">Day by day</h2>
+  <ol class="timeline not-pack">
     {W.timeline.map((d) => (
-      <li data-from={d.from} data-to={d.to}>
-        <p class="tl-date">{d.label} <span data-today-flag hidden>(today)</span></p>
-        <h3>{d.title}</h3>
-        <ul class="facts">{d.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
+      <li id={d.id} data-from={d.from} data-to={d.to}>
+        <details class="day" open>
+          <summary><span class="tl-date">{d.label} <span data-today-flag hidden>(today)</span></span><h3>{d.title}</h3></summary>
+          <ul class="facts">{d.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
+        </details>
       </li>
     ))}
   </ol>
 
-  <h2 id="pack">What to pack</h2>
+  <section id="pack" class="pack-section">
+  <h2 class="section-h">What to pack</h2>
   <p class="lead">{W.pack.intro}</p>
   <div class="pack-grid">
   {W.pack.groups.map((g) => (
@@ -39,10 +48,17 @@ const dayOf = (id: string) => (id.startsWith("pack-0") ? `2027-01-${id.slice(-2)
   </div>
   <p><Fragment set:html={rich(W.pack.after)} /></p>
   <div class="btn-row">
+    <button class="btn ghost small js-only" id="print-pack" type="button">Print the packing list</button>
     <button class="btn ghost small js-only" id="clear-ticks" type="button">Clear all ticks</button>
     <span class="small-note js-only">Ticks are saved on this device only.</span>
   </div>
+  </section>
 
-  <h2>Handy to know</h2>
-  <Blocks blocks={W.extras as any} />
+  <div class="not-pack">
+    <h2>Handy to know</h2>
+    <Blocks blocks={W.extras} />
+    <div class="links handy-links">
+      <div><LinkBtn label="Class timetable short forms" href="/school-life/#timetable-short-forms" kind="go" /></div>
+    </div>
+  </div>
 </Base>

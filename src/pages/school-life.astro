@@ -3,22 +3,41 @@ import Base from "../layouts/Base.astro"
 import Blocks from "../components/Blocks.astro"
 import { data } from "../data/content"
 const L = data.life
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 ---
 <Base title="School life" lead={L.intro}>
-  {L.sections.map((s) => (
-    <details class="acc" id={slug(s.title)}>
-      <summary><span>{s.title}</span></summary>
-      <div class="acc-body"><Blocks blocks={s.blocks} /></div>
-    </details>
-  ))}
-  <script>
-    const open = () => {
-      const id = decodeURIComponent(location.hash.slice(1))
-      const el = id ? document.getElementById(id) : null
-      if (el instanceof HTMLDetailsElement) { el.open = true; el.scrollIntoView() }
-    }
-    open()
-    window.addEventListener("hashchange", open)
-  </script>
+  <div class="life-layout">
+    <nav class="life-nav" aria-label="School life sections" data-life-nav>
+      <ul class="life-nav-groups">
+        {L.groups.map((g) => (
+          <li>
+            <a class="life-nav-group" href={`#${g.id}`} data-nav-group={g.id}>{g.title}</a>
+            <ul class="life-nav-sections">
+              {g.sections.map((s) => (
+                <li><a href={`#${s.id}`} data-nav-section={s.id}>{s.title}</a></li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="life-main">
+      <div class="life-tools js-only">
+        <button class="btn ghost small" type="button" id="life-toggle" data-open-all>Open all</button>
+      </div>
+      {L.groups.map((g) => (
+        <section class="life-group" id={g.id} data-life-group>
+          <h2 class="section-h">{g.title}</h2>
+          {g.sections.map((s) => (
+            <details class="acc" id={s.id} open={s.open} data-life-section>
+              <summary><span>{s.title}</span></summary>
+              <div class="acc-body">
+                {(s.aliases ?? []).map((a) => <span id={a}></span>)}
+                <Blocks blocks={s.blocks} />
+              </div>
+            </details>
+          ))}
+        </section>
+      ))}
+    </div>
+  </div>
 </Base>

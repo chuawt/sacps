@@ -2,8 +2,9 @@
 import Base from "../layouts/Base.astro"
 import LinkBtn from "../components/LinkBtn.astro"
 import DataTable from "../components/DataTable.astro"
+import CareCards from "../components/CareCards.astro"
 import { data } from "../data/content"
-import { telHref, waHref } from "../lib/format"
+import { rich, telHref, waHref } from "../lib/format"
 const C = data.contacts
 const s = C.school
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s.address)
@@ -25,7 +26,19 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
     <p>For urgent matters, contact the General Office. Teachers may not reply on the same day.</p>
   </article>
 
-  <h2>Suppliers and services</h2>
+  <section id="how-to-reach-the-school" class="reach">
+    <span id="communicating-with-the-school"></span>
+    <h2 class="section-h">How to reach the school</h2>
+    <ul class="facts">{C.reach.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
+  </section>
+
+  <section id="student-care">
+    <h2 class="section-h">Student care</h2>
+    <CareCards />
+  </section>
+
+  <section id="suppliers-and-services">
+  <h2 class="section-h">Suppliers and services</h2>
   <div class="card-grid">
   {C.vendors.map((v) => (
     <article class="card contact">
@@ -42,29 +55,11 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
     </article>
   ))}
   </div>
+  </section>
 
-  <h2>Student care</h2>
-  <div class="card-grid">
-  {C.care.map((c) => (
-    <article class="card contact">
-      <h3>{c.name}</h3>
-      <p>{c.t}</p>
-      {c.note && <p>{c.note}</p>}
-      <div class="links">
-        {c.phones.map((p) => <LinkBtn label={`Call ${p}`} href={telHref(p)} kind="tel" />)}
-        {c.email && <LinkBtn label={c.email} href={`mailto:${c.email}`} kind="mail" />}
-        {c.web && <LinkBtn label="Website" href={c.web} kind="web" />}
-      </div>
-    </article>
-  ))}
-  </div>
-
-  <h2>Staff and roles</h2>
-  <p class="lead">{C.staffNote}</p>
-  {C.staff.map((g) => (
-    <details class="acc">
-      <summary><span>{g.group}</span></summary>
-      <div class="acc-body"><DataTable head={["Name", "Role"]} rows={g.rows} /></div>
-    </details>
-  ))}
+  <section id="school-leaders">
+    <h2 class="section-h">School leaders and Year Head</h2>
+    <p class="lead">{C.staffNote}</p>
+    <DataTable plain head={["Name", "Role"]} rows={C.staff.flatMap((g) => g.rows)} />
+  </section>
 </Base>

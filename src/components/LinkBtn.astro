@@ -1,11 +1,12 @@
 ---
-type Kind = "tel" | "mail" | "map" | "web" | "facebook" | "instagram" | "whatsapp"
+type Kind = "tel" | "mail" | "map" | "web" | "facebook" | "instagram" | "whatsapp" | "go"
 interface Props { label: string; href: string; kind: Kind }
 const { label, href, kind } = Astro.props
-const ext = kind !== "tel" && kind !== "mail"
+const ext = kind !== "tel" && kind !== "mail" && kind !== "go"
 ---
 <a class={`btn ghost small link-btn kind-${kind}`} href={href} target={ext ? "_blank" : undefined} rel={ext ? "noopener" : undefined}>
   {kind === "tel" && <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h3.5l1.8 4.5-2.3 1.5a11 11 0 0 0 5 5l1.5-2.3L19 14.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>}
+  {kind === "go" && <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>}
   {kind === "mail" && <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg>}
   {kind === "map" && <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>}
   {kind === "web" && <svg class="ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg>}

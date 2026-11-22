@@ -32,13 +32,14 @@ The school shares its P1 information across a letter, a booklet, a slide deck an
 
 ### Features
 
-* See the next dated items with countdowns in Singapore time. Past items drop off by themselves.
-* Follow the first-weeks timeline (4 to 15 January 2027) and tick off a day-by-day packing list that is saved on the device.
-* Work through the before-school jobs: books, uniform, nametags, GIRO and Edusave, Parents Gateway. Mark each as done.
-* Read the booklist with all Mother Tongue variants and prices.
-* Look up school hours, gates, dismissal points, uniform rules, food, devices and assessment.
-* Tap to call, email or open a map for the school and its suppliers.
-* Use it on a phone or a computer. A simple header menu links the sections.
+* See what matters now. The homepage picks quick-answer tiles for the phase (before school, the first two weeks, or the rest of 2027) in Singapore time, shows a next-date card with a countdown, and groups Coming up into Before school starts, First two weeks and Rest of 2027, with the long list of term dates behind "Show all dates". Past items drop off by themselves.
+* Work through the Get ready jobs in deadline order. Mark each as done, see "N of 9 jobs done", and watch done or passed jobs move into a "Done or passed" group.
+* Read the booklist with prices and pick one Mother Tongue group (CL, ML, TL or Exempted). The choice is saved on the device.
+* Follow the first-weeks timeline (4 to 15 January 2027) with a Today banner, past days folded away, and a day-by-day packing list that is saved on the device and shows "n of m" ticked. Print the packing list with one button.
+* Look up school hours, terms, gates, dismissal, bus, student care, uniform, food, health and safety, learning and settling in. School life has group chips on a phone, a sticky section list on a computer that follows where you are, and an "Open all" button.
+* Tap to call, email or open a map for the school and its suppliers, and call the school from the homepage.
+* Print any page cleanly. Every section opens for print and checklists print with empty boxes.
+* Use it on a phone or a computer. A header menu links the five sections. The site works with JavaScript off, with every tile, group and Mother Tongue list showing.
 
 ### Tech Stack
 
