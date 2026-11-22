@@ -331,7 +331,7 @@ if (steps.length) {
   const paintJobs = () => {
     const text = jobs?.querySelector<HTMLElement>("[data-jobs-text]")
     if (!jobs || !text) return
-    text.textContent = `${steps.filter((x) => done[x.dataset.step!]).length} of ${steps.length} jobs done`
+    text.textContent = `${steps.filter((x) => done[x.dataset.step!]).length} of ${steps.length} tasks done`
     jobs.hidden = false
   }
   /* put every step in its group, or in the done group when it is done or its dates have passed */
