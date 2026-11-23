@@ -16,7 +16,7 @@ const { blocks } = Astro.props
     <ul class="facts">{b.items.map((it) => <li><Fragment set:html={rich(it.t)} /></li>)}</ul>
   )
   if (b.k === "h") return <h4>{b.t}</h4>
-  if (b.k === "table") return <DataTable head={b.head} rows={b.rows} plain={b.plain} />
+  if (b.k === "table") return <DataTable head={b.head} rows={b.rows} plain={b.plain} compact={b.compact} />
   if (b.k === "note") return (
     <div class:list={["note", { info: b.tone === "info" }]}><p><Fragment set:html={rich(b.t)} /></p></div>
   )
@@ -28,7 +28,7 @@ const { blocks } = Astro.props
   )
   if (b.k === "links") return (
     <div class="links">
-      {b.items.map((l) => <div><LinkBtn label={l.label} href={l.url} kind={l.url.startsWith("#") || l.url.startsWith("/") ? "go" : "web"} /></div>)}
+      {b.items.map((l) => <div><LinkBtn label={l.label} href={l.url} kind={l.kind ?? (l.url.startsWith("#") || l.url.startsWith("/") ? "go" : "web")} /></div>)}
     </div>
   )
   if (b.k === "books") return <Books />

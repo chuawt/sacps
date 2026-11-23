@@ -5,10 +5,10 @@ export interface Fact { t: string; s?: Src }
 export type Block =
   | { k: "p"; t: string; s?: Src }
   | { k: "ul"; items: Fact[] }
-  | { k: "table"; head?: string[]; rows: string[][]; plain?: boolean; s?: Src }
+  | { k: "table"; head?: string[]; rows: string[][]; plain?: boolean; compact?: boolean; s?: Src }
   | { k: "h"; t: string }
   | { k: "note"; t: string; tone?: "info"; s?: Src }
-  | { k: "links"; items: { label: string; url: string; s?: Src }[] }
+  | { k: "links"; items: { label: string; url: string; kind?: "tel" | "web" | "whatsapp" | "go"; s?: Src }[] }
   | { k: "accordion"; title: string; sub?: string; id?: string; blocks: Block[] }
   | { k: "books" }
   | { k: "care" }
@@ -21,7 +21,7 @@ export interface LifeSection { id: string; title: string; open?: boolean; aliase
 export interface LifeGroup { id: string; title: string; sections: LifeSection[] }
 export interface Priced { t: string; p: number; q?: number }
 export interface MtGroup { id: string; name: string; total: number; items: Priced[]; cce: Priced; stationery: Priced[]; stationeryTotal: number }
-export interface Vendor { name: string; role: string; phones: string[]; whatsapp?: string; email?: string; web?: string; person?: string; note?: string; s?: Src }
+export interface Vendor { name: string; role: string; phones: string[]; address?: string; whatsapp?: string; email?: string; web?: string; person?: string; note?: string; s?: Src }
 export interface Content {
   meta: { title: string; updated: string; timezone: string; firstDay: string }
   refDocs: RefDoc[]

@@ -211,6 +211,8 @@ ul.facts li:last-child { margin-bottom: 0; }
 
 /* ---------- tables ---------- */
 .table-wrap { overflow-x: auto; margin: 10px 0 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table.stack td { white-space: pre-line; }
+table.compact td:last-child, table.compact th:last-child { width: 8em; min-width: 8em; overflow-wrap: normal; word-break: normal; }
 table { border-collapse: collapse; width: 100%; font-size: .96rem; }
 th, td { text-align: left; padding: 11px 14px; vertical-align: top; border-bottom: 1px solid var(--line); }
 th { background: var(--soft); font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--head); }

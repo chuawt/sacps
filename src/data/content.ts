@@ -9,7 +9,7 @@ import type { Content } from "./types"
 export const data = {
   meta: {
     title: "P1 2027 SACPS Hub",
-    updated: "2026-11-21",
+    updated: "2026-11-23",
     timezone: "Asia/Singapore",
     firstDay: "2027-01-04"
   },
@@ -612,6 +612,7 @@ export const data = {
           { k: "ul", items: [
             { t: "The uniform supplier is Magdalene Sewing Centre Pte Ltd. Order online at magdalene.com.sg (the website is available year-round) or walk in on 23 November.", s: ["details:2", "booklet:16"] },
             { t: "The school recommends 3 sets of uniform (blouse and pinafore) and 3 sets of PE attire.", s: ["booklet:16"] },
+            { t: "Uniform and PE attire are also sold at the school bookshop during term time. You can also buy directly from Magdalene Sewing Centre during term time.", s: ["services:uniform"] },
             { t: "Home delivery covers books and uniform or PE attire. Self-collection in school is for school books only.", s: ["booklet:16"] },
             { t: "What she wears on regular days and PE days, with shoes, socks and hair, is under [Uniform, PE attire and appearance](/school-life/#uniform-pe-attire-and-appearance) in School life.", s: ["booklet:13"] }
           ] }
@@ -919,6 +920,21 @@ export const data = {
                   { t: "Write the bus number (for example SACPS 13) on the nametag.", s: ["booklet:9"] }
                 ] },
                 { k: "vendor", name: "RAE Transport Services LLP" },
+                { k: "accordion", title: "Bus fees", sub: "Updated 14 August 2026", id: "bus-fees", blocks: [
+                  { k: "h", t: "Daily school bus services" },
+                  { k: "table", head: ["Distance", "Up to 15 seater", ">15-seater"], rows: [
+                    ["Up to 2km", "1 way $190, 2 way $200", "1 way $180, 2 way $190"],
+                    [">2 – 4km", "1 way $235, 2 way $245", "1 way $225, 2 way $235"],
+                    [">4 – 6km", "1 way $275, 2 way $285", "1 way $260, 2 way $275"]
+                  ] },
+                  { k: "h", t: "Bus services for after-school activities" },
+                  { k: "table", head: ["Distance", "Up to 15 seater (per ride)", ">15-seater (per ride)"], rows: [
+                    ["Up to 2km", "$7", "$7"],
+                    [">2 – 4km", "$8", "$8"],
+                    [">4 – 6km", "$9", "$9"]
+                  ] },
+                  { k: "note", t: "Ask the bus vendor how the fees are billed." }
+                ] },
                 { k: "accordion", title: "Bus operating areas", blocks: [
                   { k: "ul", items: [
                     { t: "Bayshore/Siglap, Bedok North/Town/Central, Bedok Reservoir Road, Bedok Reservoir View, Bedok Ria/Eastwood Estate/Kew Estate, Bedok South, Chai Chee Road/Chai Chee Dr, Elias Green, Flora Estate/Compass Green.", s: ["booklet:15"] },
@@ -951,7 +967,7 @@ export const data = {
                   { t: "Regular days: white blouse and pinafore at knee length.", s: ["booklet:13"] },
                   { t: "PE days: school PE t-shirt, school shorts and pinafore.", s: ["booklet:13"] },
                   { t: "Footwear: white shoes and socks. White socks without 'SACPS' on them are acceptable.", s: ["booklet:13"] },
-                  { t: "Hair must be neat. Short hair stays above the collar. Long hair, or any hair reaching below chin level, is tied up.", s: ["booklet:13", "slides:51"] },
+                  { t: "Hair is tied up once it touches the collar of the blouse. It stays tied whenever she is in uniform, in school and outside school.", s: ["booklet:13", "slides:51"] },
                   { t: "Hair accessories are simple and only white, blue or black. Long fringes are held back with a hairband or clips. Bring spare accessories.", s: ["booklet:13", "slides:51"] },
                   { t: "Sew or iron on her name tag below the badge on the pinafore and PE t-shirt.", s: ["slides:51", "booklist:2"] }
                 ] }
@@ -967,10 +983,128 @@ export const data = {
                   { t: "P1 recess is 30 minutes, from 9.40 to 10.10 am, in the canteen.", s: ["booklet:4", "booklet:9"] },
                   { t: "A 10-minute snack break happens in class between 12.00 and 12.30 pm. Pack a healthy, easy-to-eat, dry snack such as fruit or a sandwich.", s: ["booklet:4"] },
                   { t: "Students may not go to the canteen during the snack break.", s: ["booklet:4"] },
+                  { t: "Items marked with a star (*) at stalls 1 and 2 can be bought at recess and taken away for the snack break.", s: ["menu:1"] },
                   { t: "You can pack food for recess or give her money to buy food.", s: ["booklet:9"] },
-                  { t: "The canteen offers halal and non-halal options. Menus and prices are on the school website. Food prices range from $0.50 to $2.50.", s: ["booklet:20"] },
+                  { t: "The canteen offers halal and non-halal options. The stall menus and prices are below.", s: ["booklet:20"] },
                   { t: "Choose what works, not what costs more. Light, practical, easy-to-use items are enough.", s: ["slides:52"] },
                   { t: "Bring water in the bottle, with no sweet drinks.", s: ["booklet:9"] }
+                ] },
+                { k: "accordion", title: "Canteen menu", sub: "Stall menus and prices for 2026", id: "canteen-menu", blocks: [
+                  { k: "p", t: "Set meals at stalls 3, 4, 5 and 7 include fruit. Prices and menus can change, so check the school website for the latest list." },
+                  { k: "links", items: [
+                    { label: "Latest list on the school website", url: "https://www.stanthonyscanossianpri.moe.edu.sg/school-services/schoolcanteenservices/" }
+                  ] },
+                  { k: "accordion", title: "Stall 1", sub: "Pau, sandwiches, snacks and hot drinks", id: "canteen-stall-1", blocks: [
+                      { k: "table", head: ["Item", "Price"], rows: [
+                        ["*Garlic bread", "$0.50"],
+                        ["Assorted pau (bean)", "$0.70"],
+                        ["Assorted pau (meat)", "$0.80"],
+                        ["Sandwich (mashed egg or tuna)", "$0.70"],
+                        ["*Sandwich (whole egg, cheese, lettuce)", "$1.50"],
+                        ["*Chicken Burger (patty, lettuce)", "$1.50"],
+                        ["Siew Mai", "$0.70"],
+                        ["Lor Mai Kai", "$1.40"],
+                        ["Fan Chay", "$1.20"],
+                        ["*Egg tart", "$1.20"],
+                        ["*Milo / Honey Stars wholegrain", "$1.00"],
+                        ["Milo / Honey Stars wholegrain with milk", "$1.20"],
+                        ["*Sunshine buns", "$1.20"],
+                        ["Tea-O", "$0.60"],
+                        ["Coffee-O", "$0.60"],
+                        ["Tea with milk", "$0.70"],
+                        ["Coffee with milk", "$0.70"],
+                        ["Hot Milo", "$1.00"],
+                        ["Fish burger", "$1.50"],
+                        ["Muesli", "$1.00"],
+                        ["Muesli with milk", "$1.20"]
+                      ], compact: true },
+                      { k: "p", t: "Items marked * can be taken away for the snack break." }
+                  ] },
+                  { k: "accordion", title: "Stall 2", sub: "Drinks, fruit and yoghurt", id: "canteen-stall-2", blocks: [
+                      { k: "table", head: ["Item", "Price"], rows: [
+                        ["*Mineral water", "$0.70/bottle (without 'Deposit Mark' label), $0.80/bottle (with 'Deposit Mark' label)"],
+                        ["*H-TWO-O packet", "$0.70/pack"],
+                        ["*Yeo's Soy Milk", "$0.70/pack"],
+                        ["*Milo packet", "$0.80/pack"],
+                        ["*Meiji Milk", "$1.00/bottle"],
+                        ["*Coconut Water", "$1.20/pack"],
+                        ["Fresh fruit juice", "$1.50/cup"],
+                        ["Cut fruits (variety)", "$0.50"],
+                        ["Marigold Low-fat yoghurt", "$1.10"],
+                        ["Vitagen (Less sugar)", "$0.90"],
+                        ["Yakult (Ace Light)", "$0.90"]
+                      ], compact: true },
+                      { k: "p", t: "Items marked * can be taken away for the snack break." }
+                  ] },
+                  { k: "accordion", title: "Stall 3", sub: "Pasta, baked and Western set meals", id: "canteen-stall-3", blocks: [
+                      { k: "table", head: ["Item", "Price", "Day"], rows: [
+                        ["Spaghetti with sauce (bolognaise or cheese sauce)", "$2.00 (small), $2.50 (large)", "Tue, Thu"],
+                        ["Chicken Cutlet Rice", "$2.00 (small), $2.50 (large)", "Mon"],
+                        ["Macaroni and Cheese", "$2.00 (small), $2.50 (large)", "Mon, Wed, Fri"],
+                        ["Aglio olio set", "$2.00 (small), $2.50 (large)", "Fri"],
+                        ["Baked potatoes with topping", "$2.00 (small), $2.50 (large)", "Fri"],
+                        ["Baked Rice", "$2.00 (small), $2.50 (large)", "Wed"],
+                        ["Mashed potatoes with chicken/fish", "$2.00 (small), $2.50 (large)", "Tue"],
+                        ["Garlic bread with mushroom soup & baked beans", "$2.00", "Thu"],
+                        ["Chicken wrap with fruit", "$1.60", "Every day"],
+                        ["Sweet corn in a bowl", "$1.00", "Every day"]
+                      ] },
+                      { k: "h", t: "Menu by day" },
+                      { k: "table", head: ["Day", "Dishes"], rows: [
+                        ["Monday", "Macaroni and Cheese\nChicken Cutlet Rice\nChicken wrap with fruit\nSweet corn in a bowl"],
+                        ["Tuesday", "Spaghetti with sauce (bolognaise or cheese sauce)\nMashed potatoes with chicken or fish\nChicken wrap with fruit\nSweet corn in a bowl"],
+                        ["Wednesday", "Macaroni and Cheese\nBaked Rice\nChicken wrap with fruit\nSweet corn in a bowl"],
+                        ["Thursday", "Spaghetti with sauce (bolognaise or cheese sauce)\nGarlic bread with mushroom soup & baked beans\nChicken wrap with fruit\nSweet corn in a bowl"],
+                        ["Friday", "Macaroni and Cheese\nAglio olio or baked potatoes with topping\nChicken wrap with fruit\nSweet corn in a bowl"]
+                      ] }
+                  ] },
+                  { k: "accordion", title: "Stall 4", sub: "Noodle and rice set meals", id: "canteen-stall-4", blocks: [
+                      { k: "table", head: ["Item", "Price"], rows: [
+                        ["Fried noodles/rice with egg and vegetable", "$2.00 (small), $2.50 (large)"],
+                        ["Noodle soup with fishball, fishcake and vegetable", "$2.00 (small), $2.50 (large)"],
+                        ["Noodle soup with shredded chicken and vegetable", "$2.00 (small), $2.50 (large)"],
+                        ["TomYum Noodles with fishball, fish cake, and vegetables", "$2.00 (small), $2.50 (large)"],
+                        ["Noodles/Rice with chicken curry, carrot and potato", "$2.00 (small), $2.50 (large)"],
+                        ["Wanton Noodle Soup with wanton and vegetable", "$2.00 (small), $2.50 (large)"],
+                        ["Mee Rebus set (with beancurd, beansprouts, and hardboiled egg)", "$2.00 (small), $2.50 (large)"],
+                        ["Laksa Noodle set (with fishball, fish cake, and vegetable)", "$2.00 (small), $2.50 (large)"],
+                        ["Chicken Rice Set", "$2.00 (small), $2.50 (large)"]
+                      ], compact: true },
+                      { k: "h", t: "Menu by day" },
+                      { k: "table", head: ["Day", "Dishes"], rows: [
+                        ["Monday", "Fishball Noodle Soup – Noodle/Macaroni with fishball, fish cake, and vegetables\nFried Noodles with sunny side up egg and vegetables\nCurry Chicken - Noodles/Rice with carrot, chicken, and potato"],
+                        ["Tuesday", "Chicken Noodles with shredded chicken, egg and vegetables\nFried Rice with mixed vege and shredded egg\nChicken Rice Set"],
+                        ["Wednesday", "Fishball Noodle Soup – Noodle/Macaroni with fishball, fish cake, and vegetables\nFried Noodles with sunny side up egg and vegetables\nCurry Chicken - Noodles/Rice with carrot, chicken, and potatoes\nTomYum Noodles with fishball, fish cake, and vegetables"],
+                        ["Thursday", "Wanton Noodle Soup with wanton and vegetables\nFried Rice with mixed vege and shredded egg\nJapanese Curry Rice with carrot, potatoes\nLaksa Noodle with fishball, fish cake, and vegetable"],
+                        ["Friday", "Fishball Noodle Soup – Noodle/Macaroni with fishball, fish cake, and vegetables\nFried Noodles with sunny side up egg and vegetables\nCurry Chicken - Noodles/Rice with carrot, chicken, and potato\nMee Rebus with beancurd, beansprouts, and hardboiled egg"]
+                      ] }
+                  ] },
+                  { k: "accordion", title: "Stall 5", sub: "Set meals, prata, waffles and sushi", id: "canteen-stall-5", blocks: [
+                      { k: "table", head: ["Item", "Price"], rows: [
+                        ["Mee Soto / Mee Goreng / Macaroni Goreng", "$2.00 (small), $2.50 (large)"],
+                        ["Yakitori Nasi Lemak Set", "$2.00 (small), $2.50 (large)"],
+                        ["Roti prata with gravy", "$1.00"],
+                        ["Roti prata with egg and gravy", "$1.50"],
+                        ["Roti prata with chicken and gravy", "$1.50"],
+                        ["Roti prata with cheese and gravy", "$1.50"],
+                        ["Plain waffle", "$1.00"],
+                        ["Waffle with sauce", "$1.20"],
+                        ["Sushi with cucumber (2 big pieces)", "$1.20"]
+                      ], compact: true },
+                      { k: "h", t: "Menu by day" },
+                      { k: "table", head: ["Day", "Dishes"], rows: [
+                        ["Monday", "Mee Goreng\nMacaroni Goreng\nRoti prata plain\nRoti prata with egg/chicken/cheese and gravy\nSushi with cucumber (2 big)\nWaffle - plain or with sauce"],
+                        ["Tuesday", "Yakitori Nasi Lemak\nMee Soto\nSushi with cucumber (2 big pieces)"],
+                        ["Wednesday", "Mee Goreng\nMacaroni Goreng\nRoti prata plain\nRoti prata with egg/chicken/cheese and gravy\nSushi with cucumber (2 big)\nWaffle - plain or with sauce"],
+                        ["Thursday", "Yakitori Nasi Lemak\nMee Soto\nSushi with cucumber (2 big pieces)"],
+                        ["Friday", "Mee Goreng\nMacaroni Goreng\nRoti prata plain\nRoti prata with egg/chicken/cheese and gravy\nSushi with cucumber (2 big)\nWaffle - plain or with sauce"]
+                      ] }
+                  ] },
+                  { k: "accordion", title: "Stall 7", sub: "Rice and mixed dishes", id: "canteen-stall-7", blocks: [
+                      { k: "table", head: ["Item", "Price"], rows: [
+                        ["Rice and mixed dishes (1 meat and 1 vegetable) with fruit", "$2.20 (standard size)"]
+                      ], compact: true }
+                  ] }
                 ] },
                 { k: "h", t: "Pocket money and POSB Smart Buddy" },
                 { k: "ul", items: [
@@ -999,8 +1133,94 @@ export const data = {
                   { t: "Subject teachers keep the work she missed and guide her when she returns.", s: ["booklet:12"] },
                   { t: "If she becomes unwell at school, the school calls you. Report to the security post first, then go to the General Office. If you drive, you are allowed into the school compound to collect her.", s: ["booklet:18"] },
                   { t: "MOE provides Group Personal Accident insurance at no cost. It covers her in school, at school activities wherever they are, and while commuting between home and school.", s: ["booklet:17"] },
-                  { t: "School dental clinic is run by the Health Promotion Board (HPB). Call 9111 0760 to book an appointment.", s: ["booklet:18"] }
+                  { t: "School dental clinic is run by the Health Promotion Board (HPB). Call or WhatsApp 9111 0760 to book an appointment. The hours are below.", s: ["booklet:18"] }
+                ] },
+                { k: "accordion", title: "School dental clinic hours", sub: "Hours, booking and opening dates", id: "dental-clinic", blocks: [
+                  { k: "table", head: ["Day", "Hours"], rows: [
+                    ["Monday to Thursday", "8.00 am to 5.30 pm"],
+                    ["Friday", "8.00 am to 5.00 pm"],
+                    ["Lunch hour", "1 pm to 2 pm"]
+                  ], compact: true },
+                  { k: "p", t: "Book an appointment by call or WhatsApp on 9111 0760. The line is answered during operating hours only. The calendar shows the days the clinic is open." },
+                  { k: "links", items: [
+                    { label: "Call 9111 0760", url: "tel:+6591110760", kind: "tel" },
+                    { label: "WhatsApp 9111 0760", url: "https://wa.me/6591110760", kind: "whatsapp" },
+                    { label: "Clinic opening days calendar", url: "https://calendar.google.com/calendar/embed?src=o890mu67ugnvirinrgka43m2c0%40group.calendar.google.com&ctz=Asia%2FSingapore", kind: "web" }
+                  ] }
                 ] }
+            ]
+          },
+          {
+            id: "school-rules",
+            title: "School rules",
+            blocks: [
+              { k: "p", t: "The school believes in positive discipline. The rules cover respect for self, school and nation." },
+              { k: "accordion", title: "Dress code and hair", id: "rules-dress-and-hair", blocks: [
+                  { k: "ul", items: [
+                    { t: "Students wear the prescribed school uniform. Modifying the uniform is not allowed." },
+                    { t: "Shoes are plain white and white socks cover the ankle." },
+                    { t: "Sports shoes are allowed only on CCA days, for sports-related CCAs only. They must be 50% predominantly white, with white laces and white soles." },
+                    { t: "For PE lessons and sports practices, the PE T-shirt is neatly tucked in. She wears the pinafore over her PE attire before leaving school, unless special permission is given for special occasions." },
+                    { t: "Hair is not coloured and the fringe stays above the eyebrows. If the fringe is long, use hair clips or a hairband." },
+                    { t: "Fingernails are short and clean, with no nail polish or varnish." },
+                    { t: "Students advised by an optometrist to wear contact lenses wear only clear ones. Coloured or tinted lenses are not allowed." }
+                  ] },
+                  { k: "p", t: "Pinafore length, hair accessories and when to tie up her hair are covered under Uniform, PE attire and appearance." },
+                  { k: "links", items: [
+                    { label: "See Uniform, PE attire and appearance", url: "/school-life/#uniform-pe-attire-and-appearance" }
+                  ] }
+              ] },
+              { k: "accordion", title: "Accessories and jewellery", id: "rules-accessories", blocks: [
+                  { k: "ul", items: [
+                    { t: "She wears only one small, simple ear stud of the same design on each ear. Fanciful, dangling and loop earrings and black ear studs are not allowed." },
+                    { t: "For safety, no jewellery such as bracelets, chains, pendants, necklaces or anklets is allowed." }
+                  ] }
+              ] },
+              { k: "accordion", title: "Attendance, punctuality and leaving school", id: "rules-attendance", blocks: [
+                  { k: "ul", items: [
+                    { t: "Students attend school and CCA sessions regularly unless they are ill." },
+                    { t: "Students are punctual for all lessons, CCA sessions and school programmes." },
+                    { t: "When she is absent from school or CCA, present a valid medical certificate or valid document." },
+                    { t: "She may not leave school before the dismissal bell without her Form Teacher's permission. A parent, guardian or authorised caregiver signs her out at the General Office." },
+                    { t: "She also may not leave before enrichment lessons or CCA without her Form Teacher's prior permission." }
+                  ] },
+                  { k: "links", items: [
+                    { label: "See Attendance, health and safety", url: "/school-life/#attendance-health-and-safety" }
+                  ] }
+              ] },
+              { k: "accordion", title: "Schoolwork and honesty", id: "rules-schoolwork-and-honesty", blocks: [
+                  { k: "ul", items: [
+                    { t: "Students take pride in their work and complete homework and assignments on time, including Home-Based Learning, as the teacher says." },
+                    { t: "Students must not change information on official documents or forge a parent's or guardian's signature. Forgery is a serious offence." },
+                    { t: "Students are honest at all times and do not take items that do not belong to them." },
+                    { t: "Students do not cheat in daily work, examinations or checkpoint assessments. Cheating during and after examinations, including altering answers or marks, is a serious offence." }
+                  ] }
+              ] },
+              { k: "accordion", title: "Behaviour and respect", id: "rules-behaviour", blocks: [
+                  { k: "ul", items: [
+                    { t: "Students are courteous and respectful in words and actions towards teachers, school staff and schoolmates." },
+                    { t: "The school has a zero-tolerance policy on bullying. This includes cyber, physical, social and verbal bullying." },
+                    { t: "Students queue up when buying food or other items from the canteen or bookshop." },
+                    { t: "Food and drinks are allowed only in the canteen unless instructed otherwise." },
+                    { t: "Students may not sell things to one another privately." },
+                    { t: "Students may not have any weapon or sharp object. They may not bring any weapon-like item that is used or meant to cause harm to others." },
+                    { t: "Smoking and vaping are strictly prohibited and are serious offences. This includes having cigarettes or vaping devices. A student who does so is reported to the relevant government authorities." },
+                    { t: "Students respect and care for all school property, including classrooms, furniture, books and equipment. Vandalism, misuse or damage is strictly prohibited." }
+                  ] }
+              ] },
+              { k: "accordion", title: "Phones, smart watches and devices", id: "rules-devices", blocks: [
+                  { k: "p", t: "The rules on handphones, smart watches, photos and other devices are under Devices in Visitors, forgotten items and devices." },
+                  { k: "links", items: [
+                    { label: "See Devices", url: "/school-life/#devices" }
+                  ] }
+              ] },
+              { k: "accordion", title: "National Anthem, pledge and prayer", sub: "Respect for nation", id: "rules-nation", blocks: [
+                  { k: "ul", items: [
+                    { t: "Students who are Singapore Citizens sing the National Anthem and say the pledge, with the right fist over the heart." },
+                    { t: "Students are respectful during flag-raising, flag-lowering and other school ceremonies." },
+                    { t: "Students are respectful at prayer time." }
+                  ] }
+              ] }
             ]
           },
           {
@@ -1019,9 +1239,13 @@ export const data = {
                 { k: "h", t: "Devices" },
                 { k: "ul", items: [
                   { t: "Personal digital devices, including smartphones and smartwatches, are not encouraged during school hours, including recess, CCA and after-school programmes.", s: ["slides:55"] },
-                  { t: "A student who needs to bring one must seek permission and keep it in her school bag, powered off, before school starts.", s: ["slides:55"] },
-                  { t: "She is responsible for keeping the device safe.", s: ["slides:55"] },
-                  { t: "Devices may be used only at dismissal points, to contact parents or guardians after school hours.", s: ["slides:55"] }
+                  { t: "Smart watches are strongly discouraged because all functions other than calling and messaging must be deactivated in school. They are not allowed during school-based and national examinations (PSLE).", s: ["rules:9.1"] },
+                  { t: "A student who needs to bring a handphone or smart watch with calling or messaging must have the school's permission. The Permission to Bring Electronic Device Form is valid for one year. She keeps the device in her school bag, powered off, before school starts.", s: ["slides:55", "rules:9.1"] },
+                  { t: "She is responsible for keeping the device safe. The school is not responsible if any device is lost.", s: ["slides:55"] },
+                  { t: "In school grounds and on learning journeys, she may not switch on or use a handphone unless a teacher permits.", s: ["rules:9.2"] },
+                  { t: "After school, she may use a handphone only at the waiting areas beside the Security Guard Post or St Raphael Gate, and must switch it off right after contacting you. Misuse leads to confiscation and parents or guardians are contacted.", s: ["rules:9.2"] },
+                  { t: "Except for calculators and e-dictionaries, she may not bring any other electronic device without permission.", s: ["rules:9.5"] },
+                  { t: "She may not take, film or post pictures or videos of others without their permission. Online, she uses polite words and does not harm, bully or say unkind words to others.", s: ["rules:9.3", "rules:9.4"] }
                 ] }
             ]
           }
@@ -1139,16 +1363,18 @@ export const data = {
       {
         name: "Pacific Bookstores Pte Ltd",
         role: "School bookshop. Books, stationery and iron-on nametags.",
-        phones: ["6929 8012", "9091 9267"],
+        phones: ["6929 8012", "9091 9267", "6464 0111"],
+        address: "Head office: 14 Arumugam Road #08-01 Lion Building C, Singapore 409959",
         email: "sales@pacificbookstores.com",
         web: "https://pacificbookstores.com/",
-        note: "Collection days run Monday to Friday 9 am to 3 pm, lunch 12 noon to 1 pm.",
+        note: "Collection days run Monday to Friday 9 am to 3 pm, lunch 12 noon to 1 pm. The head office number is 6464 0111.",
         s: ["details:2", "booklet:16", "booklist:3"]
       },
       {
         name: "Magdalene Sewing Centre Pte Ltd",
         role: "School uniform and PE attire supplier.",
         phones: ["6293 5840"],
+        address: "5000 Ang Mo Kio Ave 5, Techplace II #05-09, Singapore 569870",
         whatsapp: "8683 6993",
         email: "info@magdalene.com.sg",
         web: "https://www.magdalene.com.sg/",
@@ -1166,7 +1392,8 @@ export const data = {
         name: "School dental clinic (Health Promotion Board)",
         role: "Dental clinic in the school.",
         phones: ["9111 0760"],
-        note: "Call to request an appointment.",
+        whatsapp: "9111 0760",
+        note: "Call or WhatsApp. Operating hours only.",
         s: ["booklet:18"]
       }
     ],
