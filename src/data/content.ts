@@ -1154,7 +1154,7 @@ export const data = {
             id: "school-rules",
             title: "School rules",
             blocks: [
-              { k: "p", t: "Our school believes in positive discipline. The rules cover respect for self and for nation." },
+              { k: "p", t: "The school believes in positive discipline. The rules cover respect for self and for nation." },
               { k: "accordion", title: "Dress code and hair", id: "rules-dress-and-hair", blocks: [
                   { k: "ul", items: [
                     { t: "Students wear the prescribed school uniform. Modifying the uniform is not allowed." },
@@ -1384,7 +1384,7 @@ export const data = {
         name: "RAE Transport Services LLP",
         role: "School bus service (bus vendor).",
         phones: ["8606 0845"],
-        note: "School bus quality service manager.",
+        note: "Bus vendor contact.",
         s: ["booklet:15"]
       },
       {
