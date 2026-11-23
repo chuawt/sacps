@@ -989,7 +989,7 @@ export const data = {
                   { t: "Choose what works, not what costs more. Light, practical, easy-to-use items are enough.", s: ["slides:52"] },
                   { t: "Bring water in the bottle, with no sweet drinks.", s: ["booklet:9"] }
                 ] },
-                { k: "accordion", title: "Canteen menu", sub: "Stall menus and prices, updated 10 July 2026", id: "canteen-menu", blocks: [
+                { k: "accordion", title: "Canteen menu", sub: "Stall menus and prices for 2026", id: "canteen-menu", blocks: [
                   { k: "p", t: "Set meals at stalls 3, 4, 5 and 7 include fruit. Prices and menus can change, so check the school website for the latest list." },
                   { k: "links", items: [
                     { label: "Latest list on the school website", url: "https://www.stanthonyscanossianpri.moe.edu.sg/school-services/schoolcanteenservices/" }
@@ -1154,7 +1154,7 @@ export const data = {
             id: "school-rules",
             title: "School rules",
             blocks: [
-              { k: "p", t: "The school believes in positive discipline. The rules cover respect for self and for nation." },
+              { k: "p", t: "The school believes in positive discipline. The rules cover respect for self, school and nation." },
               { k: "accordion", title: "Dress code and hair", id: "rules-dress-and-hair", blocks: [
                   { k: "ul", items: [
                     { t: "Students wear the prescribed school uniform. Modifying the uniform is not allowed." },
@@ -1163,7 +1163,7 @@ export const data = {
                     { t: "For PE lessons and sports practices, the PE T-shirt is neatly tucked in. She wears the pinafore over her PE attire before leaving school, unless special permission is given for special occasions." },
                     { t: "Hair is not coloured and the fringe stays above the eyebrows. If the fringe is long, use hair clips or a hairband." },
                     { t: "Fingernails are short and clean, with no nail polish or varnish." },
-                    { t: "Contact lenses are worn only if an optometrist advises them, and only clear ones. Coloured or tinted lenses are not allowed." }
+                    { t: "Students advised by an optometrist to wear contact lenses wear only clear ones. Coloured or tinted lenses are not allowed." }
                   ] },
                   { k: "p", t: "Pinafore length, hair accessories and when to tie up her hair are covered under Uniform, PE attire and appearance." },
                   { k: "links", items: [
@@ -1178,6 +1178,7 @@ export const data = {
               ] },
               { k: "accordion", title: "Attendance, punctuality and leaving school", id: "rules-attendance", blocks: [
                   { k: "ul", items: [
+                    { t: "Students attend school and CCA sessions regularly unless they are ill." },
                     { t: "Students are punctual for all lessons, CCA sessions and school programmes." },
                     { t: "When she is absent from school or CCA, present a valid medical certificate or valid document." },
                     { t: "She may not leave school before the dismissal bell without her Form Teacher's permission. A parent, guardian or authorised caregiver signs her out at the General Office." },
@@ -1200,7 +1201,7 @@ export const data = {
                     { t: "Students are courteous and respectful in words and actions towards teachers, school staff and schoolmates." },
                     { t: "The school has a zero-tolerance policy on bullying. This includes cyber, physical, social and verbal bullying." },
                     { t: "Students queue up when buying food or other items from the canteen or bookshop." },
-                    { t: "Food and drinks are allowed only in the canteen unless a teacher says otherwise." },
+                    { t: "Food and drinks are allowed only in the canteen unless instructed otherwise." },
                     { t: "Students may not sell things to one another privately." },
                     { t: "Students may not have any weapon or sharp object. They may not bring any weapon-like item that is used or meant to cause harm to others." },
                     { t: "Smoking and vaping are strictly prohibited and are serious offences. This includes having cigarettes or vaping devices. A student who does so is reported to the relevant government authorities." },
