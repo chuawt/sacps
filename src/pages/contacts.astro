@@ -44,6 +44,7 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURICom
     <article class="card contact">
       <h3>{v.name}</h3>
       <p class="role">{v.role}</p>
+      {v.address && <p>{v.address}</p>}
       {v.person && <p>{v.person}</p>}
       {v.note && <p>{v.note}</p>}
       <div class="links">
